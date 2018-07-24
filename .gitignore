@@ -1,0 +1,33 @@
+# PyCharm and Intellij
+.idea/
+venv/
+
+# Visual studio code
+.vscode/
+
+# Python compiled byte code
+*.pyc
+
+# JS dependencies
+node_modules/
+
+# JS production output
+build/
+
+# Uglified JavaScript
+dist/
+
+# Miscellaneous
+typings/
+
+# Package lock
+gui/app/package-lock.json
+
+# Auto-generated JS
+gui/app/*.js
+gui/app/**/*.js
+gui/app/*.js.map
+gui/app/**/*.js.map
+!gui/app/assets/*.js
+!gui/app/assets/js/*.js
+!/api/views/risk_analysis.py
