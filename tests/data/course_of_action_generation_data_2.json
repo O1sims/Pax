@@ -1,0 +1,153 @@
+[
+  {
+    "taskId": "A6",
+    "effect": "MOVE",
+    "objective": "POWER-STATION-C1",
+    "actor": "JV3",
+    "timeFrame": 2,
+    "dependencies": [
+    ]
+  },
+  {
+    "taskId": "T1",
+    "effect": "MOVE",
+    "objective": "POWER-STATION-C8",
+    "actor": "JV3",
+    "timeFrame": 2,
+    "dependencies": [
+    ]
+  },
+  {
+    "taskId": "T2",
+    "effect": "DISRUPT",
+    "objective": "POWER-STATION-C8",
+    "actor": "JV3",
+    "timeFrame": 2,
+    "dependencies": [
+      "T1"
+    ]
+  },
+  {
+    "taskId": "T3",
+    "effect": "MOVE",
+    "objective": "POWER-STATION-A1",
+    "actor": "JV1",
+    "timeFrame": 2,
+    "dependencies": [
+      "T2"
+    ]
+  },
+  {
+    "taskId": "T4",
+    "effect": "DESTROY",
+    "objective": "POWER-STATION-A1",
+    "actor": "JV1",
+    "timeFrame": 2,
+    "dependencies": [
+      "T3"
+    ]
+  },
+  {
+    "taskId": "T5",
+    "effect": "MOVE",
+    "objective": "POWER-STATION-C8",
+    "actor": "JV3",
+    "timeFrame": 2,
+    "dependencies": [
+
+    ]
+  },
+  {
+    "taskId": "T6",
+    "effect": "SEIZE",
+    "objective": "POWER-STATION-C8",
+    "actor": "JV3",
+    "timeFrame": 2,
+    "dependencies": [
+      "T5", "T4"
+    ]
+  },
+  {
+    "taskId": "D1",
+    "effect": "DISRUPT",
+    "objective": "POWER-STATION-PROCESSING-NODE-C2",
+    "actor": "JV3",
+    "timeFrame": 2,
+    "dependencies": [
+      "S1", "A1"
+    ]
+  },
+  {
+    "taskId": "S1",
+    "effect": "SEIZE",
+    "objective": "POWER-STATION-ROUTER-C1",
+    "actor": "JV3",
+    "timeFrame": 2,
+    "dependencies": [
+      "D2"
+    ]
+  },
+  {
+    "taskId": "D2",
+    "effect": "DISRUPT",
+    "objective": "POWER-STATION-FIREWALL-C1",
+    "actor": "JV3",
+    "timeFrame": 2,
+    "dependencies": [
+      "A2"
+    ]
+  },
+  {
+    "taskId": "A1",
+    "effect": "ACCESS",
+    "objective": "POWER-STATION-LOGIN-NODE-C1",
+    "actor": "JV3",
+    "timeFrame": 2,
+    "dependencies": [
+      "A3"
+    ]
+  },
+  {
+    "taskId": "A2",
+    "effect": "ACCESS",
+    "objective": "POWER-STATION-SUBNET-A1-C1",
+    "actor": "JV3",
+    "timeFrame": 2,
+    "dependencies": [
+      "A5"
+    ]
+  },
+
+  {
+    "taskId": "A3",
+    "effect": "ACCESS",
+    "objective": "POWER-STATION-SUBNET-A2-C1",
+    "actor": "JV3",
+    "timeFrame": 2,
+    "dependencies": [
+      "A4"
+    ]
+  },
+  {
+    "taskId": "A4",
+    "effect": "ACCESS",
+    "objective": "POWER-STATION-WIRELESS-NODE-W1-C1",
+    "actor": "JV3",
+    "timeFrame": 2,
+    "dependencies": [
+      "A6"
+    ]
+  },
+
+  {
+    "taskId": "A5",
+    "effect": "ACCESS",
+    "objective": "POWER-STATION-WIRELESS-NODE-W2-C1",
+    "actor": "JV3",
+    "timeFrame": 2,
+    "dependencies": [
+      "A6"
+    ]
+  }
+
+]

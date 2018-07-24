@@ -1,0 +1,47 @@
+[
+  {
+    "id": "ID1",
+    "assetType": "Physical",
+    "description": "ID1",
+    "name": "ID1_Name",
+    "group": "Group1",
+    "function": "Function1",
+    "impact": {
+      "confidentiality": "3",
+      "id": "ImpactID1_1",
+      "integrity": "4",
+      "availability": "5"
+    },
+    "sensitivity": 1
+  },
+  {
+    "id": "ID2",
+    "assetType": "Physical",
+    "description": "ID2",
+    "name": "ID2_Name",
+    "group": "Group1",
+    "function": "Function2",
+    "impact": {
+      "confidentiality": "3",
+      "id": "ImpactID2_1",
+      "integrity": "4",
+      "availability": "5"
+    },
+    "sensitivity": 1
+  },
+  {
+    "id": "ID3",
+    "assetType": "Physical",
+    "description": "ID3",
+    "name": "ID1_Name",
+    "group": "Group3",
+    "function": "Function3",
+    "impact": {
+      "confidentiality": "3",
+      "id": "ImpactID3_1",
+      "integrity": "4",
+      "availability": "5"
+    },
+    "sensitivity": 1
+  }
+]

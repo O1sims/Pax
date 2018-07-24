@@ -1,0 +1,38 @@
+{
+  "Expected": {
+    "Title": "Title",
+    "Description": "Description",
+    "DataArray0": [2],
+    "DataArray1": [
+      {
+        "x": 1,
+        "y": 2,
+        "z": 3
+      }
+    ]
+  },
+  "TestData": {
+    "Title": "A valid title",
+    "Description": "Some description",
+    "DataArray0": [1, 2, 3, 4],
+    "DataArray1": [
+      {
+        "x": 1,
+        "y": 2,
+        "z": 3
+      },
+      {
+        "x": 2,
+        "y": 3,
+        "z": 4
+      },
+      {
+        "x": 3,
+        "y": 4,
+        "z": 5
+      }
+
+    ]
+  },
+  "Result": null
+}

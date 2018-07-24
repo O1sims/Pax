@@ -1,0 +1,79 @@
+{
+  "Expected": {
+    "Title": "Title",
+    "Description": "Description",
+    "ExtraField0": [
+      {
+        "A": 0,
+        "C": 1,
+        "D": 2
+      }
+    ],
+    "ExtraField1": [
+      {
+        "F": 0,
+        "G": 1,
+        "H": 2
+      }
+    ],
+    "DataArray0": [2],
+    "DataArray1": [
+      {
+        "x": 1,
+        "y": 2,
+        "z": 3
+      }
+    ]
+  },
+  "TestData": {
+    "Title": "A valid title",
+    "Description": "Some description",
+    "ExtraField0": [
+      {
+        "C": 1,
+        "D": 2
+      }
+    ],
+    "ExtraField1": [
+      {
+        "H": 2
+      }
+    ],
+    "DataArray0": [1, 2, 3, 4],
+    "DataArray1": [
+      {
+        "x": 1,
+        "y": 2,
+        "z": 3
+      },
+      {
+        "x": 2,
+        "y": 3,
+        "z": 4
+      },
+      {
+        "x": 3,
+        "y": 4,
+        "z": 5
+      }
+
+    ]
+  },
+  "Result": {
+    "Root": [
+      {
+        "ExtraField1": [
+          {
+            "ExtraField1_index_0": ["F", "G"]
+          }
+        ],
+        "ExtraField0": [
+          {
+            "ExtraField0_index_0": ["A"]
+          }
+        ]
+      }
+    ]
+  }
+
+}

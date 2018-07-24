@@ -1,0 +1,61 @@
+[
+  {
+    "taskId": "T1",
+    "effect": "MOVE",
+    "objective": "POWER-STATION-C8",
+    "actor": "JV3",
+    "timeFrame": 2,
+    "dependencies": [
+    ]
+  },
+  {
+    "taskId": "T2",
+    "effect": "DISRUPT",
+    "objective": "POWER-STATION-C8",
+    "actor": "JV3",
+    "timeFrame": 2,
+    "dependencies": [
+      "T1"
+    ]
+  },
+  {
+    "taskId": "T3",
+    "effect": "MOVE",
+    "objective": "POWER-STATION-A1",
+    "actor": "JV1",
+    "timeFrame": 2,
+    "dependencies": [
+      "T2"
+    ]
+  },
+  {
+    "taskId": "T4",
+    "effect": "DESTROY",
+    "objective": "POWER-STATION-A1",
+    "actor": "JV1",
+    "timeFrame": 2,
+    "dependencies": [
+      "T3"
+    ]
+  },
+  {
+    "taskId": "T5",
+    "effect": "MOVE",
+    "objective": "POWER-STATION-C8",
+    "actor": "JV3",
+    "timeFrame": 2,
+    "dependencies": [
+      "T4"
+    ]
+  },
+  {
+    "taskId": "T6",
+    "effect": "SEIZE",
+    "objective": "POWER-STATION-C8",
+    "actor": "JV3",
+    "timeFrame": 2,
+    "dependencies": [
+      "T5"
+    ]
+  }
+]
