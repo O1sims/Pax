@@ -1,0 +1,276 @@
+<div class="container-fluid" style="height:80px; background-color:#EEE; padding-bottom:20px;">
+  <div class="col-md-12 text-center">
+    <ul class="nav nav-pills center-pills" style="padding-left: 20px; padding-top: 20px;">
+      <li role="presentation" [ngClass]="{ 'active': effect==selectedEffect }"  *ngFor="let effect of effects">
+        <a (click)="changeEffect(effect)">
+          {{effect}}
+        </a>
+      </li>
+      <li>
+        <i class="fa fa-plus-circle fa-2x" aria-hidden="true" data-toggle="modal" data-target="#addEffect" style="padding:6px 0px 0px 10px; color:#4cafdc;"></i>
+      </li>
+    </ul>
+  </div>
+</div>
+<div class="container-fluid" style="background-color:#4cafdc; padding-bottom:20px;">
+  <div class="col-md-12 text-center">
+  <ul class="nav nav-pills center-pills" style="padding-left: 20px; padding-top: 20px;">
+    <li [ngClass]="{'tabselected': responseSection==1}"><a (click)="navToResponseSection()" style="color:#424242;">Hostile Responses</a></li>
+    <li [ngClass]="{'tabselected': actionSection==1}"><a (click)="navToActionSection()" style="color:#424242;">Effect Actions</a></li>
+    <li [ngClass]="{'tabselected': propertySection==1}"><a (click)="navToPropertySection()" style="color:#424242;">Effect Properties</a></li>
+  </ul>
+</div>
+</div>
+<br/>
+<br/>
+<div *ngIf="noData==1" style="text-align:center">
+  <h3>This is not a registered effect! Please register it in the database!</h3>
+</div>
+<div class="container" *ngIf="responseSection==1" style="padding-top:20px;">
+  <div class="row" style="padding-bottom:50px;">
+    <h3>Determine hostile responses to a {{selectedEffect}} effect</h3>
+    <ul class="nav nav-pills" style="padding-left: 20px; padding-top: 20px;">
+      <li>
+        <h4 style="padding-right:25px;">
+          Most dangerous:
+        </h4>
+      </li>
+      <li role="presentation" [ngClass]="{'effect-active': effect==hostileResponses.mostDangerous}"  *ngFor="let effect of effects">
+        <a (click)="changeHostileResponse(effect, 'mostDangerous')">
+          {{effect}}
+        </a>
+      </li>
+    </ul>
+    <ul class="nav nav-pills" style="padding-left: 20px; padding-top: 20px;">
+      <li>
+        <h4 style="padding-right:25px;">
+          Most likely:
+        </h4>
+      </li>
+      <li role="presentation" [ngClass]="{ 'effect-active': effect==hostileResponses.mostLikely }"  *ngFor="let effect of effects">
+        <a (click)="changeHostileResponse(effect, 'mostLikely')">
+          {{effect}}
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+<div class="container" *ngIf="actionSection==1" style="padding-top:20px;">
+  <div class="row">
+    <h3>Allocate actions to {{selectedEffect}} effect</h3>
+    <div class="col-md-6" style="padding-bottom: 50px; padding-top: 20px;" *ngFor="let action of physicalActionList">
+      <h4 style="text-transform: capitalize;">Physical actions</h4>
+      <table id={{action.id}} class="table table-bordered table-hover table-condensed">
+        <tr style="font-weight: bold">
+          <td style="width:100%; background-color:#EEE;">
+            Actions
+          </td>
+          <td style="width:0%; background-color:#EEE;">
+            <span *ngIf="action.editMode==true"></span>
+          </td>
+        </tr>
+        <tr *ngFor="let a of action.actions">
+          <td>
+            <span [attr.contenteditable]="action.editMode">
+              {{a}}
+            </span>
+          </td>
+          <td><button type="button" *ngIf="action.editMode==true" (click)="deleteAction(action.id, a)" class="btn btn-danger pull-right">Delete</button></td>
+        </tr>
+      </table>
+      <div class="btn-edit">
+        <button type="button" class="btn btn-default" *ngIf="action.editMode==false" (click)="togglePhysicalEditing(action.id)">Edit</button>
+      </div>
+      <div class="btn-form" *ngIf="action.editMode==true">
+        <button type="button" (click)="addPhysicalRow(action.id)" class="btn btn-default pull-right">Add row</button>
+        <button type="button" (click)="saveNewPhysicalActionList(action)" class="btn btn-primary">Save</button>
+      </div>
+    </div>
+    <div class="col-md-6" style="padding-bottom: 50px; padding-top: 20px;" *ngFor="let action of cyberActionList">
+      <h4 style="text-transform: capitalize;">Cyber actions</h4>
+      <table id={{action.id}} class="table table-bordered table-hover table-condensed">
+        <tr style="font-weight: bold">
+          <td style="width:90%; background-color:#EEE;">
+            Actions
+          </td>
+          <td style="width:0%; background-color:#EEE;">
+            <span *ngIf="action.editMode==true"></span>
+          </td>
+        </tr>
+        <tr *ngFor="let a of action.actions">
+          <td>
+            <span [attr.contenteditable]="action.editMode">
+              {{a}}
+            </span>
+          </td>
+          <td><button type="button" *ngIf="action.editMode==true" (click)="deleteCyberAction(action.id, a)" class="btn btn-danger pull-right">Delete</button></td>
+        </tr>
+      </table>
+      <div class="btn-edit">
+        <button type="button" class="btn btn-default" *ngIf="action.editMode==false" (click)="toggleCyberEditing(action.id)">Edit</button>
+      </div>
+      <div class="btn-form" *ngIf="action.editMode==true">
+        <button type="button" (click)="addCyberRow(action.id)" class="btn btn-default pull-right">Add cyber actions</button>
+        <button type="button" (click)="saveNewCyberActionList(action)" class="btn btn-primary">Save</button>
+      </div>
+    </div>
+    <div class="col-md-6" style="padding-bottom: 50px; padding-top: 20px;" *ngFor="let action of actorActionList">
+      <h4 style="text-transform: capitalize;">Actor actions</h4>
+      <table id={{action.id}} class="table table-bordered table-hover table-condensed">
+        <tr style="font-weight: bold">
+          <td style="width:100%; background-color:#EEE;">
+            Actions
+          </td>
+          <td style="width:0%; background-color:#EEE;">
+            <span *ngIf="action.editMode==true"></span>
+          </td>
+        </tr>
+        <tr *ngFor="let a of action.actions">
+          <td>
+            <span [attr.contenteditable]="action.editMode">
+              {{a}}
+            </span>
+          </td>
+          <td><button type="button" *ngIf="action.editMode==true" (click)="deleteAction(action.id, a)" class="btn btn-danger pull-right">Delete</button></td>
+        </tr>
+      </table>
+      <div class="btn-edit">
+        <button type="button" class="btn btn-default" *ngIf="action.editMode==false" (click)="toggleActorEditing(action.id)">Edit</button>
+      </div>
+      <div class="btn-form" *ngIf="action.editMode==true">
+        <button type="button" (click)="addActorRow(action.id)" class="btn btn-default pull-right">Add row</button>
+        <button type="button" (click)="saveNewActorActionList(action)" class="btn btn-primary">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container" *ngIf="propertySection==1" style="padding-top:20px;">
+    <h3>Properties of {{selectedEffect}} effect</h3>
+    <div class="col-md-12" style="padding-bottom: 20px; padding-top: 20px;">
+      <h4>General Properties</h4>
+      <form>
+        <label style="padding-right: 10px;">Description:</label>
+        {{effectDescription}}
+        <br>
+        <br>
+        <label style="padding-right: 10px;">Effect type:</label>
+        <div class="btn-group">
+          <button type="button" class="btn btn-default dropdown-toggle" style="text-transform: capitalize;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            {{effectType}} <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu">
+            <li *ngFor="let effectType of effectTypeList">
+              <a style="text-transform: capitalize;" (click)="updateEffectType(effectType)">{{effectType}}</a>
+            </li>
+          </ul>
+        </div>
+      </form>
+    </div>
+    <div *ngIf="selectedEffect!='MOVE'">
+    <div class="col-md-6" style="padding-bottom: 20px; padding-top: 20px;">
+      <h4 style="text-transform: capitalize;">{{physicalActionList[0].type}} properties</h4>
+      <form>
+          <label>Time taken (minutes):</label>
+          <input type="number" value={{physicalActionList[0].properties.time}} class="form-control" (focusout)="updateProperty($event, physicalActionList[0], property='time')">
+          <br/>
+          <label>Inherent probability of success (%):</label>
+          <input type="number" value={{physicalActionList[0].properties.likeliness}} class="form-control" (focusout)="updateProperty($event, physicalActionList[0], property='likeliness')">
+      </form>
+    </div>
+    <div class="col-md-6" style="padding-bottom: 20px; padding-top: 20px;">
+      <h4 style="text-transform: capitalize;">{{cyberActionList[0].type}} properties</h4>
+      <form>
+          <label>Time taken (minutes):</label>
+          <input type="number" value={{cyberActionList[0].properties.time}} class="form-control" (focusout)="updateProperty($event, cyberActionList[0], property='time')">
+          <br/>
+          <label>Inherent probability of success (%):</label>
+          <input type="number" value={{cyberActionList[0].properties.likeliness}} class="form-control" (focusout)="updateProperty($event, cyberActionList[0], property='likeliness')">
+      </form>
+    </div>
+  </div>
+  <div *ngIf="selectedEffect=='MOVE'" class="col-md-12 alert alert-success" style="padding-top: 20px;" role="alert">
+    The 'Time taken' and 'Probability of success' connected to this effect depends on the geolocation of units and assets.
+  </div>
+  <div class="col-md-12" style="padding-bottom: 20px; padding-top: 20px;">
+    <button type="button" class="btn btn-danger pull-right" (click)="deleteEffect()">Delete effect</button>
+  </div>
+</div>
+
+<div id="addEffect" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color: #eee; border-bottom: 1px solid #ccc; font-size:18px;">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        Add effect
+      </div>
+      <div class="modal-body">
+        <div class = "panel panel-modal">
+          <b class="panel-title">
+            Effect detail
+          </b>
+          <div class = "panel-body">
+            <div class = "col-md-12">
+              <form class="form-horizontal">
+                <div class="form-group">
+                  <label class="control-label col-sm-2">Term:</label>
+                  <div class="col-sm-10">
+                    <input id="effectTerm" class="form-control" value="Please enter an effect term...">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-sm-2">Description:</label>
+                  <div class="col-sm-10">
+                    <input id="effectDescription" class="form-control" value="Please enter an effect description...">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-sm-2">Type:</label>
+                  <div class="col-sm-10">
+                    <select class="form-control" (focusout)="selectType($event)">
+                      <option style="text-transform: capitalize;" *ngFor="let type of effectTypes">{{type}}</option>
+                    </select>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class = "panel panel-modal">
+          <b class="panel-title">
+            Hostile responses
+          </b>
+          <div class = "panel-body">
+            <div class = "col-md-12">
+              <form class="form-horizontal">
+                <div class="form-group">
+                  <label class="control-label col-sm-2">Most dangerous:</label>
+                  <div class="col-sm-10">
+                    <select class="form-control" (focusout)="selectMostDangerous($event)">
+                      <option style="text-transform: uppercase;" *ngFor="let effect of effects">{{effect}}</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-sm-2">Most likely:</label>
+                  <div class="col-sm-10">
+                    <select class="form-control" (focusout)="selectMostLikely($event)">
+                      <option style="text-transform: uppercase;" *ngFor="let effect of effects">{{effect}}</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-sm-offset-2 col-sm-10">
+                    <button type="button" class="btn btn-default pull-right" (click)="submitNewEffect()" data-dismiss="modal">Submit effect</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-success" type="button" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

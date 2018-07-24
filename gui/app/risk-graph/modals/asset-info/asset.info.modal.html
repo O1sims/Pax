@@ -1,0 +1,282 @@
+<div class="modal-header" style="background-color: #eee; border-bottom: 1px solid #ccc; font-size:18px;">
+	Asset detail ({{assetInfoData.name}})
+</div>
+
+<ul class="nav nav-pills" style="padding-left: 20px; padding-top: 20px;">
+	<li role="presentation" [ngClass]="{ 'active': assetOverview==1 }">
+		<a (click)="assetView()">
+			Asset information
+		</a>
+	</li>
+	<li role="presentation" [ngClass]="{ 'active': threatOverview==1 }">
+		<a (click)="threatView()">
+			Threats <span class="badge badge-success">{{numberOfThreats}}</span>
+		</a>
+	</li>
+	<li role="presentation" [ngClass]="{ 'active': vulnerabilityOverview==1 }">
+		<a (click)="vulnerabilityView()">
+			Vulnerabilities <span class="badge badge-success">{{numberOfVulnerabilities}}</span>
+		</a>
+	</li>
+	<li role="presentation" [ngClass]="{ 'active': actionOverview==1 }">
+		<a (click)="actionView()">
+			Tasks assigned <span class="badge badge-success">{{numberOfTasks}}</span>
+		</a>
+	</li>
+</ul>
+
+<div class="modal-body" *ngIf = "assetOverview==1">
+	<div class="panel-body">
+
+		<!-- Asset information -->
+		<div class="col-md-6">
+			<div class="panel panel-modal">
+				<div class="panel-heading"><b class="panel-title">Asset information</b></div>
+				<ul class="list-group">
+					<li class="list-group-item-modal"><strong>Name</strong><pre>{{assetInfoData.name}}</pre></li>
+					<li class="list-group-item-modal"><strong>Type</strong><pre>{{ assetInfoData['assetType'] }}</pre></li>
+					<li class="list-group-item-modal"><strong>Function</strong><pre>{{assetInfoData.function}}</pre></li>
+					<li class="list-group-item-modal"><strong>Associated group</strong><pre>{{assetInfoData.group}}</pre></li>
+				</ul>
+			</div>
+		</div>
+
+		<!-- Risk information -->
+		<div class="col-md-6">
+			<div class="panel panel-modal">
+				<div class="panel-heading"><b class="panel-title">Risk information</b></div>
+				<ul class="list-group">
+					<li class="list-group-item-modal"><strong>Risk level</strong><pre>{{riskInfo.riskLabel}} ({{riskInfo.riskScore}}%)</pre></li>
+					<li class="list-group-item-modal"><strong>Confidentiality</strong><pre>{{assetInfoData.impact.availability}}</pre></li>
+					<li class="list-group-item-modal"><strong>Integrity</strong><pre>{{assetInfoData.impact.integrity}}</pre></li>
+					<li class="list-group-item-modal"><strong>Availability</strong><pre>{{assetInfoData.impact.availability}}</pre></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<!-- Location information -->
+	<div class="col-md-12">
+		<div class="panel panel-modal">
+			<div class="panel-heading"><b class="panel-title">Location information</b></div>
+			<div *ngIf = "noLocation==1">
+				<div class="alert alert-success" role="alert">Could not find the coordinates of this asset</div>
+			</div>
+			<div *ngIf = "noLocation==0">
+				<ul class="list-group">
+					<li class="list-group-item-modal"><strong>Coordinates</strong>
+						<pre>({{ assetLatLng.latitude }}, {{ assetLatLng.longitude }})</pre>
+					</li>
+					<li class="list-group-item-modal"><strong>Map</strong>
+						<div leaflet
+								 style="height: 300px;"
+								 [leafletZoom]="zoom"
+								 [leafletLayers]="layers"
+								 [leafletCenter]="assetCoordinates"
+								 (leafletMapReady)="onMapReady($event)">
+						</div>
+					</li>
+				</ul>
+	</div>
+</div>
+	</div>
+</div>
+
+
+<!-- Threats -->
+<div class="modal-body" *ngIf="threatOverview==1">
+<div class="panel-body">
+<div class = "col-md-12">
+	<div class = "panel panel-modal">
+		<b class="panel-title">
+			Threats
+		</b>
+		<div class = "panel-body" *ngIf = "noThreats==1">
+			<div class="alert alert-success" role="alert">No known threats exist against this asset</div>
+		</div>
+		<div class = "panel-body" *ngIf = "noThreats==0">
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Threat ID</th>
+						<th>Name</th>
+						<th>Capability</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr *ngFor="let threat of threatRows">
+						<td>{{threat['id']}}</td>
+						<td>{{threat['name']}}</td>
+						<td>{{threat['threatLevel']}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+</div>
+</div>
+
+
+	<!-- Vulnerabilities -->
+<div class="modal-body" *ngIf="vulnerabilityOverview==1">
+	<div class="panel-body">
+	<div class = "col-md-12">
+		<div class = "panel panel-modal">
+			<b class="panel-title">
+				Vulnerabilities
+			</b>
+			<div class = "panel-body" *ngIf = "noVulnerabilities==1">
+				<div class="alert alert-success" role="alert">No known vulnerabilities exist against this asset</div>
+			</div>
+			<div class = "panel-body" *ngIf = "noVulnerabilities==0">
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Vulnerability ID</th>
+							<th>Name</th>
+							<th>Type</th>
+							<th>Description</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr *ngFor="let vulnerability of vulnerabilityRows">
+							<td>{{vulnerability['id']}}</td>
+							<td>{{vulnerability['name']}}</td>
+							<td>{{vulnerability['type']}}</td>
+							<td>{{vulnerability['description']}}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+	</div>
+</div>
+
+
+<!-- Tasks assigned -->
+<div class="modal-body" *ngIf="actionOverview==1">
+	<div class="panel-body">
+	<div class = "col-md-12">
+		<div class = "panel panel-modal">
+			<b class="panel-title">
+				Current tasks assigned to asset
+			</b>
+			<div class="panel-body" *ngIf="actionRows.length == 0">
+				<div class="alert alert-success" role="alert">No tasks have been assigned to this asset</div>
+			</div>
+			<div *ngIf="actionRows.length > 0">
+				<div class = "col-md-12">
+					<div class="panel-body">
+						<table class="table">
+              <thead>
+                <tr>
+									<th>Course of action</th>
+                  <th>Name</th>
+                  <th>Effect</th>
+                  <th>Unit</th>
+                  <th>Start</th>
+									<th>End</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let task of actionRows">
+									<td>{{task['courseOfAction']}}</td>
+                  <td>{{task['name']}}</td>
+                  <td>{{task['effect']}}</td>
+                  <td>{{task['assignee']['entityName']}}</td>
+                  <td>{{task['start']}}</td>
+									<td>{{task['end']}}</td>
+                  <td>
+                    <strong>
+                      <i class="fa fa-trash-o" style="color:#e54f53" (click)="deleteAction(task)"></i>
+                    </strong>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class = "col-md-12">
+	<div class = "panel panel-modal" style="padding-top:20px;">
+		<b class="panel-title">
+			Assign a new task
+		</b>
+		<div class = "col-md-12">
+			<div class = "panel-body">
+				<form class="form-horizontal">
+					<div class="form-group">
+						<label class="control-label col-sm-3">Course of Action:</label>
+						<div class="col-sm-9">
+							<select class="form-control" (focusout)="selectCOA($event)">
+								<option *ngFor="let coa of coursesOfAction">{{coa['name']}}</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-sm-3">Name:</label>
+						<div class="col-sm-9">
+							<input class="form-control" type="text" (input)="selectTaskId($event)">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-sm-3">Description:</label>
+						<div class="col-sm-9">
+							<input class="form-control" type="text" (input)="setDescription($event)">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-sm-3">Effect:</label>
+						<div class="col-sm-9">
+							<select class="form-control" (focusout)="selectEffect($event)">
+								<option *ngFor="let effect of effectList">{{effect}}</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-sm-3">Objective:</label>
+						<div class="col-sm-9">
+							<input class="form-control" type="text" value={{assetInfoData.name}} disabled>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-sm-3">Unit:</label>
+						<div class="col-sm-9">
+							<select class="form-control" (focusout)="selectUnit($event)">
+								<option *ngFor="let unit of unitList">{{unit.name}}</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-sm-3">Start time:</label>
+						<div class="col-sm-9">
+							<input type="number" value={{timeFrame}} class="form-control" (input)="setStartTime($event)">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-sm-3">End time:</label>
+						<div class="col-sm-9">
+							<input type="number" value={{timeFrame}} class="form-control" (input)="setEndTime($event)">
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-sm-offset-2 col-sm-10">
+							<button type="button" class="btn btn-default pull-right" (click)="submitNewAction()">Submit task</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+</div>
+
+<div class="modal-footer">
+	<button class="btn btn-success" type="button" (click)="closeModal()">Close</button>
+</div>

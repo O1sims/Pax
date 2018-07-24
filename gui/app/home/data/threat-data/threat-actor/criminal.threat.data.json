@@ -1,0 +1,47 @@
+{
+  "threat_objective": "Attack Power Supply",
+  "threat_actor": "Organised criminal group",
+  "threat_actor_class":
+  [
+    "Local",
+    "International"
+  ],
+  "motivation":
+  [
+    "Commercial",
+    "Organised crime",
+    "State sponsered"
+  ],
+  "intent":
+  [
+    "Gather information",
+    "Reveal information",
+    "Corrupt information",
+    "Destroy information"
+  ],
+  "intent_methods":
+  [
+    "Individual user (asset) weakness",
+    "State sponsored",
+    "State knowledge",
+    "State resources",
+    "Specific state controlled situations",
+    "Press cover",
+    "Diplomatic cover",
+    "Electro Magnetic",
+    "Jamming and Spoofing",
+    "Geolocation Attack",
+    "Electronic attack"
+  ],
+  "intent_outcome" :
+  [
+    "Financial gain",
+    "Political gain",
+    "Personal gain"
+  ],
+  "threat_level" :
+  [
+    "Moderate",
+    "Substantial"
+  ]
+}

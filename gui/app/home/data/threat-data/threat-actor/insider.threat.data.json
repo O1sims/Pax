@@ -1,0 +1,46 @@
+{
+  "threat_objective": "Attack Power Supply",
+  "threat_actor": "Insider",
+  "threat_actor_class":
+  [
+    "Indirect access",
+    "Normal user",
+    "Privileged user"
+  ],
+  "motivation":
+  [
+    "Disgruntled",
+    "Lured by financial gains",
+    "Bribed or blackmailed",
+    "Political reasons",
+    "Coerced",
+    "Tricked"
+  ],
+  "intent" :
+  [
+    "Reveal information",
+    "Corrupt information",
+    "Destroy information"
+  ],
+  "intent_methods" :
+  [
+    "Removable media",
+    "Steal accounts",
+    "Leak knowledge of internal process weaknesses",
+    "Theft",
+    "Loss",
+    "Transfer data"
+  ],
+  "intent_outcome" :
+  [
+    "Financial gain",
+    "Political gain",
+    "Personal gain"
+  ],
+  "threat_level" :
+  [
+    "Moderate",
+    "Substantial",
+    "Severe"
+  ]
+}

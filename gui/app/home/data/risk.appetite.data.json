@@ -1,0 +1,60 @@
+{
+  "systemId": "UAV-CONTROL-SYSTEM",
+  "personalFirstName": "Owen",
+  "personalMiddleName": "David",
+  "personalLastName": "Sims",
+  "personalRank": "Data scientist",
+  "personalLocation": "Belfast",
+  "missionPurpose": "This is a test of the curl command!",
+  "missionSuccess": "Pressing 'Complete'",
+  "missionFailure": "Something here...",
+  "riskInterpretation": "Risk is risk is risk",
+  "riskAssetImportance":{
+    "physicalAssets": "1",
+    "cyberAssets": "2"
+  },
+  "riskRequiredSecurity":{
+    "physicalAssets": "3",
+    "cyberAssets": "4"
+  },
+  "riskQuantity":{
+    "physicalAssets": "4",
+    "cyberAssets": "5"
+  },
+  "riskFrequency": 4,
+  "currentSecurityRegime": "Nothing!",
+  "currentSecurityRegimeResources": "Lots!",
+  "currentSecurityRegimeImportance":{
+    "physicalAssets": "1",
+    "cyberAssets": "3"
+  },
+  "currentSecurityRegimePerformance": 4,
+  "currentSecurityRegimeHomeComparison": 2,
+  "vulnerabilityExposure": "VERY VERY!",
+  "vulnerabilityIntelFrequency": 4,
+  "vulnerabilityPatchingRegime": 1,
+  "vulnerabilityPrioritisePatching": 2,
+  "vulnerabilityAddedResources": 2,
+  "vulnerabilityHypothetical": 5,
+  "vulnerabilityHypotheticalSub": 2,
+  "impactWillingnessToLoseAssets": 5,
+  "impactHowManyAssetsToLose": 5,
+  "impactReplacingAssets":{
+    "physicalAssets": "1",
+    "cyberAssets": "3"
+  },
+  "impactDefenceEffort":{
+    "physicalAssets": "3",
+    "cyberAssets": "2"
+  },
+  "threatLevel": 1,
+  "threatFrequency": 2,
+  "threatFriendlyForces": 1,
+  "threatTolerance": 4,
+  "threatResponse":{
+    "severe": "4",
+    "moderate": "2",
+    "substantial": "3",
+    "low": "1"
+  }
+}

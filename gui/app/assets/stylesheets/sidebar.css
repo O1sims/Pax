@@ -1,0 +1,67 @@
+@charset "utf-8";
+
+@import 'utils/variables.css';
+@import 'utils/core.css';
+
+.loading {
+  padding: 1em;
+}
+
+.demo-header {
+  align-items: center;
+  background: $brand;
+  box-shadow: 0 0.1em 1.5em rgba($dark-grey, 0.5);
+  color: $white;
+  display: flex;
+  padding: 1em;
+}
+
+.demo-header__toggle {
+  background: transparent;
+  border: 0.15rem solid $white;
+  border-left: 0;
+  border-right: 0;
+  cursor: pointer;
+  font-size: 0;
+  height: 1.5rem;
+  margin-right: 1rem;
+  position: relative;
+  width: 2rem;
+
+  &::after {
+    background: $white;
+    content: '';
+    height: 0.15rem;
+    left: 0;
+    margin-top: -0.075rem;
+    position: absolute;
+    top: 50%;
+    width: 100%;
+  }
+}
+
+.demo-sidebar {
+  padding: 2em 1em;
+
+  &.ng-sidebar--over {
+    box-shadow: 0 0 2.5em rgba(85, 85, 85, 0.5);
+  }
+}
+
+.demo-contents {
+  padding: 0 2em;
+}
+
+.demo-control {
+  background-color: $light-grey;
+  border: 1px solid $dark-grey;
+  cursor: pointer;
+  margin-bottom: 0.5em;
+  padding: 0.5em 2em;
+  transition: background-color 0.15s;
+
+  &:hover {
+    background-color: $dark-grey;
+    color: $white;
+  }
+}

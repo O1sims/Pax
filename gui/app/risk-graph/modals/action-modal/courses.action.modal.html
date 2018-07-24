@@ -1,0 +1,151 @@
+<div class="modal-header" style="background-color: #eee; border-bottom: 1px solid #ccc; font-size: 18px;">
+	Task overview
+</div>
+
+<ul class="nav nav-pills" style="padding-left: 20px; padding-top: 20px;">
+	<li role="presentation" [ngClass]="{ 'active': taskView==1 }">
+		<a (click)="taskInformationView()">
+			Task information
+		</a>
+	</li>
+	<li role="presentation" [ngClass]="{ 'active': actionNavView==1 }">
+		<a (click)="actionsView()">
+			Actions
+		</a>
+	</li>
+	<li role="presentation" [ngClass]="{ 'active': dependencyView==1 }">
+		<a (click)="dependencyTreeView()">
+			Dependency tree
+		</a>
+	</li>
+</ul>
+
+<div class="modal-body" *ngIf="taskView==1">
+	<!-- Mission, Effect, Task -->
+	<div class="row">
+		<div id="modal" class="col-md-12">
+			<div class="panel-heading"><b class="panel-title">Task components</b></div>
+			<!-- Mission associated -->
+			<div class="col-md-4">
+				<ul class="list-group">
+					<li class="list-group-item-modal"><strong>Mission</strong>
+						<pre>{{ systemId }}</pre>
+					</li>
+				</ul>
+			</div>
+
+			<!-- Effect associated -->
+			<div class="col-md-4">
+				<ul class="list-group">
+					<li class="list-group-item-modal"><strong>Effect</strong>
+						<pre>{{ actionData.effect }}</pre>
+					</li>
+				</ul>
+			</div>
+
+			<!-- Effect associated -->
+			<div class="col-md-4">
+				<ul class="list-group">
+					<li class="list-group-item-modal"><strong>Objective</strong>
+						<pre>{{ objectiveData['name'] }}</pre>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="panel-heading"><b class="panel-title">Task information</b></div>
+			<div class="col-md-6">
+				<ul class="list-group">
+					<li class="list-group-item-modal"><strong>Asset type</strong>
+						<pre>{{objectiveData['assetType']}}</pre>
+					</li>
+				</ul>
+			</div>
+			<div class="col-md-6">
+				<ul class="list-group">
+					<li class="list-group-item-modal"><strong>Unit deployed</strong>
+						<pre>{{ actorData['name'] }}</pre>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="panel-heading"><b class="panel-title">Risk heatmap</b></div>
+			<div class="col-md-6 col-md-offset-3" *ngIf="heatmapSpinner==1">
+				<div style="text-align: center;">
+	        <i class="fa fa-refresh fa-spin fa-3x fa-fw"></i>
+	      </div>
+			</div>
+			<div class="col-md-6 col-md-offset-3">
+				<p id="courseOfActionHeatMap"></p>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="panel-heading"><b class="panel-title">Inferences</b></div>
+			<!-- Time taken to achieve -->
+			<div class="col-md-4">
+				<ul class="list-group">
+					<li class="list-group-item-modal"><strong>Time frame</strong>
+						<pre>{{ actionData.timeFrame }} hours</pre>
+					</li>
+				</ul>
+			</div>
+
+			<!-- Resources deployed -->
+			<div class="col-md-4">
+				<ul class="list-group">
+					<li class="list-group-item-modal"><strong>Priority (Score)</strong>
+						<pre>Medium (49%)</pre>
+					</li>
+				</ul>
+			</div>
+
+			<!-- Certainty of completion -->
+			<div class="col-md-4">
+				<ul class="list-group">
+					<li class="list-group-item-modal"><strong>Probability of success</strong>
+						<pre>{{ probabilityOfSuccess.label }} ({{ probabilityOfSuccess.score }}%)</pre>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div class="modal-body" *ngIf="actionNavView==1">
+	<div class="row">
+		<div class="col-sm-12" style="padding:20px 0px 20px 40px;">
+			The actions required to undertake the {{actionData['effect']}} effect on {{objectiveData['name']}}:
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-offset-1 col-sm-10">
+			<ul class="custom-bullet" *ngFor="let action of actionList">
+				<li>
+					{{action}}
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+
+<div class="modal-body" *ngIf="dependencyView==1">
+	<div id="dependencyTreeModal">
+	</div>
+</div>
+
+
+<div class="modal-footer">
+	<button class="btn btn-success" type="button" (click)="closeModal()">Close</button>
+</div>

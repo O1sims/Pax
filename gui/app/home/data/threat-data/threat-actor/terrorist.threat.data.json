@@ -1,0 +1,47 @@
+{
+  "threat_objective": "Attack Power Supply",
+  "threat_actor": "Terrorist",
+  "threat_actor_class":
+  [
+    "UK based or non-operational theatre",
+    "Operational theatre",
+    "Islamic extremeists"
+  ],
+  "motivation":
+  [
+    "Political reasons",
+    "Religious beliefs",
+    "Extremist beliefs",
+    "Foreign policy issues"
+  ],
+  "intent":
+  [
+    "Gather information",
+    "Reveal information",
+    "Corrupt information",
+    "Destroy information"
+  ],
+  "intent_methods":
+  [
+    "Compromising a web-based application",
+    "Deploying key loggers",
+    "Denial of service (DoS)",
+    "Injection (SQL, XSS, command line) attack",
+    "Man-in-the middle attack",
+    "Destructive viruses and worms",
+    "Electronic Attacks"
+  ],
+  "intent_outcome" :
+  [
+    "Financial gain",
+    "Political gain",
+    "Personal gain",
+    "Religious gain"
+  ],
+  "threat_level" :
+  [
+    "Low",
+    "Moderate",
+    "Moderate"
+  ]
+}

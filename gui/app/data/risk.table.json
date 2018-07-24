@@ -1,0 +1,22 @@
+{
+  "riskTable": [
+    {
+      "riskID": "R1",
+      "summary": "A Bystander (influenced by a Terrorist organisation), who can physically access the admin block, could either impersonate an authorised user of the System or tamper with the equipment, compromising its availability, integrity and having a potential Business Impact at BIL 4.",
+      "untreatedRiskLevel": "Medium high",
+      "treatedRiskLevel": "Low"
+    },
+    {
+      "riskID": "R2",
+      "summary": "A Person within Range (influenced by a Terrorist organisation), could interfere with the wifi signals to jam the operational capability of the power plant, compromising its availability and having a potential Business Impact at BIL 5.",
+      "untreatedRiskLevel": "Medium high",
+      "treatedRiskLevel": "Medium"
+    },
+    {
+      "riskID": "R3",
+      "summary": "Physical Intruder (influenced by a Terrorist organisation), could break into the power station data center to tamper with the operational SCADA systems to compromising its integrity and availability with a potential Business Impact at BIL 5.",
+      "untreatedRiskLevel": "Medium high",
+      "treatedRiskLevel": "Low"
+    }
+  ]
+}

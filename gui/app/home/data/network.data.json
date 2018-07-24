@@ -1,0 +1,3733 @@
+{
+  "nodes": [
+    {
+      "type": "InputSensitivity",
+      "name": "C2",
+      "id": "#125:0",
+      "performanceImpactThreshold": 0.7,
+      "sensitivity": 0.8
+    },
+    {
+      "type": "InputSensitivity",
+      "name": "C2",
+      "id": "#126:0",
+      "performanceImpactThreshold": 0.7,
+      "sensitivity": 0.8
+    },
+    {
+      "type": "Layer",
+      "name": "Battlegroup",
+      "id": "#86:0",
+      "layerType": "Blue Forces"
+    },
+    {
+      "type": "MissionComponent",
+      "name": "Military Comms",
+      "id": "#25:0",
+      "combinationScheme": "MEAN",
+      "performanceLevel": {
+        "0": 1
+      },
+      "collateral": 0,
+      "globalId": "MIL-COMMS",
+      "confidentialityValue": 1,
+      "integrityValue": 1,
+      "availabilityValue": 1,
+      "componentType": "Network"
+    },
+    {
+      "type": "MissionComponent",
+      "name": "Regiment",
+      "id": "#40:0",
+      "combinationScheme": "MEAN",
+      "performanceLevel": {
+        "0": 1
+      },
+      "collateral": 0,
+      "globalId": "REGIMENT",
+      "confidentialityValue": 1,
+      "integrityValue": 1,
+      "availabilityValue": 1,
+      "componentType": "Unit"
+    },
+    {
+      "type": "MissionComponent",
+      "name": "Cyber Platoon",
+      "id": "#41:0",
+      "combinationScheme": "MEAN",
+      "performanceLevel": {
+        "0": 1,
+        "10800": 0.6,
+        "21600": 1
+      },
+      "collateral": 0,
+      "globalId": "CYBER-PLATOON",
+      "confidentialityValue": 1,
+      "integrityValue": 1,
+      "availabilityValue": 1,
+      "componentType": "Unit"
+    },
+    {
+      "type": "Impact",
+      "name": "Slow Going",
+      "id": "#78:0",
+      "performance": 0.7,
+      "collateral": 0.5,
+      "recoveryTime": 14400
+    },
+    {
+      "type": "NamedEventVulnerability",
+      "name": "Rough Terrain Vulnerability",
+      "id": "#70:0",
+      "likelihood": 1,
+      "eventName": "Rough Terrain"
+    },
+    {
+      "type": "NamedEvent",
+      "name": "Rough Terrain",
+      "id": "#117:0",
+      "time": 7200,
+      "collateral": 0,
+      "likelihood": 0.5
+    },
+    {
+      "type": "InputSensitivity",
+      "name": "Data",
+      "id": "#127:0",
+      "performanceImpactThreshold": 0.7,
+      "sensitivity": 1
+    },
+    {
+      "type": "InputSensitivity",
+      "name": "Data",
+      "id": "#128:0",
+      "performanceImpactThreshold": 0.7,
+      "sensitivity": 1
+    },
+    {
+      "type": "InputSensitivity",
+      "name": "Control",
+      "id": "#129:0",
+      "performanceImpactThreshold": 0.7,
+      "sensitivity": 0.8
+    },
+    {
+      "type": "InputSensitivity",
+      "name": "Data",
+      "id": "#130:0",
+      "performanceImpactThreshold": 0.7,
+      "sensitivity": 1
+    },
+    {
+      "type": "InputSensitivity",
+      "name": "Plant Operation",
+      "id": "#131:0",
+      "performanceImpactThreshold": 0.7,
+      "sensitivity": 1
+    },
+    {
+      "type": "InputSensitivity",
+      "name": "Cooling",
+      "id": "#132:0",
+      "performanceImpactThreshold": 0.7,
+      "sensitivity": 1
+    },
+    {
+      "type": "InputSensitivity",
+      "name": "Defend",
+      "id": "#125:1",
+      "performanceImpactThreshold": 0.7,
+      "sensitivity": 0.8
+    },
+    {
+      "type": "InputSensitivity",
+      "name": "Defend",
+      "id": "#126:1",
+      "performanceImpactThreshold": 0.7,
+      "sensitivity": 0.8
+    },
+    {
+      "type": "Layer",
+      "name": "Power Station",
+      "id": "#87:0",
+      "layerType": "Facility"
+    },
+    {
+      "type": "MissionComponent",
+      "name": "Safety Critical Server",
+      "id": "#42:0",
+      "combinationScheme": "MEAN",
+      "performanceLevel": {
+        "0": 1
+      },
+      "collateral": 0,
+      "globalId": "SC-SERVER",
+      "confidentialityValue": 1,
+      "integrityValue": 1,
+      "availabilityValue": 1,
+      "componentType": "Network"
+    },
+    {
+      "type": "MissionComponent",
+      "name": "Enterprise Server",
+      "id": "#43:0",
+      "combinationScheme": "MEAN",
+      "performanceLevel": {
+        "0": 1
+      },
+      "collateral": 0,
+      "globalId": "ENT-SERVER",
+      "confidentialityValue": 1,
+      "integrityValue": 1,
+      "availabilityValue": 1,
+      "componentType": "Network"
+    },
+    {
+      "type": "MissionComponent",
+      "name": "Data Centre",
+      "id": "#44:0",
+      "combinationScheme": "WORST",
+      "performanceLevel": {
+        "0": 1
+      },
+      "collateral": 0,
+      "globalId": "DATA-CENTRE",
+      "confidentialityValue": 1,
+      "integrityValue": 1,
+      "availabilityValue": 1,
+      "componentType": "Building"
+    },
+    {
+      "type": "MissionComponent",
+      "name": "Power Supply",
+      "id": "#45:0",
+      "combinationScheme": "MEAN",
+      "performanceLevel": {
+        "0": 1
+      },
+      "collateral": 0,
+      "globalId": "POWER-SUPPLY",
+      "confidentialityValue": 1,
+      "integrityValue": 1,
+      "availabilityValue": 1,
+      "componentType": "Process"
+    },
+    {
+      "type": "MissionComponent",
+      "name": "Pumping Station",
+      "id": "#46:0",
+      "combinationScheme": "MEAN",
+      "performanceLevel": {
+        "0": 1,
+        "10800": 0.8,
+        "21600": 1
+      },
+      "collateral": 0,
+      "globalId": "PUMPING-STATION",
+      "confidentialityValue": 1,
+      "integrityValue": 4,
+      "availabilityValue": 1,
+      "componentType": "Building"
+    },
+    {
+      "type": "Impact",
+      "name": "System Failure",
+      "id": "#79:0",
+      "performance": 0.7,
+      "collateral": 0.5,
+      "recoveryTime": 5400
+    },
+    {
+      "type": "CyberAttackVulnerability",
+      "name": "Cyber Attack Vulnerability",
+      "id": "#62:0",
+      "likelihood": 0.5,
+      "multipleDeviceMode": "ALL_REQUIRED"
+    },
+    {
+      "type": "CyberAttack",
+      "name": "Cyber Attack",
+      "id": "#94:0",
+      "time": 10800,
+      "collateral": 0,
+      "likelihood": 0.5,
+      "authenticationCapability": "MULTIPLE"
+    },
+    {
+      "type": "Impact",
+      "name": "System Failure",
+      "id": "#80:0",
+      "performance": 0.65,
+      "collateral": 0.5,
+      "recoveryTime": 7200
+    },
+    {
+      "type": "CyberAttackVulnerability",
+      "name": "Cyber Attack Vulnerability",
+      "id": "#63:0",
+      "likelihood": 0.5,
+      "multipleDeviceMode": "ALL_REQUIRED"
+    },
+    {
+      "type": "CyberAttack",
+      "name": "Cyber Attack",
+      "id": "#102:0",
+      "time": 10800,
+      "collateral": 0,
+      "likelihood": 0.5,
+      "authenticationCapability": "MULTIPLE"
+    },
+    {
+      "type": "Impact",
+      "name": "Damage",
+      "id": "#81:0",
+      "performance": 0.25,
+      "collateral": 0.5,
+      "recoveryTime": 21600
+    },
+    {
+      "type": "NamedEvent",
+      "name": "Kinetic Attack",
+      "id": "#118:0",
+      "time": 10800,
+      "collateral": 0,
+      "likelihood": 0.5
+    },
+    {
+      "type": "NamedEventVulnerability",
+      "name": "Kinetic Attack Vulnerability",
+      "id": "#71:0",
+      "likelihood": 1,
+      "eventName": "Kinetic Attack"
+    },
+    {
+      "type": "InputSensitivity",
+      "name": "Power",
+      "id": "#127:1",
+      "performanceImpactThreshold": 0.7,
+      "sensitivity": 0.7
+    },
+    {
+      "type": "Layer",
+      "name": "Mission Objectives",
+      "id": "#88:0",
+      "layerType": "Objectives"
+    },
+    {
+      "type": "MissionComponent",
+      "name": "Secure Power Supply",
+      "id": "#25:1",
+      "combinationScheme": "MEAN",
+      "performanceLevel": {
+        "0": 1
+      },
+      "collateral": 0,
+      "globalId": "SECURE-PS",
+      "confidentialityValue": 1,
+      "integrityValue": 1,
+      "availabilityValue": 1,
+      "componentType": "Objective"
+    },
+    {
+      "type": "Vignette",
+      "name": "Defend Power Station",
+      "id": "#180:0",
+      "globalId": "DPS-MISSION"
+    },
+    {
+      "type": "Device",
+      "name": "Hacker",
+      "id": "#133:0",
+      "platform": "Linux",
+      "os": "Kali",
+      "external": true,
+      "ipAddress": "62.252.60.104",
+      "facility": "",
+      "unit": "",
+      "machineClass": "Laptop",
+      "function": "Attack",
+      "globalId": "d1"
+    },
+    {
+      "type": "Device",
+      "name": "Router",
+      "id": "#141:0",
+      "platform": "Cisco",
+      "os": "Cisco 12000",
+      "external": false,
+      "ipAddress": "172.0.0.5",
+      "facility": "C8",
+      "unit": "",
+      "machineClass": "Modem",
+      "function": "Modem",
+      "globalId": "d2"
+    },
+    {
+      "type": "Device",
+      "name": "Firewall",
+      "id": "#142:0",
+      "platform": "Cisco",
+      "os": "ASA 5505",
+      "external": false,
+      "ipAddress": "172.1.0.3",
+      "facility": "C8",
+      "unit": "",
+      "machineClass": "Firewall",
+      "function": "Firewall",
+      "globalId": "d3"
+    },
+    {
+      "type": "Device",
+      "name": "Switch",
+      "id": "#143:0",
+      "platform": "Cisco",
+      "os": "Catalyst-2970",
+      "external": false,
+      "ipAddress": "172.1.1.1",
+      "facility": "C8",
+      "unit": "",
+      "machineClass": "Switch",
+      "function": "Switch",
+      "globalId": "d4"
+    },
+    {
+      "type": "Device",
+      "name": "Switch",
+      "id": "#144:0",
+      "platform": "Cisco",
+      "os": "Catalyst-2970",
+      "external": false,
+      "ipAddress": "172.1.2.1",
+      "facility": "C8",
+      "unit": "",
+      "machineClass": "Switch",
+      "function": "Switch",
+      "globalId": "d5"
+    },
+    {
+      "type": "Device",
+      "name": "File Server",
+      "id": "#145:0",
+      "platform": "Windows",
+      "os": "Windows Server 2012",
+      "external": false,
+      "ipAddress": "172.1.0.14",
+      "facility": "C6",
+      "unit": "",
+      "machineClass": "Server",
+      "function": "File Server",
+      "globalId": "d6"
+    },
+    {
+      "type": "Software",
+      "name": "Router Firmware",
+      "id": "#148:0",
+      "platform": "Cisco",
+      "os": "Cisco 12000",
+      "vendor": "cisco",
+      "product": "12000_router"
+    },
+    {
+      "type": "Software",
+      "name": "Firewall Firmware",
+      "id": "#149:0",
+      "platform": "Cisco",
+      "os": "ASA 5505",
+      "vendor": "cisco",
+      "product": "asa_5505"
+    },
+    {
+      "type": "Software",
+      "name": "Switch Firmware",
+      "id": "#150:0",
+      "platform": "Cisco",
+      "os": "Catalyst-2970",
+      "vendor": "cisco",
+      "product": "catalyst_2970"
+    },
+    {
+      "type": "Software",
+      "name": "Rejetto HTTP File Server",
+      "id": "#151:0",
+      "platform": "Windows",
+      "os": "Windows Server 2012",
+      "vendor": "rejetto",
+      "product": "http_file_server"
+    },
+    {
+      "type": "Software",
+      "name": "Microsoft Office Excel 2013 RT",
+      "id": "#152:0",
+      "platform": "Windows",
+      "os": "Windows 7",
+      "vendor": "microsoft",
+      "product": "excel_2013_rt"
+    },
+    {
+      "type": "Device",
+      "name": "Insider Threat",
+      "id": "#146:0",
+      "platform": "Windows",
+      "os": "Windows 7",
+      "external": true,
+      "ipAddress": "172.1.1.60",
+      "facility": "",
+      "unit": "",
+      "machineClass": "Workstation",
+      "function": "Workstation",
+      "globalId": "d7"
+    },
+    {
+      "type": "Device",
+      "name": "Workstation",
+      "id": "#147:0",
+      "platform": "Windows",
+      "os": "Windows 7",
+      "external": false,
+      "ipAddress": "172.1.1.61",
+      "facility": "A1",
+      "unit": "",
+      "machineClass": "Workstation",
+      "function": "Workstation",
+      "globalId": "d8"
+    },
+    {
+      "type": "Device",
+      "name": "Workstation",
+      "id": "#133:1",
+      "platform": "Windows",
+      "os": "Windows 7",
+      "external": false,
+      "ipAddress": "172.1.1.62",
+      "facility": "A1",
+      "unit": "",
+      "machineClass": "Workstation",
+      "function": "Workstation",
+      "globalId": "d9"
+    },
+    {
+      "type": "Device",
+      "name": "Workstation",
+      "id": "#141:1",
+      "platform": "Windows",
+      "os": "Windows 7",
+      "external": false,
+      "ipAddress": "172.1.1.63",
+      "facility": "A1",
+      "unit": "",
+      "machineClass": "Workstation",
+      "function": "Workstation",
+      "globalId": "d10"
+    },
+    {
+      "type": "Device",
+      "name": "Workstation",
+      "id": "#142:1",
+      "platform": "Windows",
+      "os": "Windows 7",
+      "external": false,
+      "ipAddress": "172.1.1.64",
+      "facility": "A1",
+      "unit": "",
+      "machineClass": "Workstation",
+      "function": "Workstation",
+      "globalId": "d11"
+    },
+    {
+      "type": "Device",
+      "name": "Workstation",
+      "id": "#143:1",
+      "platform": "Windows",
+      "os": "Windows 7",
+      "external": false,
+      "ipAddress": "172.1.1.65",
+      "facility": "A4",
+      "unit": "",
+      "machineClass": "Workstation",
+      "function": "Workstation",
+      "globalId": "d12"
+    },
+    {
+      "type": "Device",
+      "name": "Workstation",
+      "id": "#144:1",
+      "platform": "Windows",
+      "os": "Windows 7",
+      "external": false,
+      "ipAddress": "172.1.1.66",
+      "facility": "A4",
+      "unit": "",
+      "machineClass": "Workstation",
+      "function": "Workstation",
+      "globalId": "d13"
+    },
+    {
+      "type": "Device",
+      "name": "Workstation",
+      "id": "#145:1",
+      "platform": "Windows",
+      "os": "Windows 7",
+      "external": false,
+      "ipAddress": "172.1.1.67",
+      "facility": "A4",
+      "unit": "",
+      "machineClass": "Workstation",
+      "function": "Workstation",
+      "globalId": "d14"
+    },
+    {
+      "type": "Device",
+      "name": "Workstation",
+      "id": "#146:1",
+      "platform": "Windows",
+      "os": "Windows 7",
+      "external": false,
+      "ipAddress": "172.1.2.43",
+      "facility": "A4",
+      "unit": "",
+      "machineClass": "Workstation",
+      "function": "Workstation",
+      "globalId": "d15"
+    },
+    {
+      "type": "Device",
+      "name": "Workstation",
+      "id": "#147:1",
+      "platform": "Windows",
+      "os": "Windows 7",
+      "external": false,
+      "ipAddress": "172.1.2.44",
+      "facility": "A1",
+      "unit": "",
+      "machineClass": "Workstation",
+      "function": "Workstation",
+      "globalId": "d16"
+    },
+    {
+      "type": "Device",
+      "name": "Workstation",
+      "id": "#133:2",
+      "platform": "Windows",
+      "os": "Windows 7",
+      "external": false,
+      "ipAddress": "172.1.2.45",
+      "facility": "A2",
+      "unit": "",
+      "machineClass": "Workstation",
+      "function": "Workstation",
+      "globalId": "d17"
+    },
+    {
+      "type": "Device",
+      "name": "Workstation",
+      "id": "#141:2",
+      "platform": "Windows",
+      "os": "Windows 7",
+      "external": false,
+      "ipAddress": "172.1.2.46",
+      "facility": "A2",
+      "unit": "",
+      "machineClass": "Workstation",
+      "function": "Workstation",
+      "globalId": "d18"
+    },
+    {
+      "type": "Device",
+      "name": "Workstation",
+      "id": "#142:2",
+      "platform": "Windows",
+      "os": "Windows 7",
+      "external": false,
+      "ipAddress": "172.1.2.47",
+      "facility": "A2",
+      "unit": "",
+      "machineClass": "Workstation",
+      "function": "Workstation",
+      "globalId": "d19"
+    },
+    {
+      "type": "Device",
+      "name": "Workstation",
+      "id": "#143:2",
+      "platform": "Windows",
+      "os": "Windows 7",
+      "external": false,
+      "ipAddress": "172.1.2.48",
+      "facility": "A2",
+      "unit": "",
+      "machineClass": "Workstation",
+      "function": "Workstation",
+      "globalId": "d20"
+    },
+    {
+      "type": "Device",
+      "name": "Workstation",
+      "id": "#144:2",
+      "platform": "Windows",
+      "os": "Windows 7",
+      "external": false,
+      "ipAddress": "172.1.2.49",
+      "facility": "A2",
+      "unit": "",
+      "machineClass": "Workstation",
+      "function": "Workstation",
+      "globalId": "d21"
+    },
+    {
+      "type": "Device",
+      "name": "Workstation",
+      "id": "#145:2",
+      "platform": "Windows",
+      "os": "Windows 7",
+      "external": false,
+      "ipAddress": "172.1.2.50",
+      "facility": "A3",
+      "unit": "",
+      "machineClass": "Workstation",
+      "function": "Workstation",
+      "globalId": "d22"
+    },
+    {
+      "type": "Device",
+      "name": "Workstation",
+      "id": "#146:2",
+      "platform": "Windows",
+      "os": "Windows 7",
+      "external": false,
+      "ipAddress": "172.1.2.51",
+      "facility": "A3",
+      "unit": "",
+      "machineClass": "Workstation",
+      "function": "Workstation",
+      "globalId": "d23"
+    },
+    {
+      "type": "Device",
+      "name": "Workstation",
+      "id": "#147:2",
+      "platform": "Windows",
+      "os": "Windows 7",
+      "external": false,
+      "ipAddress": "172.1.2.52",
+      "facility": "A3",
+      "unit": "",
+      "machineClass": "Workstation",
+      "function": "Workstation",
+      "globalId": "d24"
+    },
+    {
+      "type": "Device",
+      "name": "Workstation",
+      "id": "#133:3",
+      "platform": "Windows",
+      "os": "Windows 7",
+      "external": false,
+      "ipAddress": "172.1.2.53",
+      "facility": "A3",
+      "unit": "",
+      "machineClass": "Workstation",
+      "function": "Workstation",
+      "globalId": "d25"
+    },
+    {
+      "type": "Device",
+      "name": "Workstation",
+      "id": "#141:3",
+      "platform": "Windows",
+      "os": "Windows 7",
+      "external": false,
+      "ipAddress": "172.1.2.54",
+      "facility": "A3",
+      "unit": "",
+      "machineClass": "Workstation",
+      "function": "Workstation",
+      "globalId": "d26"
+    },
+    {
+      "type": "Software",
+      "name": "Rootkit",
+      "id": "#153:0",
+      "platform": "Windows",
+      "os": "Windows 7",
+      "vendor": "Cr4ashers",
+      "product": "Rootkit"
+    },
+    {
+      "type": "SoftwareVulnerability",
+      "name": "Arbitrary code execution vulnerability",
+      "id": "#164:0",
+      "integrityImpact": "COMPLETE",
+      "confidentialityImpact": "COMPLETE",
+      "availabilityImpact": "COMPLETE",
+      "authenticationCapability": "NONE",
+      "accessVector": "NETWORK",
+      "accessComplexity": "LOW",
+      "references": "",
+      "summary": "",
+      "cvss": 9.5
+    },
+    {
+      "type": "Device",
+      "name": "Workstation",
+      "id": "#142:3",
+      "platform": "Windows",
+      "os": "Windows 7",
+      "external": false,
+      "ipAddress": "172.1.2.55",
+      "facility": "A2",
+      "unit": "",
+      "machineClass": "Workstation",
+      "function": "Workstation",
+      "globalId": "d27"
+    },
+    {
+      "type": "SoftwareVulnerability",
+      "name": "CVE-2001-0867",
+      "id": "#165:0",
+      "integrityImpact": "PARTIAL",
+      "confidentialityImpact": "PARTIAL",
+      "availabilityImpact": "PARTIAL",
+      "authenticationCapability": "NONE",
+      "accessVector": "NETWORK",
+      "accessComplexity": "LOW",
+      "references": "[http://www.ciac.org/ciac/bulletins/m-018.shtml, http://www.cisco.com/warp/public/707/GSR-ACL-pub.shtml, http://www.securityfocus.com/bid/3538, http://xforce.iss.net/static/7555.php]",
+      "summary": "Cisco 12000 with IOS 12.0 and line cards based on Engine 2 does not properly filter does not properly filter packet fragments even when the \"fragment\" keyword is used in an ACL, which allows remote attackers to bypass the intended access controls.",
+      "cvss": 7.5
+    },
+    {
+      "type": "SoftwareVulnerability",
+      "name": "CVE-2001-0866",
+      "id": "#166:0",
+      "integrityImpact": "PARTIAL",
+      "confidentialityImpact": "PARTIAL",
+      "availabilityImpact": "PARTIAL",
+      "authenticationCapability": "NONE",
+      "accessVector": "NETWORK",
+      "accessComplexity": "LOW",
+      "references": "[http://www.ciac.org/ciac/bulletins/m-018.shtml, http://www.cisco.com/warp/public/707/GSR-ACL-pub.shtml, http://www.iss.net/security_center/static/7554.php, http://www.securityfocus.com/bid/3537]",
+      "summary": "Cisco 12000 with IOS 12.0 and lines card based on Engine 2 does not properly handle an outbound ACL when an input ACL is not configured on all the interfaces of a multi port line card, which could allow remote attackers to bypass the intended access controls.",
+      "cvss": 7.5
+    },
+    {
+      "type": "SoftwareVulnerability",
+      "name": "CVE-2001-0865",
+      "id": "#167:0",
+      "integrityImpact": "PARTIAL",
+      "confidentialityImpact": "PARTIAL",
+      "availabilityImpact": "PARTIAL",
+      "authenticationCapability": "NONE",
+      "accessVector": "NETWORK",
+      "accessComplexity": "LOW",
+      "references": "[http://www.ciac.org/ciac/bulletins/m-018.shtml, http://www.cisco.com/warp/public/707/GSR-ACL-pub.shtml, http://www.securityfocus.com/bid/3540, http://xforce.iss.net/static/7552.php]",
+      "summary": "Cisco 12000 with IOS 12.0 and line cards based on Engine 2 does not support the \"fragment\" keyword in an outgoing ACL, which could allow fragmented packets in violation of the intended access.",
+      "cvss": 7.5
+    },
+    {
+      "type": "SoftwareVulnerability",
+      "name": "CVE-2001-0864",
+      "id": "#168:0",
+      "integrityImpact": "PARTIAL",
+      "confidentialityImpact": "PARTIAL",
+      "availabilityImpact": "PARTIAL",
+      "authenticationCapability": "NONE",
+      "accessVector": "NETWORK",
+      "accessComplexity": "LOW",
+      "references": "[http://www.ciac.org/ciac/bulletins/m-018.shtml, http://www.cisco.com/warp/public/707/GSR-ACL-pub.shtml, http://www.securityfocus.com/bid/3536, http://xforce.iss.net/static/7553.php]",
+      "summary": "Cisco 12000 with IOS 12.0 and line cards based on Engine 2 does not properly handle the implicit \"deny ip any any\" rule in an outgoing ACL when the ACL contains exactly 448 entries, which can allow some outgoing packets to bypass access restrictions.",
+      "cvss": 7.5
+    },
+    {
+      "type": "SoftwareVulnerability",
+      "name": "CVE-2001-0863",
+      "id": "#169:0",
+      "integrityImpact": "NONE",
+      "confidentialityImpact": "NONE",
+      "availabilityImpact": "PARTIAL",
+      "authenticationCapability": "NONE",
+      "accessVector": "NETWORK",
+      "accessComplexity": "LOW",
+      "references": "[http://www.ciac.org/ciac/bulletins/m-018.shtml, http://www.cisco.com/warp/public/707/GSR-ACL-pub.shtml, http://www.securityfocus.com/bid/3539, http://xforce.iss.net/static/7551.php]",
+      "summary": "Cisco 12000 with IOS 12.0 and line cards based on Engine 2 does not handle the \"fragment\" keyword in a compiled ACL (Turbo ACL) for packets that are sent to the router, which allows remote attackers to cause a denial of service via a flood of fragments.",
+      "cvss": 5
+    },
+    {
+      "type": "SoftwareVulnerability",
+      "name": "CVE-2011-0396",
+      "id": "#170:0",
+      "integrityImpact": "NONE",
+      "confidentialityImpact": "COMPLETE",
+      "availabilityImpact": "NONE",
+      "authenticationCapability": "NONE",
+      "accessVector": "NETWORK",
+      "accessComplexity": "LOW",
+      "references": "[http://www.cisco.com/en/US/products/products_security_advisory09186a0080b6e14d.shtml, http://www.securitytracker.com/id?1025108, http://www.vupen.com/english/advisories/2011/0493, http://xforce.iss.net/xforce/xfdb/65591]",
+      "summary": "Cisco Adaptive Security Appliances (ASA) 5500 series devices with software 8.0 before 8.0(5.23), 8.1 before 8.1(2.49), 8.2 before 8.2(4.1), and 8.3 before 8.3(2.13), when a Certificate Authority (CA) is configured, allow remote attackers to read arbitrary files via unspecified vectors, aka Bug ID CSCtk12352.",
+      "cvss": 7.8
+    },
+    {
+      "type": "SoftwareVulnerability",
+      "name": "CVE-2011-0395",
+      "id": "#171:0",
+      "integrityImpact": "NONE",
+      "confidentialityImpact": "NONE",
+      "availabilityImpact": "COMPLETE",
+      "authenticationCapability": "NONE",
+      "accessVector": "NETWORK",
+      "accessComplexity": "LOW",
+      "references": "[http://www.cisco.com/en/US/products/products_security_advisory09186a0080b6e14d.shtml, http://www.securitytracker.com/id?1025108, http://www.vupen.com/english/advisories/2011/0493, http://xforce.iss.net/xforce/xfdb/65590]",
+      "summary": "Cisco Adaptive Security Appliances (ASA) 5500 series devices with software 8.0 before 8.0(5.20), 8.1 before 8.1(2.48), 8.2 before 8.2(3), and 8.3 before 8.3(2.1), when the RIP protocol and the Cisco Phone Proxy functionality are configured, allow remote attackers to cause a denial of service (device reload) via a RIP update, aka Bug ID CSCtg66583.",
+      "cvss": 7.8
+    },
+    {
+      "type": "SoftwareVulnerability",
+      "name": "CVE-2010-1579",
+      "id": "#164:1",
+      "integrityImpact": "NONE",
+      "confidentialityImpact": "NONE",
+      "availabilityImpact": "COMPLETE",
+      "authenticationCapability": "NONE",
+      "accessVector": "NETWORK",
+      "accessComplexity": "LOW",
+      "references": "[http://www.cisco.com/en/US/products/products_security_advisory09186a0080b3f12f.shtml]",
+      "summary": "Unspecified vulnerability in the SunRPC inspection feature on Cisco Adaptive Security Appliances (ASA) 5500 series devices with software 7.2 before 7.2(5), 8.0 before 8.0(5.19), 8.1 before 8.1(2.47), and 8.2 before 8.2(2) and Cisco PIX Security Appliances 500 series devices allows remote attackers to cause a denial of service (device reload) via crafted SunRPC UDP packets, aka Bug ID CSCtc79922.",
+      "cvss": 7.8
+    },
+    {
+      "type": "SoftwareVulnerability",
+      "name": "CVE-2010-2815",
+      "id": "#165:1",
+      "integrityImpact": "NONE",
+      "confidentialityImpact": "NONE",
+      "availabilityImpact": "COMPLETE",
+      "authenticationCapability": "NONE",
+      "accessVector": "NETWORK",
+      "accessComplexity": "LOW",
+      "references": "[http://www.cisco.com/en/US/products/products_security_advisory09186a0080b3f12f.shtml, http://www.securityfocus.com/bid/42198]",
+      "summary": "Unspecified vulnerability in the Transport Layer Security (TLS) implementation on Cisco Adaptive Security Appliances (ASA) 5500 series devices with software 7.2 before 7.2(5), 8.0 before 8.0(5.15), 8.1 before 8.1(2.44), 8.2 before 8.2(2.17), and 8.3 before 8.3(1.6) and Cisco PIX Security Appliances 500 series devices allows remote attackers to cause a denial of service (device reload) via a sequence of crafted TLS packets, aka Bug ID CSCtf55259.",
+      "cvss": 7.8
+    },
+    {
+      "type": "SoftwareVulnerability",
+      "name": "CVE-2010-1578",
+      "id": "#166:1",
+      "integrityImpact": "NONE",
+      "confidentialityImpact": "NONE",
+      "availabilityImpact": "COMPLETE",
+      "authenticationCapability": "NONE",
+      "accessVector": "NETWORK",
+      "accessComplexity": "LOW",
+      "references": "[http://www.cisco.com/en/US/products/products_security_advisory09186a0080b3f12f.shtml]",
+      "summary": "Unspecified vulnerability in the SunRPC inspection feature on Cisco Adaptive Security Appliances (ASA) 5500 series devices with software 7.2 before 7.2(5), 8.0 before 8.0(5.19), 8.1 before 8.1(2.47), and 8.2 before 8.2(2) and Cisco PIX Security Appliances 500 series devices allows remote attackers to cause a denial of service (device reload) via crafted SunRPC UDP packets, aka Bug ID CSCtc77567.",
+      "cvss": 7.8
+    },
+    {
+      "type": "SoftwareVulnerability",
+      "name": "CVE-2013-1100",
+      "id": "#167:1",
+      "integrityImpact": "NONE",
+      "confidentialityImpact": "NONE",
+      "availabilityImpact": "COMPLETE",
+      "authenticationCapability": "NONE",
+      "accessVector": "NETWORK",
+      "accessComplexity": "HIGH",
+      "references": "[http://tools.cisco.com/security/center/content/CiscoSecurityNotice/CVE-2013-1100]",
+      "summary": "The HTTP server in Cisco IOS on Catalyst switches does not properly handle TCP socket events, which allows remote attackers to cause a denial of service (device crash) via crafted packets on TCP port (1) 80 or (2) 443, aka Bug ID CSCuc53853.",
+      "cvss": 5.4
+    },
+    {
+      "type": "SoftwareVulnerability",
+      "name": "CVE-2005-4258",
+      "id": "#168:1",
+      "integrityImpact": "NONE",
+      "confidentialityImpact": "NONE",
+      "availabilityImpact": "COMPLETE",
+      "authenticationCapability": "NONE",
+      "accessVector": "NETWORK",
+      "accessComplexity": "LOW",
+      "references": "[http://www.securityfocus.com/bid/15864, http://xforce.iss.net/xforce/xfdb/44543]",
+      "summary": "Unspecified Cisco Catalyst Switches allow remote attackers to cause a denial of service (device crash) via an IP packet with the same source and destination IPs and ports, and with the SYN flag set (aka LanD). NOTE: the provenance of this issue is unknown; the details are obtained solely from the BID.",
+      "cvss": 7.8
+    },
+    {
+      "type": "SoftwareVulnerability",
+      "name": "CVE-2014-6287",
+      "id": "#169:1",
+      "integrityImpact": "PARTIAL",
+      "confidentialityImpact": "PARTIAL",
+      "availabilityImpact": "PARTIAL",
+      "authenticationCapability": "NONE",
+      "accessVector": "NETWORK",
+      "accessComplexity": "LOW",
+      "references": "[http://packetstormsecurity.com/files/128243/HttpFileServer-2.3.x-Remote-Command-Execution.html, http://packetstormsecurity.com/files/135122/Rejetto-HTTP-File-Server-2.3.x-Remote-Code-Execution.html, http://www.kb.cert.org/vuls/id/251276, https://github.com/rapid7/metasploit-framework/pull/3793, https://www.exploit-db.com/exploits/39161/]",
+      "summary": "The findMacroMarker function in parserLib.pas in Rejetto HTTP File Server (aks HFS or HttpFileServer) 2.3x before 2.3c allows remote attackers to execute arbitrary programs via a %00 sequence in a search action.",
+      "cvss": 7.5
+    },
+    {
+      "type": "SoftwareVulnerability",
+      "name": "CVE-2014-7226",
+      "id": "#170:1",
+      "integrityImpact": "PARTIAL",
+      "confidentialityImpact": "PARTIAL",
+      "availabilityImpact": "PARTIAL",
+      "authenticationCapability": "NONE",
+      "accessVector": "NETWORK",
+      "accessComplexity": "LOW",
+      "references": "[http://packetstormsecurity.com/files/128532/HTTP-File-Server-2.3a-2.3b-2.3c-Remote-Command-Execution.html, http://www.exploit-db.com/exploits/34852, http://www.rejetto.com/forum/hfs-~-http-file-server/new-version-2-3d/, http://www.securityfocus.com/bid/70216]",
+      "summary": "The file comment feature in Rejetto HTTP File Server (hfs) 2.3c and earlier allows remote attackers to execute arbitrary code by uploading a file with certain invalid UTF-8 byte sequences that are interpreted as executable macro symbols.",
+      "cvss": 7.5
+    },
+    {
+      "type": "SoftwareVulnerability",
+      "name": "CVE-2015-0063",
+      "id": "#171:1",
+      "integrityImpact": "COMPLETE",
+      "confidentialityImpact": "COMPLETE",
+      "availabilityImpact": "COMPLETE",
+      "authenticationCapability": "NONE",
+      "accessVector": "NETWORK",
+      "accessComplexity": "MEDIUM",
+      "references": "[http://secunia.com/advisories/62808, http://technet.microsoft.com/security/bulletin/MS15-012, http://www.securityfocus.com/bid/72460, http://www.securitytracker.com/id/1031720, http://xforce.iss.net/xforce/xfdb/100439]",
+      "summary": "Microsoft Excel 2007 SP3; the proofing tools in Office 2010 SP2; Excel 2010 SP2; Excel 2013 Gold, SP1, and RT; Excel Viewer; and Office Compatibility Pack SP3 allow remote attackers to execute arbitrary code or cause a denial of service (memory corruption) via a crafted Office document, aka \"Excel Remote Code Execution Vulnerability.\"",
+      "cvss": 9.3
+    },
+    {
+      "type": "SoftwareVulnerability",
+      "name": "CVE-2013-1315",
+      "id": "#164:2",
+      "integrityImpact": "COMPLETE",
+      "confidentialityImpact": "COMPLETE",
+      "availabilityImpact": "COMPLETE",
+      "authenticationCapability": "NONE",
+      "accessVector": "NETWORK",
+      "accessComplexity": "MEDIUM",
+      "references": "[http://technet.microsoft.com/security/bulletin/MS13-067, http://technet.microsoft.com/security/bulletin/MS13-073, http://www.us-cert.gov/ncas/alerts/TA13-253A]",
+      "summary": "Microsoft SharePoint Server 2007 SP3, 2010 SP1 and SP2, and 2013; Office Web Apps 2010; Excel 2003 SP3, 2007 SP3, 2010 SP1 and SP2, 2013, and 2013 RT; Office for Mac 2011; Excel Viewer; and Office Compatibility Pack SP3 allow remote attackers to execute arbitrary code or cause a denial of service (memory corruption) via a crafted Office document, aka \"Microsoft Office Memory Corruption Vulnerability.\"",
+      "cvss": 9.3
+    },
+    {
+      "type": "Network",
+      "name": "Enterprise Network",
+      "id": "#188:0",
+      "globalId": "ENT-NETWORK"
+    },
+    {
+      "type": "Device",
+      "name": "Skynet 5",
+      "id": "#143:3",
+      "platform": "Unknown",
+      "os": "Unknown",
+      "external": false,
+      "ipAddress": "0.0.0.0",
+      "facility": "A4",
+      "unit": "",
+      "machineClass": "Satellite",
+      "function": "Satellite",
+      "globalId": "d28"
+    },
+    {
+      "type": "Device",
+      "name": "Reacher",
+      "id": "#144:3",
+      "platform": "Unknown",
+      "os": "Unknown",
+      "external": false,
+      "ipAddress": "100.0.0.5",
+      "facility": "A4",
+      "unit": "",
+      "machineClass": "Receiver",
+      "function": "Receiver",
+      "globalId": "d29"
+    },
+    {
+      "type": "Device",
+      "name": "Switch",
+      "id": "#145:3",
+      "platform": "Cisco",
+      "os": "Catalyst-2970",
+      "external": false,
+      "ipAddress": "97.1.1.1",
+      "facility": "A3",
+      "unit": "",
+      "machineClass": "Switch",
+      "function": "Switch",
+      "globalId": "d30"
+    },
+    {
+      "type": "Device",
+      "name": "Switch",
+      "id": "#146:3",
+      "platform": "Cisco",
+      "os": "Catalyst-2970",
+      "external": false,
+      "ipAddress": "98.1.2.1",
+      "facility": "A4",
+      "unit": "",
+      "machineClass": "Switch",
+      "function": "Switch",
+      "globalId": "d31"
+    },
+    {
+      "type": "Device",
+      "name": "Mobile Transmitter",
+      "id": "#147:3",
+      "platform": "Cisco",
+      "os": "Catalyst-2970",
+      "external": false,
+      "ipAddress": "99.1.2.1",
+      "facility": "A1",
+      "unit": "",
+      "machineClass": "Antenna",
+      "function": "Antenna",
+      "globalId": "d32"
+    },
+    {
+      "type": "Device",
+      "name": "Command and Control",
+      "id": "#133:4",
+      "platform": "Windows",
+      "os": "Windows 7",
+      "external": false,
+      "ipAddress": "97.1.1.40",
+      "facility": "A2",
+      "unit": "",
+      "machineClass": "Workstation",
+      "function": "Workstation",
+      "globalId": "d33"
+    },
+    {
+      "type": "Device",
+      "name": "Command and Control",
+      "id": "#141:4",
+      "platform": "Windows",
+      "os": "Windows 7",
+      "external": false,
+      "ipAddress": "97.1.1.41",
+      "facility": "A4",
+      "unit": "",
+      "machineClass": "Workstation",
+      "function": "Workstation",
+      "globalId": "d34"
+    },
+    {
+      "type": "Device",
+      "name": "Command and Control",
+      "id": "#142:4",
+      "platform": "Windows",
+      "os": "Windows 7",
+      "external": false,
+      "ipAddress": "97.1.1.42",
+      "facility": "A1",
+      "unit": "",
+      "machineClass": "Workstation",
+      "function": "Workstation",
+      "globalId": "d35"
+    },
+    {
+      "type": "Device",
+      "name": "Terminal",
+      "id": "#143:4",
+      "platform": "Windows",
+      "os": "Windows 7",
+      "external": false,
+      "ipAddress": "98.1.2.60",
+      "facility": "A2",
+      "unit": "",
+      "machineClass": "Workstation",
+      "function": "Workstation",
+      "globalId": "d36"
+    },
+    {
+      "type": "Device",
+      "name": "Terminal",
+      "id": "#144:4",
+      "platform": "Windows",
+      "os": "Windows 7",
+      "external": false,
+      "ipAddress": "98.1.2.61",
+      "facility": "A1",
+      "unit": "",
+      "machineClass": "Workstation",
+      "function": "Workstation",
+      "globalId": "d37"
+    },
+    {
+      "type": "Device",
+      "name": "Terminal",
+      "id": "#145:4",
+      "platform": "Windows",
+      "os": "Windows 7",
+      "external": false,
+      "ipAddress": "98.1.2.62",
+      "facility": "A2",
+      "unit": "",
+      "machineClass": "Workstation",
+      "function": "Workstation",
+      "globalId": "d38"
+    },
+    {
+      "type": "Device",
+      "name": "Terminal",
+      "id": "#146:4",
+      "platform": "Windows",
+      "os": "Windows 7",
+      "external": false,
+      "ipAddress": "98.1.2.63",
+      "facility": "A1",
+      "unit": "",
+      "machineClass": "Workstation",
+      "function": "Workstation",
+      "globalId": "d39"
+    },
+    {
+      "type": "Device",
+      "name": "Terminal",
+      "id": "#147:4",
+      "platform": "Windows",
+      "os": "Windows 7",
+      "external": false,
+      "ipAddress": "98.1.2.64",
+      "facility": "A1",
+      "unit": "",
+      "machineClass": "Workstation",
+      "function": "Workstation",
+      "globalId": "d40"
+    },
+    {
+      "type": "Device",
+      "name": "Terminal",
+      "id": "#133:5",
+      "platform": "Windows",
+      "os": "Windows 7",
+      "external": false,
+      "ipAddress": "98.1.2.65",
+      "facility": "A2",
+      "unit": "",
+      "machineClass": "Workstation",
+      "function": "Workstation",
+      "globalId": "d41"
+    },
+    {
+      "type": "Device",
+      "name": "Phone",
+      "id": "#141:5",
+      "platform": "Android",
+      "os": "Secure Android",
+      "external": false,
+      "ipAddress": "99.1.2.70",
+      "facility": "A3",
+      "unit": "",
+      "machineClass": "Phone",
+      "function": "Phone",
+      "globalId": "d42"
+    },
+    {
+      "type": "Device",
+      "name": "Phone",
+      "id": "#142:5",
+      "platform": "Android",
+      "os": "Secure Android",
+      "external": false,
+      "ipAddress": "99.1.2.71",
+      "facility": "A3",
+      "unit": "",
+      "machineClass": "Phone",
+      "function": "Phone",
+      "globalId": "d43"
+    },
+    {
+      "type": "Device",
+      "name": "Phone",
+      "id": "#143:5",
+      "platform": "Android",
+      "os": "Secure Android",
+      "external": false,
+      "ipAddress": "99.1.2.72",
+      "facility": "A3",
+      "unit": "",
+      "machineClass": "Phone",
+      "function": "Phone",
+      "globalId": "d44"
+    },
+    {
+      "type": "Device",
+      "name": "Phone",
+      "id": "#144:5",
+      "platform": "Android",
+      "os": "Secure Android",
+      "external": false,
+      "ipAddress": "99.1.2.73",
+      "facility": "A3",
+      "unit": "",
+      "machineClass": "Phone",
+      "function": "Phone",
+      "globalId": "d45"
+    },
+    {
+      "type": "Device",
+      "name": "Phone",
+      "id": "#145:5",
+      "platform": "Android",
+      "os": "Secure Android",
+      "external": false,
+      "ipAddress": "99.1.2.74",
+      "facility": "A4",
+      "unit": "",
+      "machineClass": "Phone",
+      "function": "Phone",
+      "globalId": "d46"
+    },
+    {
+      "type": "Device",
+      "name": "Phone",
+      "id": "#146:5",
+      "platform": "Android",
+      "os": "Secure Android",
+      "external": false,
+      "ipAddress": "99.1.2.75",
+      "facility": "A3",
+      "unit": "",
+      "machineClass": "Phone",
+      "function": "Phone",
+      "globalId": "d47"
+    },
+    {
+      "type": "Device",
+      "name": "Phone",
+      "id": "#147:5",
+      "platform": "Android",
+      "os": "Secure Android",
+      "external": false,
+      "ipAddress": "99.1.2.76",
+      "facility": "A3",
+      "unit": "",
+      "machineClass": "Phone",
+      "function": "Phone",
+      "globalId": "d48"
+    },
+    {
+      "type": "Device",
+      "name": "Phone",
+      "id": "#133:6",
+      "platform": "Android",
+      "os": "Secure Android",
+      "external": false,
+      "ipAddress": "99.1.2.77",
+      "facility": "A4",
+      "unit": "",
+      "machineClass": "Phone",
+      "function": "Phone",
+      "globalId": "d49"
+    },
+    {
+      "type": "Device",
+      "name": "Phone",
+      "id": "#141:6",
+      "platform": "Android",
+      "os": "Secure Android",
+      "external": false,
+      "ipAddress": "99.1.2.78",
+      "facility": "A4",
+      "unit": "",
+      "machineClass": "Phone",
+      "function": "Phone",
+      "globalId": "d50"
+    },
+    {
+      "type": "Device",
+      "name": "Phone",
+      "id": "#142:6",
+      "platform": "Android",
+      "os": "Secure Android",
+      "external": false,
+      "ipAddress": "99.1.2.79",
+      "facility": "A4",
+      "unit": "",
+      "machineClass": "Phone",
+      "function": "Phone",
+      "globalId": "d51"
+    },
+    {
+      "type": "Network",
+      "name": "Military Network",
+      "id": "#189:0",
+      "globalId": "MIL-NETWORK"
+    },
+    {
+      "type": "Device",
+      "name": "SCADA Database Server",
+      "id": "#143:6",
+      "platform": "Windows",
+      "os": "Windows Server 2012",
+      "external": false,
+      "ipAddress": "67.1.0.14",
+      "facility": "A1",
+      "unit": "",
+      "machineClass": "Server",
+      "function": "Database Server",
+      "globalId": "d52"
+    },
+    {
+      "type": "Device",
+      "name": "Switch",
+      "id": "#144:6",
+      "platform": "Cisco",
+      "os": "Catalyst-2970",
+      "external": false,
+      "ipAddress": "56.1.1.1",
+      "facility": "A3",
+      "unit": "",
+      "machineClass": "Switch",
+      "function": "Switch",
+      "globalId": "d53"
+    },
+    {
+      "type": "Device",
+      "name": "Switch",
+      "id": "#145:6",
+      "platform": "Cisco",
+      "os": "Catalyst-2970",
+      "external": false,
+      "ipAddress": "57.1.2.1",
+      "facility": "A1",
+      "unit": "",
+      "machineClass": "Switch",
+      "function": "Switch",
+      "globalId": "d54"
+    },
+    {
+      "type": "Device",
+      "name": "Switch",
+      "id": "#146:6",
+      "platform": "Cisco",
+      "os": "Catalyst-2970",
+      "external": false,
+      "ipAddress": "58.1.2.1",
+      "facility": "A4",
+      "unit": "",
+      "machineClass": "Switch",
+      "function": "Switch",
+      "globalId": "d55"
+    },
+    {
+      "type": "Device",
+      "name": "HMI Station",
+      "id": "#147:6",
+      "platform": "Windows",
+      "os": "Windows 7",
+      "external": false,
+      "ipAddress": "56.1.1.140",
+      "facility": "C2",
+      "unit": "",
+      "machineClass": "HMI",
+      "function": "HMI",
+      "globalId": "d56"
+    },
+    {
+      "type": "Device",
+      "name": "HMI Station",
+      "id": "#133:7",
+      "platform": "Windows",
+      "os": "Windows 7",
+      "external": false,
+      "ipAddress": "56.1.1.141",
+      "facility": "C2",
+      "unit": "",
+      "machineClass": "HMI",
+      "function": "HMI",
+      "globalId": "d57"
+    },
+    {
+      "type": "Device",
+      "name": "HMI Station",
+      "id": "#141:7",
+      "platform": "Windows",
+      "os": "Windows 7",
+      "external": false,
+      "ipAddress": "56.1.1.142",
+      "facility": "C2",
+      "unit": "",
+      "machineClass": "HMI",
+      "function": "HMI",
+      "globalId": "d58"
+    },
+    {
+      "type": "Device",
+      "name": "Engineering Station",
+      "id": "#142:7",
+      "platform": "Windows",
+      "os": "Windows 7",
+      "external": false,
+      "ipAddress": "57.1.2.160",
+      "facility": "",
+      "unit": "",
+      "machineClass": "Workstation",
+      "function": "Workstation",
+      "globalId": "d59"
+    },
+    {
+      "type": "Device",
+      "name": "Engineering Station",
+      "id": "#143:7",
+      "platform": "Windows",
+      "os": "Windows 7",
+      "external": false,
+      "ipAddress": "57.1.2.161",
+      "facility": "",
+      "unit": "",
+      "machineClass": "Workstation",
+      "function": "Workstation",
+      "globalId": "d60"
+    },
+    {
+      "type": "Device",
+      "name": "Engineering Station",
+      "id": "#144:7",
+      "platform": "Windows",
+      "os": "Windows 7",
+      "external": false,
+      "ipAddress": "57.1.2.162",
+      "facility": "",
+      "unit": "",
+      "machineClass": "Workstation",
+      "function": "Workstation",
+      "globalId": "d61"
+    },
+    {
+      "type": "Device",
+      "name": "PLC",
+      "id": "#145:7",
+      "platform": "VxWorks",
+      "os": "VxWorks 7",
+      "external": false,
+      "ipAddress": "58.1.2.170",
+      "facility": "",
+      "unit": "",
+      "machineClass": "Controller",
+      "function": "Controller",
+      "globalId": "d62"
+    },
+    {
+      "type": "Device",
+      "name": "PLC",
+      "id": "#146:7",
+      "platform": "VxWorks",
+      "os": "VxWorks 7",
+      "external": false,
+      "ipAddress": "58.1.2.171",
+      "facility": "",
+      "unit": "",
+      "machineClass": "Controller",
+      "function": "Controller",
+      "globalId": "d63"
+    },
+    {
+      "type": "Device",
+      "name": "PLC",
+      "id": "#147:7",
+      "platform": "VxWorks",
+      "os": "VxWorks 7",
+      "external": false,
+      "ipAddress": "58.1.2.172",
+      "facility": "",
+      "unit": "",
+      "machineClass": "Controller",
+      "function": "Controller",
+      "globalId": "d64"
+    },
+    {
+      "type": "Device",
+      "name": "PLC",
+      "id": "#133:8",
+      "platform": "VxWorks",
+      "os": "VxWorks 7",
+      "external": false,
+      "ipAddress": "58.1.2.173",
+      "facility": "",
+      "unit": "",
+      "machineClass": "Controller",
+      "function": "Controller",
+      "globalId": "d65"
+    },
+    {
+      "type": "Device",
+      "name": "PLC",
+      "id": "#141:8",
+      "platform": "VxWorks",
+      "os": "VxWorks 7",
+      "external": false,
+      "ipAddress": "58.1.2.174",
+      "facility": "",
+      "unit": "",
+      "machineClass": "Controller",
+      "function": "Controller",
+      "globalId": "d66"
+    },
+    {
+      "type": "Device",
+      "name": "PLC",
+      "id": "#142:8",
+      "platform": "VxWorks",
+      "os": "VxWorks 7",
+      "external": false,
+      "ipAddress": "58.1.2.175",
+      "facility": "",
+      "unit": "",
+      "machineClass": "Controller",
+      "function": "Controller",
+      "globalId": "d67"
+    },
+    {
+      "type": "Device",
+      "name": "PLC",
+      "id": "#143:8",
+      "platform": "VxWorks",
+      "os": "VxWorks 7",
+      "external": false,
+      "ipAddress": "58.1.2.176",
+      "facility": "",
+      "unit": "",
+      "machineClass": "Controller",
+      "function": "Controller",
+      "globalId": "d68"
+    },
+    {
+      "type": "Device",
+      "name": "PLC",
+      "id": "#144:8",
+      "platform": "VxWorks",
+      "os": "VxWorks 7",
+      "external": false,
+      "ipAddress": "58.1.2.177",
+      "facility": "",
+      "unit": "",
+      "machineClass": "Controller",
+      "function": "Controller",
+      "globalId": "d69"
+    },
+    {
+      "type": "Device",
+      "name": "PLC",
+      "id": "#145:8",
+      "platform": "VxWorks",
+      "os": "VxWorks 7",
+      "external": false,
+      "ipAddress": "58.1.2.178",
+      "facility": "",
+      "unit": "",
+      "machineClass": "Controller",
+      "function": "Controller",
+      "globalId": "d70"
+    },
+    {
+      "type": "Device",
+      "name": "PLC",
+      "id": "#146:8",
+      "platform": "VxWorks",
+      "os": "VxWorks 7",
+      "external": false,
+      "ipAddress": "58.1.2.179",
+      "facility": "",
+      "unit": "",
+      "machineClass": "Controller",
+      "function": "Controller",
+      "globalId": "d71"
+    },
+    {
+      "type": "Device",
+      "name": "PLC",
+      "id": "#147:8",
+      "platform": "VxWorks",
+      "os": "VxWorks 7",
+      "external": false,
+      "ipAddress": "58.1.2.180",
+      "facility": "",
+      "unit": "",
+      "machineClass": "Controller",
+      "function": "Controller",
+      "globalId": "d72"
+    },
+    {
+      "type": "Device",
+      "name": "PLC",
+      "id": "#133:9",
+      "platform": "VxWorks",
+      "os": "VxWorks 7",
+      "external": false,
+      "ipAddress": "58.1.2.181",
+      "facility": "",
+      "unit": "",
+      "machineClass": "Controller",
+      "function": "Controller",
+      "globalId": "d73"
+    },
+    {
+      "type": "Device",
+      "name": "PLC",
+      "id": "#141:9",
+      "platform": "VxWorks",
+      "os": "VxWorks 7",
+      "external": false,
+      "ipAddress": "58.1.2.182",
+      "facility": "",
+      "unit": "",
+      "machineClass": "Controller",
+      "function": "Controller",
+      "globalId": "d74"
+    },
+    {
+      "type": "Device",
+      "name": "PLC",
+      "id": "#142:9",
+      "platform": "VxWorks",
+      "os": "VxWorks 7",
+      "external": false,
+      "ipAddress": "58.1.2.183",
+      "facility": "",
+      "unit": "",
+      "machineClass": "Controller",
+      "function": "Controller",
+      "globalId": "d75"
+    },
+    {
+      "type": "Device",
+      "name": "PLC",
+      "id": "#143:9",
+      "platform": "VxWorks",
+      "os": "VxWorks 7",
+      "external": false,
+      "ipAddress": "58.1.2.184",
+      "facility": "",
+      "unit": "",
+      "machineClass": "Controller",
+      "function": "Controller",
+      "globalId": "d76"
+    },
+    {
+      "type": "Device",
+      "name": "PLC",
+      "id": "#144:9",
+      "platform": "VxWorks",
+      "os": "VxWorks 7",
+      "external": false,
+      "ipAddress": "58.1.2.185",
+      "facility": "",
+      "unit": "",
+      "machineClass": "Controller",
+      "function": "Controller",
+      "globalId": "d77"
+    },
+    {
+      "type": "Network",
+      "name": "Safety Critical Network",
+      "id": "#190:0",
+      "globalId": "SC-NETWORK"
+    }
+  ],
+  "edges": [
+    {
+      "type": "ComponentEdge",
+      "id": "#220:0",
+      "source": "#25:0",
+      "target": "#125:0"
+    },
+    {
+      "type": "ComponentEdge",
+      "id": "#221:0",
+      "source": "#125:0",
+      "target": "#40:0"
+    },
+    {
+      "type": "ComponentEdge",
+      "id": "#222:0",
+      "source": "#25:0",
+      "target": "#126:0"
+    },
+    {
+      "type": "ComponentEdge",
+      "id": "#223:0",
+      "source": "#126:0",
+      "target": "#41:0"
+    },
+    {
+      "type": "LayerEdge",
+      "id": "#252:0",
+      "source": "#40:0",
+      "target": "#86:0"
+    },
+    {
+      "type": "LayerEdge",
+      "id": "#253:0",
+      "source": "#41:0",
+      "target": "#86:0"
+    },
+    {
+      "type": "LayerEdge",
+      "id": "#254:0",
+      "source": "#25:0",
+      "target": "#86:0"
+    },
+    {
+      "type": "ImpactEdge",
+      "id": "#236:0",
+      "source": "#40:0",
+      "target": "#78:0"
+    },
+    {
+      "type": "VulnerabilityEdge",
+      "id": "#260:0",
+      "source": "#40:0",
+      "target": "#70:0"
+    },
+    {
+      "type": "EventEdge",
+      "id": "#228:0",
+      "source": "#117:0",
+      "target": "#40:0"
+    },
+    {
+      "type": "VulnerabilityImpactEdge",
+      "id": "#300:0",
+      "source": "#70:0",
+      "target": "#78:0"
+    },
+    {
+      "type": "ComponentEdge",
+      "id": "#224:0",
+      "source": "#43:0",
+      "target": "#127:0"
+    },
+    {
+      "type": "ComponentEdge",
+      "id": "#225:0",
+      "source": "#127:0",
+      "target": "#44:0"
+    },
+    {
+      "type": "ComponentEdge",
+      "id": "#226:0",
+      "source": "#42:0",
+      "target": "#128:0"
+    },
+    {
+      "type": "ComponentEdge",
+      "id": "#227:0",
+      "source": "#128:0",
+      "target": "#44:0"
+    },
+    {
+      "type": "ComponentEdge",
+      "id": "#220:1",
+      "source": "#42:0",
+      "target": "#129:0"
+    },
+    {
+      "type": "ComponentEdge",
+      "id": "#221:1",
+      "source": "#129:0",
+      "target": "#46:0"
+    },
+    {
+      "type": "ComponentEdge",
+      "id": "#222:1",
+      "source": "#44:0",
+      "target": "#130:0"
+    },
+    {
+      "type": "ComponentEdge",
+      "id": "#223:1",
+      "source": "#130:0",
+      "target": "#45:0"
+    },
+    {
+      "type": "ComponentEdge",
+      "id": "#224:1",
+      "source": "#42:0",
+      "target": "#131:0"
+    },
+    {
+      "type": "ComponentEdge",
+      "id": "#225:1",
+      "source": "#131:0",
+      "target": "#45:0"
+    },
+    {
+      "type": "ComponentEdge",
+      "id": "#226:1",
+      "source": "#46:0",
+      "target": "#132:0"
+    },
+    {
+      "type": "ComponentEdge",
+      "id": "#227:1",
+      "source": "#132:0",
+      "target": "#45:0"
+    },
+    {
+      "type": "ComponentEdge",
+      "id": "#220:2",
+      "source": "#40:0",
+      "target": "#125:1"
+    },
+    {
+      "type": "ComponentEdge",
+      "id": "#221:2",
+      "source": "#125:1",
+      "target": "#44:0"
+    },
+    {
+      "type": "ComponentEdge",
+      "id": "#222:2",
+      "source": "#41:0",
+      "target": "#126:1"
+    },
+    {
+      "type": "ComponentEdge",
+      "id": "#223:2",
+      "source": "#126:1",
+      "target": "#43:0"
+    },
+    {
+      "type": "LayerEdge",
+      "id": "#255:0",
+      "source": "#42:0",
+      "target": "#87:0"
+    },
+    {
+      "type": "LayerEdge",
+      "id": "#256:0",
+      "source": "#43:0",
+      "target": "#87:0"
+    },
+    {
+      "type": "LayerEdge",
+      "id": "#257:0",
+      "source": "#45:0",
+      "target": "#87:0"
+    },
+    {
+      "type": "LayerEdge",
+      "id": "#258:0",
+      "source": "#44:0",
+      "target": "#87:0"
+    },
+    {
+      "type": "LayerEdge",
+      "id": "#259:0",
+      "source": "#46:0",
+      "target": "#87:0"
+    },
+    {
+      "type": "EventEdge",
+      "id": "#229:0",
+      "source": "#94:0",
+      "target": "#43:0"
+    },
+    {
+      "type": "VulnerabilityEdge",
+      "id": "#261:0",
+      "source": "#43:0",
+      "target": "#62:0"
+    },
+    {
+      "type": "ImpactEdge",
+      "id": "#237:0",
+      "source": "#43:0",
+      "target": "#79:0"
+    },
+    {
+      "type": "VulnerabilityImpactEdge",
+      "id": "#301:0",
+      "source": "#62:0",
+      "target": "#79:0"
+    },
+    {
+      "type": "EventEdge",
+      "id": "#230:0",
+      "source": "#102:0",
+      "target": "#46:0"
+    },
+    {
+      "type": "VulnerabilityEdge",
+      "id": "#262:0",
+      "source": "#46:0",
+      "target": "#63:0"
+    },
+    {
+      "type": "ImpactEdge",
+      "id": "#238:0",
+      "source": "#46:0",
+      "target": "#80:0"
+    },
+    {
+      "type": "VulnerabilityImpactEdge",
+      "id": "#302:0",
+      "source": "#63:0",
+      "target": "#80:0"
+    },
+    {
+      "type": "VulnerabilityImpactEdge",
+      "id": "#303:0",
+      "source": "#71:0",
+      "target": "#81:0"
+    },
+    {
+      "type": "ImpactEdge",
+      "id": "#239:0",
+      "source": "#44:0",
+      "target": "#81:0"
+    },
+    {
+      "type": "EventEdge",
+      "id": "#231:0",
+      "source": "#118:0",
+      "target": "#44:0"
+    },
+    {
+      "type": "VulnerabilityEdge",
+      "id": "#263:0",
+      "source": "#44:0",
+      "target": "#71:0"
+    },
+    {
+      "type": "ComponentEdge",
+      "id": "#224:2",
+      "source": "#45:0",
+      "target": "#127:1"
+    },
+    {
+      "type": "ComponentEdge",
+      "id": "#225:2",
+      "source": "#127:1",
+      "target": "#25:1"
+    },
+    {
+      "type": "LayerEdge",
+      "id": "#252:1",
+      "source": "#25:1",
+      "target": "#88:0"
+    },
+    {
+      "type": "VignetteEdge",
+      "id": "#332:0",
+      "source": "#180:0",
+      "target": "#125:0"
+    },
+    {
+      "type": "VignetteEdge",
+      "id": "#333:0",
+      "source": "#180:0",
+      "target": "#126:0"
+    },
+    {
+      "type": "VignetteEdge",
+      "id": "#334:0",
+      "source": "#180:0",
+      "target": "#86:0"
+    },
+    {
+      "type": "VignetteEdge",
+      "id": "#335:0",
+      "source": "#180:0",
+      "target": "#25:0"
+    },
+    {
+      "type": "VignetteEdge",
+      "id": "#336:0",
+      "source": "#180:0",
+      "target": "#40:0"
+    },
+    {
+      "type": "VignetteEdge",
+      "id": "#337:0",
+      "source": "#180:0",
+      "target": "#41:0"
+    },
+    {
+      "type": "VignetteEdge",
+      "id": "#338:0",
+      "source": "#180:0",
+      "target": "#78:0"
+    },
+    {
+      "type": "VignetteEdge",
+      "id": "#339:0",
+      "source": "#180:0",
+      "target": "#70:0"
+    },
+    {
+      "type": "VignetteEdge",
+      "id": "#332:1",
+      "source": "#180:0",
+      "target": "#117:0"
+    },
+    {
+      "type": "VignetteEdge",
+      "id": "#333:1",
+      "source": "#180:0",
+      "target": "#127:0"
+    },
+    {
+      "type": "VignetteEdge",
+      "id": "#334:1",
+      "source": "#180:0",
+      "target": "#128:0"
+    },
+    {
+      "type": "VignetteEdge",
+      "id": "#335:1",
+      "source": "#180:0",
+      "target": "#129:0"
+    },
+    {
+      "type": "VignetteEdge",
+      "id": "#336:1",
+      "source": "#180:0",
+      "target": "#130:0"
+    },
+    {
+      "type": "VignetteEdge",
+      "id": "#337:1",
+      "source": "#180:0",
+      "target": "#131:0"
+    },
+    {
+      "type": "VignetteEdge",
+      "id": "#338:1",
+      "source": "#180:0",
+      "target": "#132:0"
+    },
+    {
+      "type": "VignetteEdge",
+      "id": "#339:1",
+      "source": "#180:0",
+      "target": "#125:1"
+    },
+    {
+      "type": "VignetteEdge",
+      "id": "#332:2",
+      "source": "#180:0",
+      "target": "#126:1"
+    },
+    {
+      "type": "VignetteEdge",
+      "id": "#333:2",
+      "source": "#180:0",
+      "target": "#87:0"
+    },
+    {
+      "type": "VignetteEdge",
+      "id": "#334:2",
+      "source": "#180:0",
+      "target": "#42:0"
+    },
+    {
+      "type": "VignetteEdge",
+      "id": "#335:2",
+      "source": "#180:0",
+      "target": "#43:0"
+    },
+    {
+      "type": "VignetteEdge",
+      "id": "#336:2",
+      "source": "#180:0",
+      "target": "#44:0"
+    },
+    {
+      "type": "VignetteEdge",
+      "id": "#337:2",
+      "source": "#180:0",
+      "target": "#45:0"
+    },
+    {
+      "type": "VignetteEdge",
+      "id": "#338:2",
+      "source": "#180:0",
+      "target": "#46:0"
+    },
+    {
+      "type": "VignetteEdge",
+      "id": "#339:2",
+      "source": "#180:0",
+      "target": "#79:0"
+    },
+    {
+      "type": "VignetteEdge",
+      "id": "#332:3",
+      "source": "#180:0",
+      "target": "#62:0"
+    },
+    {
+      "type": "VignetteEdge",
+      "id": "#333:3",
+      "source": "#180:0",
+      "target": "#94:0"
+    },
+    {
+      "type": "VignetteEdge",
+      "id": "#334:3",
+      "source": "#180:0",
+      "target": "#80:0"
+    },
+    {
+      "type": "VignetteEdge",
+      "id": "#335:3",
+      "source": "#180:0",
+      "target": "#63:0"
+    },
+    {
+      "type": "VignetteEdge",
+      "id": "#336:3",
+      "source": "#180:0",
+      "target": "#102:0"
+    },
+    {
+      "type": "VignetteEdge",
+      "id": "#337:3",
+      "source": "#180:0",
+      "target": "#81:0"
+    },
+    {
+      "type": "VignetteEdge",
+      "id": "#338:3",
+      "source": "#180:0",
+      "target": "#118:0"
+    },
+    {
+      "type": "VignetteEdge",
+      "id": "#339:3",
+      "source": "#180:0",
+      "target": "#71:0"
+    },
+    {
+      "type": "VignetteEdge",
+      "id": "#332:4",
+      "source": "#180:0",
+      "target": "#127:1"
+    },
+    {
+      "type": "VignetteEdge",
+      "id": "#333:4",
+      "source": "#180:0",
+      "target": "#88:0"
+    },
+    {
+      "type": "VignetteEdge",
+      "id": "#334:4",
+      "source": "#180:0",
+      "target": "#25:1"
+    },
+    {
+      "type": "NetworkConnectionEdge",
+      "id": "#276:0",
+      "connectionType": "Fiber Ethernet",
+      "priority": 1,
+      "source": "#133:0",
+      "target": "#141:0"
+    },
+    {
+      "type": "NetworkConnectionEdge",
+      "id": "#277:0",
+      "connectionType": "Fiber Ethernet",
+      "priority": 1,
+      "source": "#141:0",
+      "target": "#142:0"
+    },
+    {
+      "type": "NetworkConnectionEdge",
+      "id": "#278:0",
+      "connectionType": "Fiber Ethernet",
+      "priority": 1,
+      "source": "#142:0",
+      "target": "#143:0"
+    },
+    {
+      "type": "NetworkConnectionEdge",
+      "id": "#279:0",
+      "connectionType": "Fiber Ethernet",
+      "priority": 1,
+      "source": "#142:0",
+      "target": "#144:0"
+    },
+    {
+      "type": "NetworkConnectionEdge",
+      "id": "#280:0",
+      "connectionType": "Buried Ethernet",
+      "priority": 1,
+      "source": "#143:0",
+      "target": "#145:0"
+    },
+    {
+      "type": "NetworkConnectionEdge",
+      "id": "#281:0",
+      "connectionType": "Buried Ethernet",
+      "priority": 1,
+      "source": "#144:0",
+      "target": "#145:0"
+    },
+    {
+      "type": "NetworkConnectionEdge",
+      "id": "#282:0",
+      "connectionType": "Buried Ethernet",
+      "priority": 1,
+      "source": "#142:0",
+      "target": "#145:0"
+    },
+    {
+      "type": "SoftwareEdge",
+      "id": "#284:0",
+      "source": "#141:0",
+      "target": "#148:0"
+    },
+    {
+      "type": "SoftwareEdge",
+      "id": "#285:0",
+      "source": "#142:0",
+      "target": "#149:0"
+    },
+    {
+      "type": "SoftwareEdge",
+      "id": "#286:0",
+      "source": "#143:0",
+      "target": "#150:0"
+    },
+    {
+      "type": "SoftwareEdge",
+      "id": "#287:0",
+      "source": "#144:0",
+      "target": "#150:0"
+    },
+    {
+      "type": "SoftwareEdge",
+      "id": "#288:0",
+      "source": "#145:0",
+      "target": "#151:0"
+    },
+    {
+      "type": "NetworkConnectionEdge",
+      "id": "#283:0",
+      "connectionType": "Fiber Ethernet",
+      "priority": 1,
+      "source": "#143:0",
+      "target": "#146:0"
+    },
+    {
+      "type": "SoftwareEdge",
+      "id": "#289:0",
+      "source": "#146:0",
+      "target": "#152:0"
+    },
+    {
+      "type": "NetworkConnectionEdge",
+      "id": "#276:1",
+      "connectionType": "Fiber Ethernet",
+      "priority": 1,
+      "source": "#143:0",
+      "target": "#147:0"
+    },
+    {
+      "type": "SoftwareEdge",
+      "id": "#290:0",
+      "source": "#147:0",
+      "target": "#152:0"
+    },
+    {
+      "type": "NetworkConnectionEdge",
+      "id": "#277:1",
+      "connectionType": "Fiber Ethernet",
+      "priority": 1,
+      "source": "#143:0",
+      "target": "#133:1"
+    },
+    {
+      "type": "SoftwareEdge",
+      "id": "#291:0",
+      "source": "#133:1",
+      "target": "#152:0"
+    },
+    {
+      "type": "NetworkConnectionEdge",
+      "id": "#278:1",
+      "connectionType": "Fiber Ethernet",
+      "priority": 1,
+      "source": "#143:0",
+      "target": "#141:1"
+    },
+    {
+      "type": "SoftwareEdge",
+      "id": "#284:1",
+      "source": "#141:1",
+      "target": "#152:0"
+    },
+    {
+      "type": "NetworkConnectionEdge",
+      "id": "#279:1",
+      "connectionType": "Fiber Ethernet",
+      "priority": 1,
+      "source": "#143:0",
+      "target": "#142:1"
+    },
+    {
+      "type": "SoftwareEdge",
+      "id": "#285:1",
+      "source": "#142:1",
+      "target": "#152:0"
+    },
+    {
+      "type": "NetworkConnectionEdge",
+      "id": "#280:1",
+      "connectionType": "Fiber Ethernet",
+      "priority": 1,
+      "source": "#143:0",
+      "target": "#143:1"
+    },
+    {
+      "type": "SoftwareEdge",
+      "id": "#286:1",
+      "source": "#143:1",
+      "target": "#152:0"
+    },
+    {
+      "type": "NetworkConnectionEdge",
+      "id": "#281:1",
+      "connectionType": "Fiber Ethernet",
+      "priority": 1,
+      "source": "#143:0",
+      "target": "#144:1"
+    },
+    {
+      "type": "SoftwareEdge",
+      "id": "#287:1",
+      "source": "#144:1",
+      "target": "#152:0"
+    },
+    {
+      "type": "NetworkConnectionEdge",
+      "id": "#282:1",
+      "connectionType": "Fiber Ethernet",
+      "priority": 1,
+      "source": "#143:0",
+      "target": "#145:1"
+    },
+    {
+      "type": "SoftwareEdge",
+      "id": "#288:1",
+      "source": "#145:1",
+      "target": "#152:0"
+    },
+    {
+      "type": "NetworkConnectionEdge",
+      "id": "#283:1",
+      "connectionType": "802.11 Wi-Fi",
+      "priority": 1,
+      "source": "#144:0",
+      "target": "#146:1"
+    },
+    {
+      "type": "SoftwareEdge",
+      "id": "#289:1",
+      "source": "#146:1",
+      "target": "#152:0"
+    },
+    {
+      "type": "NetworkConnectionEdge",
+      "id": "#276:2",
+      "connectionType": "802.11 Wi-Fi",
+      "priority": 1,
+      "source": "#144:0",
+      "target": "#147:1"
+    },
+    {
+      "type": "SoftwareEdge",
+      "id": "#290:1",
+      "source": "#147:1",
+      "target": "#152:0"
+    },
+    {
+      "type": "NetworkConnectionEdge",
+      "id": "#277:2",
+      "connectionType": "802.11 Wi-Fi",
+      "priority": 1,
+      "source": "#144:0",
+      "target": "#133:2"
+    },
+    {
+      "type": "SoftwareEdge",
+      "id": "#291:1",
+      "source": "#133:2",
+      "target": "#152:0"
+    },
+    {
+      "type": "NetworkConnectionEdge",
+      "id": "#278:2",
+      "connectionType": "802.11 Wi-Fi",
+      "priority": 1,
+      "source": "#144:0",
+      "target": "#141:2"
+    },
+    {
+      "type": "SoftwareEdge",
+      "id": "#284:2",
+      "source": "#141:2",
+      "target": "#152:0"
+    },
+    {
+      "type": "NetworkConnectionEdge",
+      "id": "#279:2",
+      "connectionType": "802.11 Wi-Fi",
+      "priority": 1,
+      "source": "#144:0",
+      "target": "#142:2"
+    },
+    {
+      "type": "SoftwareEdge",
+      "id": "#285:2",
+      "source": "#142:2",
+      "target": "#152:0"
+    },
+    {
+      "type": "NetworkConnectionEdge",
+      "id": "#280:2",
+      "connectionType": "802.11 Wi-Fi",
+      "priority": 1,
+      "source": "#144:0",
+      "target": "#143:2"
+    },
+    {
+      "type": "SoftwareEdge",
+      "id": "#286:2",
+      "source": "#143:2",
+      "target": "#152:0"
+    },
+    {
+      "type": "NetworkConnectionEdge",
+      "id": "#281:2",
+      "connectionType": "802.11 Wi-Fi",
+      "priority": 1,
+      "source": "#144:0",
+      "target": "#144:2"
+    },
+    {
+      "type": "SoftwareEdge",
+      "id": "#287:2",
+      "source": "#144:2",
+      "target": "#152:0"
+    },
+    {
+      "type": "NetworkConnectionEdge",
+      "id": "#282:2",
+      "connectionType": "802.11 Wi-Fi",
+      "priority": 1,
+      "source": "#144:0",
+      "target": "#145:2"
+    },
+    {
+      "type": "SoftwareEdge",
+      "id": "#288:2",
+      "source": "#145:2",
+      "target": "#152:0"
+    },
+    {
+      "type": "NetworkConnectionEdge",
+      "id": "#283:2",
+      "connectionType": "802.11 Wi-Fi",
+      "priority": 1,
+      "source": "#144:0",
+      "target": "#146:2"
+    },
+    {
+      "type": "SoftwareEdge",
+      "id": "#289:2",
+      "source": "#146:2",
+      "target": "#152:0"
+    },
+    {
+      "type": "NetworkConnectionEdge",
+      "id": "#276:3",
+      "connectionType": "802.11 Wi-Fi",
+      "priority": 1,
+      "source": "#144:0",
+      "target": "#147:2"
+    },
+    {
+      "type": "SoftwareEdge",
+      "id": "#290:2",
+      "source": "#147:2",
+      "target": "#152:0"
+    },
+    {
+      "type": "NetworkConnectionEdge",
+      "id": "#277:3",
+      "connectionType": "802.11 Wi-Fi",
+      "priority": 1,
+      "source": "#144:0",
+      "target": "#133:3"
+    },
+    {
+      "type": "SoftwareEdge",
+      "id": "#291:2",
+      "source": "#133:3",
+      "target": "#152:0"
+    },
+    {
+      "type": "NetworkConnectionEdge",
+      "id": "#278:3",
+      "connectionType": "802.11 Wi-Fi",
+      "priority": 1,
+      "source": "#144:0",
+      "target": "#141:3"
+    },
+    {
+      "type": "SoftwareEdge",
+      "id": "#284:3",
+      "source": "#141:3",
+      "target": "#152:0"
+    },
+    {
+      "type": "SoftwareEdge",
+      "id": "#285:3",
+      "source": "#142:3",
+      "target": "#153:0"
+    },
+    {
+      "type": "SoftwareVulnerabilityEdge",
+      "id": "#308:0",
+      "applicability": "YES",
+      "source": "#153:0",
+      "target": "#164:0"
+    },
+    {
+      "type": "NetworkConnectionEdge",
+      "id": "#279:3",
+      "connectionType": "802.11 Wi-Fi",
+      "priority": 1,
+      "source": "#144:0",
+      "target": "#142:3"
+    },
+    {
+      "type": "SoftwareEdge",
+      "id": "#286:3",
+      "source": "#142:3",
+      "target": "#152:0"
+    },
+    {
+      "type": "SoftwareVulnerabilityEdge",
+      "id": "#309:0",
+      "applicability": "YES",
+      "source": "#148:0",
+      "target": "#165:0"
+    },
+    {
+      "type": "SoftwareVulnerabilityEdge",
+      "id": "#310:0",
+      "applicability": "YES",
+      "source": "#148:0",
+      "target": "#166:0"
+    },
+    {
+      "type": "SoftwareVulnerabilityEdge",
+      "id": "#311:0",
+      "applicability": "YES",
+      "source": "#148:0",
+      "target": "#167:0"
+    },
+    {
+      "type": "SoftwareVulnerabilityEdge",
+      "id": "#312:0",
+      "applicability": "YES",
+      "source": "#148:0",
+      "target": "#168:0"
+    },
+    {
+      "type": "SoftwareVulnerabilityEdge",
+      "id": "#313:0",
+      "applicability": "YES",
+      "source": "#148:0",
+      "target": "#169:0"
+    },
+    {
+      "type": "SoftwareVulnerabilityEdge",
+      "id": "#314:0",
+      "applicability": "YES",
+      "source": "#149:0",
+      "target": "#170:0"
+    },
+    {
+      "type": "SoftwareVulnerabilityEdge",
+      "id": "#315:0",
+      "applicability": "YES",
+      "source": "#149:0",
+      "target": "#171:0"
+    },
+    {
+      "type": "SoftwareVulnerabilityEdge",
+      "id": "#308:1",
+      "applicability": "YES",
+      "source": "#149:0",
+      "target": "#164:1"
+    },
+    {
+      "type": "SoftwareVulnerabilityEdge",
+      "id": "#309:1",
+      "applicability": "YES",
+      "source": "#149:0",
+      "target": "#165:1"
+    },
+    {
+      "type": "SoftwareVulnerabilityEdge",
+      "id": "#310:1",
+      "applicability": "YES",
+      "source": "#149:0",
+      "target": "#166:1"
+    },
+    {
+      "type": "SoftwareVulnerabilityEdge",
+      "id": "#311:1",
+      "applicability": "YES",
+      "source": "#150:0",
+      "target": "#167:1"
+    },
+    {
+      "type": "SoftwareVulnerabilityEdge",
+      "id": "#312:1",
+      "applicability": "YES",
+      "source": "#150:0",
+      "target": "#168:1"
+    },
+    {
+      "type": "SoftwareVulnerabilityEdge",
+      "id": "#313:1",
+      "applicability": "YES",
+      "source": "#151:0",
+      "target": "#169:1"
+    },
+    {
+      "type": "SoftwareVulnerabilityEdge",
+      "id": "#314:1",
+      "applicability": "YES",
+      "source": "#151:0",
+      "target": "#170:1"
+    },
+    {
+      "type": "SoftwareVulnerabilityEdge",
+      "id": "#315:1",
+      "applicability": "YES",
+      "source": "#152:0",
+      "target": "#171:1"
+    },
+    {
+      "type": "SoftwareVulnerabilityEdge",
+      "id": "#308:2",
+      "applicability": "YES",
+      "source": "#152:0",
+      "target": "#164:2"
+    },
+    {
+      "type": "NetworkEdge",
+      "id": "#340:0",
+      "source": "#188:0",
+      "target": "#133:0"
+    },
+    {
+      "type": "NetworkEdge",
+      "id": "#341:0",
+      "source": "#188:0",
+      "target": "#141:0"
+    },
+    {
+      "type": "NetworkEdge",
+      "id": "#342:0",
+      "source": "#188:0",
+      "target": "#142:0"
+    },
+    {
+      "type": "NetworkEdge",
+      "id": "#343:0",
+      "source": "#188:0",
+      "target": "#143:0"
+    },
+    {
+      "type": "NetworkEdge",
+      "id": "#344:0",
+      "source": "#188:0",
+      "target": "#144:0"
+    },
+    {
+      "type": "NetworkEdge",
+      "id": "#345:0",
+      "source": "#188:0",
+      "target": "#145:0"
+    },
+    {
+      "type": "NetworkEdge",
+      "id": "#346:0",
+      "source": "#188:0",
+      "target": "#148:0"
+    },
+    {
+      "type": "NetworkEdge",
+      "id": "#347:0",
+      "source": "#188:0",
+      "target": "#149:0"
+    },
+    {
+      "type": "NetworkEdge",
+      "id": "#340:1",
+      "source": "#188:0",
+      "target": "#150:0"
+    },
+    {
+      "type": "NetworkEdge",
+      "id": "#341:1",
+      "source": "#188:0",
+      "target": "#151:0"
+    },
+    {
+      "type": "NetworkEdge",
+      "id": "#342:1",
+      "source": "#188:0",
+      "target": "#152:0"
+    },
+    {
+      "type": "NetworkEdge",
+      "id": "#343:1",
+      "source": "#188:0",
+      "target": "#146:0"
+    },
+    {
+      "type": "NetworkEdge",
+      "id": "#344:1",
+      "source": "#188:0",
+      "target": "#147:0"
+    },
+    {
+      "type": "NetworkEdge",
+      "id": "#345:1",
+      "source": "#188:0",
+      "target": "#133:1"
+    },
+    {
+      "type": "NetworkEdge",
+      "id": "#346:1",
+      "source": "#188:0",
+      "target": "#141:1"
+    },
+    {
+      "type": "NetworkEdge",
+      "id": "#347:1",
+      "source": "#188:0",
+      "target": "#142:1"
+    },
+    {
+      "type": "NetworkEdge",
+      "id": "#340:2",
+      "source": "#188:0",
+      "target": "#143:1"
+    },
+    {
+      "type": "NetworkEdge",
+      "id": "#341:2",
+      "source": "#188:0",
+      "target": "#144:1"
+    },
+    {
+      "type": "NetworkEdge",
+      "id": "#342:2",
+      "source": "#188:0",
+      "target": "#145:1"
+    },
+    {
+      "type": "NetworkEdge",
+      "id": "#343:2",
+      "source": "#188:0",
+      "target": "#146:1"
+    },
+    {
+      "type": "NetworkEdge",
+      "id": "#344:2",
+      "source": "#188:0",
+      "target": "#147:1"
+    },
+    {
+      "type": "NetworkEdge",
+      "id": "#345:2",
+      "source": "#188:0",
+      "target": "#133:2"
+    },
+    {
+      "type": "NetworkEdge",
+      "id": "#346:2",
+      "source": "#188:0",
+      "target": "#141:2"
+    },
+    {
+      "type": "NetworkEdge",
+      "id": "#347:2",
+      "source": "#188:0",
+      "target": "#142:2"
+    },
+    {
+      "type": "NetworkEdge",
+      "id": "#340:3",
+      "source": "#188:0",
+      "target": "#143:2"
+    },
+    {
+      "type": "NetworkEdge",
+      "id": "#341:3",
+      "source": "#188:0",
+      "target": "#144:2"
+    },
+    {
+      "type": "NetworkEdge",
+      "id": "#342:3",
+      "source": "#188:0",
+      "target": "#145:2"
+    },
+    {
+      "type": "NetworkEdge",
+      "id": "#343:3",
+      "source": "#188:0",
+      "target": "#146:2"
+    },
+    {
+      "type": "NetworkEdge",
+      "id": "#344:3",
+      "source": "#188:0",
+      "target": "#147:2"
+    },
+    {
+      "type": "NetworkEdge",
+      "id": "#345:3",
+      "source": "#188:0",
+      "target": "#133:3"
+    },
+    {
+      "type": "NetworkEdge",
+      "id": "#346:3",
+      "source": "#188:0",
+      "target": "#141:3"
+    },
+    {
+      "type": "NetworkEdge",
+      "id": "#347:3",
+      "source": "#188:0",
+      "target": "#153:0"
+    },
+    {
+      "type": "NetworkEdge",
+      "id": "#340:4",
+      "source": "#188:0",
+      "target": "#164:0"
+    },
+    {
+      "type": "NetworkEdge",
+      "id": "#341:4",
+      "source": "#188:0",
+      "target": "#142:3"
+    },
+    {
+      "type": "NetworkEdge",
+      "id": "#342:4",
+      "source": "#188:0",
+      "target": "#165:0"
+    },
+    {
+      "type": "NetworkEdge",
+      "id": "#343:4",
+      "source": "#188:0",
+      "target": "#166:0"
+    },
+    {
+      "type": "NetworkEdge",
+      "id": "#344:4",
+      "source": "#188:0",
+      "target": "#167:0"
+    },
+    {
+      "type": "NetworkEdge",
+      "id": "#345:4",
+      "source": "#188:0",
+      "target": "#168:0"
+    },
+    {
+      "type": "NetworkEdge",
+      "id": "#346:4",
+      "source": "#188:0",
+      "target": "#169:0"
+    },
+    {
+      "type": "NetworkEdge",
+      "id": "#347:4",
+      "source": "#188:0",
+      "target": "#170:0"
+    },
+    {
+      "type": "NetworkEdge",
+      "id": "#340:5",
+      "source": "#188:0",
+      "target": "#171:0"
+    },
+    {
+      "type": "NetworkEdge",
+      "id": "#341:5",
+      "source": "#188:0",
+      "target": "#164:1"
+    },
+    {
+      "type": "NetworkEdge",
+      "id": "#342:5",
+      "source": "#188:0",
+      "target": "#165:1"
+    },
+    {
+      "type": "NetworkEdge",
+      "id": "#343:5",
+      "source": "#188:0",
+      "target": "#166:1"
+    },
+    {
+      "type": "NetworkEdge",
+      "id": "#344:5",
+      "source": "#188:0",
+      "target": "#167:1"
+    },
+    {
+      "type": "NetworkEdge",
+      "id": "#345:5",
+      "source": "#188:0",
+      "target": "#168:1"
+    },
+    {
+      "type": "NetworkEdge",
+      "id": "#346:5",
+      "source": "#188:0",
+      "target": "#169:1"
+    },
+    {
+      "type": "NetworkEdge",
+      "id": "#347:5",
+      "source": "#188:0",
+      "target": "#170:1"
+    },
+    {
+      "type": "NetworkEdge",
+      "id": "#340:6",
+      "source": "#188:0",
+      "target": "#171:1"
+    },
+    {
+      "type": "NetworkEdge",
+      "id": "#341:6",
+      "source": "#188:0",
+      "target": "#164:2"
+    },
+    {
+      "type": "NetworkConnectionEdge",
+      "id": "#280:3",
+      "connectionType": "Satellite Link",
+      "priority": 1,
+      "source": "#143:3",
+      "target": "#144:3"
+    },
+    {
+      "type": "NetworkConnectionEdge",
+      "id": "#281:3",
+      "connectionType": "Buried Ethernet",
+      "priority": 1,
+      "source": "#144:3",
+      "target": "#145:3"
+    },
+    {
+      "type": "NetworkConnectionEdge",
+      "id": "#282:3",
+      "connectionType": "Buried Ethernet",
+      "priority": 1,
+      "source": "#144:3",
+      "target": "#146:3"
+    },
+    {
+      "type": "NetworkConnectionEdge",
+      "id": "#283:3",
+      "connectionType": "Buried Ethernet",
+      "priority": 1,
+      "source": "#144:3",
+      "target": "#147:3"
+    },
+    {
+      "type": "NetworkConnectionEdge",
+      "id": "#276:4",
+      "connectionType": "Buried Ethernet",
+      "priority": 1,
+      "source": "#145:3",
+      "target": "#133:4"
+    },
+    {
+      "type": "NetworkConnectionEdge",
+      "id": "#277:4",
+      "connectionType": "Buried Ethernet",
+      "priority": 1,
+      "source": "#145:3",
+      "target": "#141:4"
+    },
+    {
+      "type": "NetworkConnectionEdge",
+      "id": "#278:4",
+      "connectionType": "Buried Ethernet",
+      "priority": 1,
+      "source": "#145:3",
+      "target": "#142:4"
+    },
+    {
+      "type": "NetworkConnectionEdge",
+      "id": "#279:4",
+      "connectionType": "Armoured Ethernet",
+      "priority": 1,
+      "source": "#146:3",
+      "target": "#143:4"
+    },
+    {
+      "type": "NetworkConnectionEdge",
+      "id": "#280:4",
+      "connectionType": "Armoured Ethernet",
+      "priority": 1,
+      "source": "#146:3",
+      "target": "#144:4"
+    },
+    {
+      "type": "NetworkConnectionEdge",
+      "id": "#281:4",
+      "connectionType": "Armoured Ethernet",
+      "priority": 1,
+      "source": "#146:3",
+      "target": "#145:4"
+    },
+    {
+      "type": "NetworkConnectionEdge",
+      "id": "#282:4",
+      "connectionType": "Armoured Ethernet",
+      "priority": 1,
+      "source": "#146:3",
+      "target": "#146:4"
+    },
+    {
+      "type": "NetworkConnectionEdge",
+      "id": "#283:4",
+      "connectionType": "Armoured Ethernet",
+      "priority": 1,
+      "source": "#146:3",
+      "target": "#147:4"
+    },
+    {
+      "type": "NetworkConnectionEdge",
+      "id": "#276:5",
+      "connectionType": "Armoured Ethernet",
+      "priority": 1,
+      "source": "#146:3",
+      "target": "#133:5"
+    },
+    {
+      "type": "NetworkConnectionEdge",
+      "id": "#277:5",
+      "connectionType": "3G Mobile",
+      "priority": 1,
+      "source": "#147:3",
+      "target": "#141:5"
+    },
+    {
+      "type": "NetworkConnectionEdge",
+      "id": "#278:5",
+      "connectionType": "3G Mobile",
+      "priority": 1,
+      "source": "#147:3",
+      "target": "#142:5"
+    },
+    {
+      "type": "NetworkConnectionEdge",
+      "id": "#279:5",
+      "connectionType": "3G Mobile",
+      "priority": 1,
+      "source": "#147:3",
+      "target": "#143:5"
+    },
+    {
+      "type": "NetworkConnectionEdge",
+      "id": "#280:5",
+      "connectionType": "3G Mobile",
+      "priority": 1,
+      "source": "#147:3",
+      "target": "#144:5"
+    },
+    {
+      "type": "NetworkConnectionEdge",
+      "id": "#281:5",
+      "connectionType": "3G Mobile",
+      "priority": 1,
+      "source": "#147:3",
+      "target": "#145:5"
+    },
+    {
+      "type": "NetworkConnectionEdge",
+      "id": "#282:5",
+      "connectionType": "3G Mobile",
+      "priority": 1,
+      "source": "#147:3",
+      "target": "#146:5"
+    },
+    {
+      "type": "NetworkConnectionEdge",
+      "id": "#283:5",
+      "connectionType": "3G Mobile",
+      "priority": 1,
+      "source": "#147:3",
+      "target": "#147:5"
+    },
+    {
+      "type": "NetworkConnectionEdge",
+      "id": "#276:6",
+      "connectionType": "3G Mobile",
+      "priority": 1,
+      "source": "#147:3",
+      "target": "#133:6"
+    },
+    {
+      "type": "NetworkConnectionEdge",
+      "id": "#277:6",
+      "connectionType": "3G Mobile",
+      "priority": 1,
+      "source": "#147:3",
+      "target": "#141:6"
+    },
+    {
+      "type": "NetworkConnectionEdge",
+      "id": "#278:6",
+      "connectionType": "3G Mobile",
+      "priority": 1,
+      "source": "#147:3",
+      "target": "#142:6"
+    },
+    {
+      "type": "NetworkEdge",
+      "id": "#342:6",
+      "source": "#189:0",
+      "target": "#143:3"
+    },
+    {
+      "type": "NetworkEdge",
+      "id": "#343:6",
+      "source": "#189:0",
+      "target": "#144:3"
+    },
+    {
+      "type": "NetworkEdge",
+      "id": "#344:6",
+      "source": "#189:0",
+      "target": "#145:3"
+    },
+    {
+      "type": "NetworkEdge",
+      "id": "#345:6",
+      "source": "#189:0",
+      "target": "#146:3"
+    },
+    {
+      "type": "NetworkEdge",
+      "id": "#346:6",
+      "source": "#189:0",
+      "target": "#147:3"
+    },
+    {
+      "type": "NetworkEdge",
+      "id": "#347:6",
+      "source": "#189:0",
+      "target": "#133:4"
+    },
+    {
+      "type": "NetworkEdge",
+      "id": "#340:7",
+      "source": "#189:0",
+      "target": "#141:4"
+    },
+    {
+      "type": "NetworkEdge",
+      "id": "#341:7",
+      "source": "#189:0",
+      "target": "#142:4"
+    },
+    {
+      "type": "NetworkEdge",
+      "id": "#342:7",
+      "source": "#189:0",
+      "target": "#143:4"
+    },
+    {
+      "type": "NetworkEdge",
+      "id": "#343:7",
+      "source": "#189:0",
+      "target": "#144:4"
+    },
+    {
+      "type": "NetworkEdge",
+      "id": "#344:7",
+      "source": "#189:0",
+      "target": "#145:4"
+    },
+    {
+      "type": "NetworkEdge",
+      "id": "#345:7",
+      "source": "#189:0",
+      "target": "#146:4"
+    },
+    {
+      "type": "NetworkEdge",
+      "id": "#346:7",
+      "source": "#189:0",
+      "target": "#147:4"
+    },
+    {
+      "type": "NetworkEdge",
+      "id": "#347:7",
+      "source": "#189:0",
+      "target": "#133:5"
+    },
+    {
+      "type": "NetworkEdge",
+      "id": "#340:8",
+      "source": "#189:0",
+      "target": "#141:5"
+    },
+    {
+      "type": "NetworkEdge",
+      "id": "#341:8",
+      "source": "#189:0",
+      "target": "#142:5"
+    },
+    {
+      "type": "NetworkEdge",
+      "id": "#342:8",
+      "source": "#189:0",
+      "target": "#143:5"
+    },
+    {
+      "type": "NetworkEdge",
+      "id": "#343:8",
+      "source": "#189:0",
+      "target": "#144:5"
+    },
+    {
+      "type": "NetworkEdge",
+      "id": "#344:8",
+      "source": "#189:0",
+      "target": "#145:5"
+    },
+    {
+      "type": "NetworkEdge",
+      "id": "#345:8",
+      "source": "#189:0",
+      "target": "#146:5"
+    },
+    {
+      "type": "NetworkEdge",
+      "id": "#346:8",
+      "source": "#189:0",
+      "target": "#147:5"
+    },
+    {
+      "type": "NetworkEdge",
+      "id": "#347:8",
+      "source": "#189:0",
+      "target": "#133:6"
+    },
+    {
+      "type": "NetworkEdge",
+      "id": "#340:9",
+      "source": "#189:0",
+      "target": "#141:6"
+    },
+    {
+      "type": "NetworkEdge",
+      "id": "#341:9",
+      "source": "#189:0",
+      "target": "#142:6"
+    },
+    {
+      "type": "NetworkConnectionEdge",
+      "id": "#279:6",
+      "connectionType": "Buried Ethernet",
+      "priority": 1,
+      "source": "#143:6",
+      "target": "#144:6"
+    },
+    {
+      "type": "NetworkConnectionEdge",
+      "id": "#280:6",
+      "connectionType": "Buried Ethernet",
+      "priority": 1,
+      "source": "#143:6",
+      "target": "#145:6"
+    },
+    {
+      "type": "NetworkConnectionEdge",
+      "id": "#281:6",
+      "connectionType": "Buried Ethernet",
+      "priority": 1,
+      "source": "#143:6",
+      "target": "#146:6"
+    },
+    {
+      "type": "NetworkConnectionEdge",
+      "id": "#282:6",
+      "connectionType": "Fiber Ethernet",
+      "priority": 1,
+      "source": "#144:6",
+      "target": "#147:6"
+    },
+    {
+      "type": "NetworkConnectionEdge",
+      "id": "#283:6",
+      "connectionType": "Fiber Ethernet",
+      "priority": 1,
+      "source": "#144:6",
+      "target": "#133:7"
+    },
+    {
+      "type": "NetworkConnectionEdge",
+      "id": "#276:7",
+      "connectionType": "Fiber Ethernet",
+      "priority": 1,
+      "source": "#144:6",
+      "target": "#141:7"
+    },
+    {
+      "type": "NetworkConnectionEdge",
+      "id": "#277:7",
+      "connectionType": "Fiber Ethernet",
+      "priority": 1,
+      "source": "#145:6",
+      "target": "#142:7"
+    },
+    {
+      "type": "NetworkConnectionEdge",
+      "id": "#278:7",
+      "connectionType": "Fiber Ethernet",
+      "priority": 1,
+      "source": "#145:6",
+      "target": "#143:7"
+    },
+    {
+      "type": "NetworkConnectionEdge",
+      "id": "#279:7",
+      "connectionType": "Fiber Ethernet",
+      "priority": 1,
+      "source": "#145:6",
+      "target": "#144:7"
+    },
+    {
+      "type": "NetworkConnectionEdge",
+      "id": "#280:7",
+      "connectionType": "Fiber Ethernet",
+      "priority": 1,
+      "source": "#146:6",
+      "target": "#145:7"
+    },
+    {
+      "type": "NetworkConnectionEdge",
+      "id": "#281:7",
+      "connectionType": "Fiber Ethernet",
+      "priority": 1,
+      "source": "#146:6",
+      "target": "#146:7"
+    },
+    {
+      "type": "NetworkConnectionEdge",
+      "id": "#282:7",
+      "connectionType": "Fiber Ethernet",
+      "priority": 1,
+      "source": "#146:6",
+      "target": "#147:7"
+    },
+    {
+      "type": "NetworkConnectionEdge",
+      "id": "#283:7",
+      "connectionType": "Fiber Ethernet",
+      "priority": 1,
+      "source": "#146:6",
+      "target": "#133:8"
+    },
+    {
+      "type": "NetworkConnectionEdge",
+      "id": "#276:8",
+      "connectionType": "Fiber Ethernet",
+      "priority": 1,
+      "source": "#146:6",
+      "target": "#141:8"
+    },
+    {
+      "type": "NetworkConnectionEdge",
+      "id": "#277:8",
+      "connectionType": "Fiber Ethernet",
+      "priority": 1,
+      "source": "#146:6",
+      "target": "#142:8"
+    },
+    {
+      "type": "NetworkConnectionEdge",
+      "id": "#278:8",
+      "connectionType": "Fiber Ethernet",
+      "priority": 1,
+      "source": "#146:6",
+      "target": "#143:8"
+    },
+    {
+      "type": "NetworkConnectionEdge",
+      "id": "#279:8",
+      "connectionType": "Fiber Ethernet",
+      "priority": 1,
+      "source": "#146:6",
+      "target": "#144:8"
+    },
+    {
+      "type": "NetworkConnectionEdge",
+      "id": "#280:8",
+      "connectionType": "Fiber Ethernet",
+      "priority": 1,
+      "source": "#146:6",
+      "target": "#145:8"
+    },
+    {
+      "type": "NetworkConnectionEdge",
+      "id": "#281:8",
+      "connectionType": "Fiber Ethernet",
+      "priority": 1,
+      "source": "#146:6",
+      "target": "#146:8"
+    },
+    {
+      "type": "NetworkConnectionEdge",
+      "id": "#282:8",
+      "connectionType": "Fiber Ethernet",
+      "priority": 1,
+      "source": "#146:6",
+      "target": "#147:8"
+    },
+    {
+      "type": "NetworkConnectionEdge",
+      "id": "#283:8",
+      "connectionType": "Fiber Ethernet",
+      "priority": 1,
+      "source": "#146:6",
+      "target": "#133:9"
+    },
+    {
+      "type": "NetworkConnectionEdge",
+      "id": "#276:9",
+      "connectionType": "Fiber Ethernet",
+      "priority": 1,
+      "source": "#146:6",
+      "target": "#141:9"
+    },
+    {
+      "type": "NetworkConnectionEdge",
+      "id": "#277:9",
+      "connectionType": "Fiber Ethernet",
+      "priority": 1,
+      "source": "#146:6",
+      "target": "#142:9"
+    },
+    {
+      "type": "NetworkConnectionEdge",
+      "id": "#278:9",
+      "connectionType": "Fiber Ethernet",
+      "priority": 1,
+      "source": "#146:6",
+      "target": "#143:9"
+    },
+    {
+      "type": "NetworkConnectionEdge",
+      "id": "#279:9",
+      "connectionType": "Fiber Ethernet",
+      "priority": 1,
+      "source": "#146:6",
+      "target": "#144:9"
+    },
+    {
+      "type": "NetworkEdge",
+      "id": "#342:9",
+      "source": "#190:0",
+      "target": "#143:6"
+    },
+    {
+      "type": "NetworkEdge",
+      "id": "#343:9",
+      "source": "#190:0",
+      "target": "#144:6"
+    },
+    {
+      "type": "NetworkEdge",
+      "id": "#344:9",
+      "source": "#190:0",
+      "target": "#145:6"
+    },
+    {
+      "type": "NetworkEdge",
+      "id": "#345:9",
+      "source": "#190:0",
+      "target": "#146:6"
+    },
+    {
+      "type": "NetworkEdge",
+      "id": "#346:9",
+      "source": "#190:0",
+      "target": "#147:6"
+    },
+    {
+      "type": "NetworkEdge",
+      "id": "#347:9",
+      "source": "#190:0",
+      "target": "#133:7"
+    },
+    {
+      "type": "NetworkEdge",
+      "id": "#340:10",
+      "source": "#190:0",
+      "target": "#141:7"
+    },
+    {
+      "type": "NetworkEdge",
+      "id": "#341:10",
+      "source": "#190:0",
+      "target": "#142:7"
+    },
+    {
+      "type": "NetworkEdge",
+      "id": "#342:10",
+      "source": "#190:0",
+      "target": "#143:7"
+    },
+    {
+      "type": "NetworkEdge",
+      "id": "#343:10",
+      "source": "#190:0",
+      "target": "#144:7"
+    },
+    {
+      "type": "NetworkEdge",
+      "id": "#344:10",
+      "source": "#190:0",
+      "target": "#145:7"
+    },
+    {
+      "type": "NetworkEdge",
+      "id": "#345:10",
+      "source": "#190:0",
+      "target": "#146:7"
+    },
+    {
+      "type": "NetworkEdge",
+      "id": "#346:10",
+      "source": "#190:0",
+      "target": "#147:7"
+    },
+    {
+      "type": "NetworkEdge",
+      "id": "#347:10",
+      "source": "#190:0",
+      "target": "#133:8"
+    },
+    {
+      "type": "NetworkEdge",
+      "id": "#340:11",
+      "source": "#190:0",
+      "target": "#141:8"
+    },
+    {
+      "type": "NetworkEdge",
+      "id": "#341:11",
+      "source": "#190:0",
+      "target": "#142:8"
+    },
+    {
+      "type": "NetworkEdge",
+      "id": "#342:11",
+      "source": "#190:0",
+      "target": "#143:8"
+    },
+    {
+      "type": "NetworkEdge",
+      "id": "#343:11",
+      "source": "#190:0",
+      "target": "#144:8"
+    },
+    {
+      "type": "NetworkEdge",
+      "id": "#344:11",
+      "source": "#190:0",
+      "target": "#145:8"
+    },
+    {
+      "type": "NetworkEdge",
+      "id": "#345:11",
+      "source": "#190:0",
+      "target": "#146:8"
+    },
+    {
+      "type": "NetworkEdge",
+      "id": "#346:11",
+      "source": "#190:0",
+      "target": "#147:8"
+    },
+    {
+      "type": "NetworkEdge",
+      "id": "#347:11",
+      "source": "#190:0",
+      "target": "#133:9"
+    },
+    {
+      "type": "NetworkEdge",
+      "id": "#340:12",
+      "source": "#190:0",
+      "target": "#141:9"
+    },
+    {
+      "type": "NetworkEdge",
+      "id": "#341:12",
+      "source": "#190:0",
+      "target": "#142:9"
+    },
+    {
+      "type": "NetworkEdge",
+      "id": "#342:12",
+      "source": "#190:0",
+      "target": "#143:9"
+    },
+    {
+      "type": "NetworkEdge",
+      "id": "#343:12",
+      "source": "#190:0",
+      "target": "#144:9"
+    },
+    {
+      "type": "DeviceEdge",
+      "id": "#268:0",
+      "source": "#43:0",
+      "target": "#145:0"
+    },
+    {
+      "type": "DeviceEdge",
+      "id": "#269:0",
+      "source": "#25:0",
+      "target": "#144:3"
+    },
+    {
+      "type": "DeviceEdge",
+      "id": "#270:0",
+      "source": "#42:0",
+      "target": "#143:6"
+    },
+    {
+      "type": "DeviceEdge",
+      "id": "#271:0",
+      "source": "#46:0",
+      "target": "#146:0"
+    }
+  ]
+}

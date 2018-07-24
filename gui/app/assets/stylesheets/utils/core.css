@@ -1,0 +1,42 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  background: $light-grey;
+  color: $dark-grey;
+}
+
+::selection {
+  background-color: $brand;
+  color: $white;
+}
+
+a {
+  color: $brand;
+  text-decoration: none;
+
+  &:hover {
+    border-bottom: 1px dotted $brand;
+  }
+}
+
+p {
+  margin-bottom: 1em;
+}
+
+h1 {
+  border-bottom: 1px dotted $brand;
+  display: block;
+  font-weight: 300;
+  margin: 2rem 0 1rem;
+  padding-bottom: 0.5rem;
+}

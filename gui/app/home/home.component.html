@@ -1,0 +1,78 @@
+<div class="jumbotron vertical-center">
+  <div class="slim-container text-center">
+    <img src="./app/assets/img/pax-logo-original.png">
+    <br/>
+    <br/>
+    <p style="color:#4f5652">If no data is loaded in the database, press the 'Insert network and risk data' button below (takes about 10 seconds) and then select a threat actor with the 'Insert threat data' button. If you want to drop the database, then select the 'Drop all data' button below.</p>
+    <p style="color:#4f5652"><strong>Current data status: </strong>{{ dataStatus.status }} {{ dataStatus.reason }}</p>
+
+    <!-- Button to get and post network and risk appetite data -->
+    <button type = "button" class = "btn btn-info" (click) = "postAllData()">
+      <i class = "fa fa-check-circle fa-fw" *ngIf = "networkDataStatus == 201 && riskAppetiteDataStatus == 201"></i>
+      <i class = "fa fa-refresh fa-spin fa-fw" *ngIf = "networkDataLoading == 1"></i>Insert network and risk data
+    </button>
+
+    <!-- Dropdown button to insert threat data -->
+    <div class="btn-group">
+      <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class = "fa fa-check-circle fa-fw" *ngIf = "threatActorStatus == 201"></i>
+        <i class = "fa fa-refresh fa-spin fa-fw" *ngIf = "threatDataLoading == 1"></i>Insert threat data <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a tabindex="-1">Insider</a>
+          <ul class="dropdown-menu">
+            <li><a tabindex="-1" (click) = "postThreatActorData('insider', 1)">Indirect access</a></li>
+            <li><a tabindex="-1" (click) = "postThreatActorData('insider', 2)">Normal user</a></li>
+            <li><a tabindex="-1" (click) = "postThreatActorData('insider', 3)">Privileged user</a></li>
+          </ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a tabindex="-1">FIS</a>
+          <ul class="dropdown-menu">
+            <li><a tabindex="-1" (click) = "postThreatActorData('fis', 1)">Developing nation</a></li>
+            <li><a tabindex="-1" (click) = "postThreatActorData('fis', 2)">Western</a></li>
+            <li><a tabindex="-1" (click) = "postThreatActorData('fis', 3)">Rest of world</a></li>
+          </ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a tabindex="-1">Hacker</a>
+          <ul class="dropdown-menu">
+            <li><a tabindex="-1" (click) = "postThreatActorData('hacker', 1)">Amateur hacker</a></li>
+            <li><a tabindex="-1" (click) = "postThreatActorData('hacker', 2)">Professional hacker</a></li>
+            <li><a tabindex="-1" (click) = "postThreatActorData('hacker', 3)">Virus and malware writer</a></li>
+            <li><a tabindex="-1" (click) = "postThreatActorData('hacker', 4)">Professional hacker team</a></li>
+          </ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a tabindex="-1">Terrorist</a>
+          <ul class="dropdown-menu">
+            <li><a tabindex="-1" (click) = "postThreatActorData('terrorist', 1)">UK-based or non-operational theatre</a></li>
+            <li><a tabindex="-1" (click) = "postThreatActorData('terrorist', 2)">Operational theatre</a></li>
+            <li><a tabindex="-1" (click) = "postThreatActorData('terrorist', 3)">Islamic extremists</a></li>
+          </ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a tabindex="-1">Organised criminal group</a>
+          <ul class="dropdown-menu">
+            <li><a tabindex="-1" (click) = "postThreatActorData('criminal', 1)">Local</a></li>
+            <li><a tabindex="-1" (click) = "postThreatActorData('criminal', 2)">International</a></li>
+          </ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a tabindex="-1">Radio enthusiasts</a>
+          <ul class="dropdown-menu">
+            <li><a tabindex="-1" (click) = "postThreatActorData('radio', 1)">Encrypted digital traffic</a></li>
+            <li><a tabindex="-1" (click) = "postThreatActorData('radio', 2)">Unencrypted analogue traffic</a></li>
+          </ul>
+        </li>
+        <li>
+          <a tabindex="-1" (click) = "postThreatActorData('journalist', 1)">Journalist</a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Button to drop all data -->
+    <button type = "button" class = "btn btn-danger" (click) = "dropAllData()"><i class = "fa fa-check-circle" *ngIf = "dropDataStatus == 204"></i> Drop all data</button>
+  </div>
+</div>

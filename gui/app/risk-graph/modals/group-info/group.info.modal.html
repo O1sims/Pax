@@ -1,0 +1,138 @@
+<div class="modal-header" style="background-color: #eee; border-bottom: 1px solid #ccc; font-size:18px;">
+	Group detail
+</div>
+
+<ul class="nav nav-pills" style="padding-left: 20px; padding-top: 20px;">
+	<li role="presentation" [ngClass]="{ 'active': groupOverview==1 }">
+		<a (click)="groupView()">
+			Group risk
+		</a>
+	</li>
+	<li role="presentation" [ngClass]="{ 'active': actionOverview==1 }">
+		<a (click)="actionView()">
+			Actions
+		</a>
+	</li>
+</ul>
+
+<div class="modal-body"  *ngIf = "groupOverview==1">
+	<div class="row">
+		<!-- Group information -->
+		<div class="col-md-12">
+			<div class="panel panel-modal">
+				<div class="panel-heading"><b class="panel-title">Group information</b></div>
+				<div class="col-md-4">
+					<ul class="list-group">
+						<li class="list-group-item-modal"><strong>Name</strong>
+							<pre>{{ groupName }}</pre>
+						</li>
+					</ul>
+				</div>
+				<div class="col-md-4">
+					<ul class="list-group">
+						<li class="list-group-item-modal"><strong>Function</strong>
+							<pre>{{ groupFunction }}</pre>
+						</li>
+					</ul>
+				</div>
+				<div class="col-md-4">
+					<ul class="list-group">
+						<li class="list-group-item-modal"><strong>Maximum risk level</strong>
+							<pre>{{ maxRiskLabel }}</pre>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="panel panel-modal">
+				<div class="panel-heading"><b class="panel-title">Impact grouping</b></div>
+				<div class="col-md-4">
+					<ul class="list-group">
+						<li class="list-group-item-modal"><strong>Confidentiality</strong>
+							<pre>{{ impactInfo.confidentiality }}</pre>
+						</li>
+					</ul>
+				</div>
+				<div class="col-md-4">
+					<ul class="list-group">
+						<li class="list-group-item-modal"><strong>Integrity</strong>
+							<pre>{{ impactInfo.integrity }}</pre>
+						</li>
+					</ul>
+				</div>
+				<div class="col-md-4">
+					<ul class="list-group">
+						<li class="list-group-item-modal"><strong>Availability</strong>
+							<pre>{{ impactInfo.availability }}</pre>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="panel panel-modal">
+				<div class="panel-heading"><b class="panel-title">Assets contained</b></div>
+				<div class = "panel-body">
+					<ngx-datatable class = "material" [rows] = "assetRows" [columnMode] = "'standard'" [headerHeight] = "35" [selected] = "assetSelected">
+						<ngx-datatable-column name = "Asset ID" [width] = "100"></ngx-datatable-column>
+						<ngx-datatable-column name = "Name" [width] = "300"></ngx-datatable-column>
+						<ngx-datatable-column name = "Function" [width] = "150"></ngx-datatable-column>
+						<ngx-datatable-column name = "Criticality" [width] = "100"></ngx-datatable-column>
+						<ngx-datatable-column name = "Risk label" [width] = "150"></ngx-datatable-column>
+					</ngx-datatable>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="panel panel-modal">
+				<div class="panel-heading"><b class="panel-title">Threats associated</b></div>
+				<div class = "panel-body" *ngIf = "noThreats==1">
+					<div class="alert alert-success" role="alert">No known threats exist associated with this group</div>
+				</div>
+				<div class = "panel-body" *ngIf = "noThreats==0">
+					<ngx-datatable class = "material" [rows] = "threatRows" [columnMode] = "'standard'" [headerHeight] = "35" [selected] = "threatSelected">
+						<ngx-datatable-column name = "Threat ID" [width] = "100"></ngx-datatable-column>
+						<ngx-datatable-column name = "Name" [width] = "375"></ngx-datatable-column>
+						<ngx-datatable-column name = "Threat level" [width] = "375"></ngx-datatable-column>
+					</ngx-datatable>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div class="modal-body"  *ngIf = "actionOverview==1">
+	<div class="row">
+		<!-- Action information -->
+		<div class="col-md-12">
+			<div class="panel panel-modal">
+				<div class="panel-heading"><b class="panel-title">All actions</b></div>
+				<div class = "panel-body" *ngIf = "noActions==1">
+					<div class="alert alert-success" role="alert">No known actions exist associated with this group</div>
+				</div>
+				<div class = "panel-body" *ngIf = "noActions==0">
+					<div style='float: left;width: 87%;'>
+						<ngx-datatable class = "material" [rows] = "actionRows" [columnMode] = "'standard'" [headerHeight] = "35" [selected] = "actionSelected" [selectionType] = "'single'" (activate) = "onClickActionTable($event)" (select) = 'onSelect($event)'>
+							<ngx-datatable-column name = "Action class" [width] = "150"></ngx-datatable-column>
+							<ngx-datatable-column name = "Action type" [width] = "150"></ngx-datatable-column>
+							<ngx-datatable-column name = "Description" [width] = "450"></ngx-datatable-column>
+						</ngx-datatable>
+					</div>
+					<div style='float: right;'>
+						<ul style="list-style: none; padding-top: 35px">
+							<li *ngFor = "let actions of actionRows" style="padding-top: 6px">
+								<button type = "button" [ngClass] = "actions['staged']==1 ? 'btn btn-danger btn-xs' : 'btn btn-warning btn-xs'" (click) = "toggleActiveAction($event, actions)">{{ actions.actionStatus }}</button>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="modal-footer">
+	<button class="btn btn-success" type="button" (click)="closeModal()">Close</button>
+</div>

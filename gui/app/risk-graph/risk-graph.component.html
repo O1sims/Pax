@@ -1,0 +1,1036 @@
+<div class="container-fluid" style="height:80px; padding-top:20px; padding-bottom:20px;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-6">
+        <div style="padding-top:7px;">
+          <div popover={{C2StatusPopover}}
+               popoverPlacement="left"
+               [popoverOnHover]="true"
+               [popoverAnimation]="true"
+               [popoverDismissTimeout]="0">
+               <strong>C2 status : </strong>
+               <i [ngClass]="C2Status=='200' ? 'fa fa-check on': 'fa fa-times off'"></i>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-6">
+      <div class="dropdown pull-right">
+        <strong>Mission : </strong>
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+          {{missionId}}
+          <span class="caret"></span></button>
+          <ul class="dropdown-menu">
+            <li *ngFor="let mission of allMissions" (click)="selectMission(mission['globalId'])">
+              <a>{{mission['globalId']}}</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      </div>
+    </div>
+</div>
+  <div class="container-fluid" style="background-color:#e6e6e6; padding-bottom:20px;" *ngIf="noDataLoaded==0">
+    <div class="row">
+    <div class="col-md-12 text-center">
+      <ul class="nav nav-pills center-pills" style="padding-left: 20px; padding-top: 20px;">
+        <li [ngClass]="{'tabselected': detailSection==1}"><a (click)="navToDetailSection()" style="color:#363636;">System Overview</a></li>
+        <li [ngClass]="{'tabselected': networkSection==1}"><a (click)="navToNetworkSection()" style="color:#363636;">Asset Risk Graph</a></li>
+        <li [ngClass]="{'tabselected': actionSection==1}"><a (click)="navToActionSection()" style="color:#363636;">Course of Action Review</a></li>
+      </ul>
+      <i class="fa fa-times fa-2x pull-right" style="padding:25px 15px 0px 0px; color:#00b1d3;" (click)="exitSystem()"></i>
+    </div>
+    </div>
+  </div>
+  <div class="container-fluid" style="background-color:#07b0d7; padding-bottom:5px;" *ngIf="noDataLoaded==0">
+  </div>
+  <br>
+  <br>
+
+  <!-- No data in C2 -->
+  <div class="container" *ngIf="noData==1">
+    <h4>No system data found on C2...</h4>
+  </div>
+
+  <div *ngIf="noData==0">
+  <!-- System selection -->
+  <div class="container" *ngIf="noDataLoaded==1">
+    <h4>Please select a system to analyse...</h4>
+    <div class="col-sm-12" style="text-align:center;">
+      <div *ngFor="let mission of allMissions" style="padding-top:20px; padding-bottom:15px;">
+        <button type="button" class="btn btn-default btn-lg" (click)="selectMission(mission['globalId'])">
+          <i class="fa fa-shield fa-fw" aria-hidden="true"></i>&nbsp;<strong>{{mission['globalId']}} : </strong> {{mission['name']}}
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="container" *ngIf="loadingMission">
+    <div style="text-align:center;">
+      <br>
+      <h3>Loading system data for {{missionData['globalId']}}...</h3>
+      <i class="fa fa-refresh fa-spin fa-2x fa-fw"></i>
+    </div>
+  </div>
+
+  <div class="container" *ngIf="detailSection==1 && noDataLoaded==0">
+    <!-- System details -->
+    <div class = "col-md-6">
+      <div class = "panel panel-default" style="border-width:0px; background-color:#FFF; height:200px;">
+        <div class = "panel-heading align-left">
+          <b class="panel-title" style="color:#444444;">
+            System information
+          </b>
+        </div>
+        <div class="panel-body">
+          <h5><strong>Name:</strong> {{systemName}}</h5>
+          <h5><strong>Description:</strong> {{systemDescription}}</h5>
+        </div>
+      </div>
+    </div>
+
+    <!-- Number of assets -->
+    <div class = "col-md-3">
+      <div class = "panel panel-default" style="border-width:0px; background-color:#FFF; height:200px;">
+        <div class = "panel-heading align-left">
+          <b class="panel-title" style="color:#444444;">
+            Number of assets
+          </b>
+        </div>
+        <div class="panel-body" style="text-align:center;">
+          <h2><strong>{{numberOfAssets}} Assets</strong></h2>
+          <h5><strong>({{numberOfPhysicalAssets}} Physical, {{numberOfCyberAssets}} Cyber)</strong></h5>
+        </div>
+      </div>
+    </div>
+
+    <!-- Max asset risk -->
+    <div class = "col-md-3">
+      <div class = "panel panel-default" [ngStyle]="{'background-color': maxRiskColour}" style="border-width:0px; height:200px;">
+        <div class = "panel-heading align-left">
+          <b class="panel-title" style="color:#F7F7F7;">
+            Max asset risk
+          </b>
+        </div>
+        <div class="panel-body" style="text-align:center; color:#F7F7F7;">
+          <h2><strong>{{maxAsset.riskLabel}} ({{maxAsset.riskScore}}%)</strong></h2>
+          <!--<h5><strong>{{maxAsset.name}}</strong></h5>-->
+        </div>
+      </div>
+    </div>
+
+    <!-- System geography -->
+    <div class = "col-md-12">
+      <div class = "panel panel-default" style="border-width:0px; background-color:#FFF;">
+        <div class = "panel-heading align-left">
+          <b class="panel-title" style="color:#444444;">
+            System geography
+          </b>
+        </div>
+        <div class="panel-body">
+          <h5>
+            <strong>
+              Coordinates:
+            </strong>
+            ({{missionCoordinates['latitude']}}, {{missionCoordinates['longitude']}})
+          </h5>
+          <div leaflet
+               style="height: 500px;"
+               [leafletZoom]="zoom"
+               [leafletLayers]="layers"
+               [leafletCenter]="systemCoordinates">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Asset risk distribution -->
+    <div class = "col-md-4">
+      <div class = "panel panel-default" style="border-width:0px; background-color:#FFF; height:400px;">
+        <div class = "panel-heading align-left">
+          <b class="panel-title" style="color:#444444;">
+            Asset risk distribution
+          </b>
+        </div>
+        <div style="display: block; padding: 15px 15px 15px 15px;">
+          <canvas baseChart
+            [data]="doughnutChartData"
+            [labels]="doughnutChartLabels"
+            [chartType]="doughnutChartType"
+            [colors]="doughnutChartColor"
+            [legend]="false"
+            [options]="doughnutOptions"
+            (chartHover)="chartHovered($event)"
+            (chartClick)="chartClicked($event)">
+          </canvas>
+        </div>
+      </div>
+    </div>
+
+    <!-- Current asset risk -->
+    <div class = "col-md-8">
+      <div class = "panel panel-default" style="border-width:0px; background-color:#FFF; height:400px;">
+        <div class = "panel-heading align-left">
+          <b class="panel-title" style="color:#444444;">
+            Current asset risk
+          </b>
+        </div>
+        <div class = "panel-body">
+          <ngx-datatable
+            class = "material"
+            [rows] = "riskTable"
+            [limit]="8"
+            [columnMode] = "'force'"
+            [footerHeight]="50"
+            [sorts] = "[{ prop : 'riskScore', dir : 'desc' }]">
+            <ngx-datatable-column name="Asset name" [width]="300"></ngx-datatable-column>
+            <ngx-datatable-column name="Impact" [width]="100"></ngx-datatable-column>
+            <ngx-datatable-column name="Criticality" [width]="100"></ngx-datatable-column>
+            <ngx-datatable-column name="Risk" [width]="100"></ngx-datatable-column>
+          </ngx-datatable>
+        </div>
+      </div>
+    </div>
+    <br>
+    <br>
+  </div>
+
+<!-- Asset graph -->
+<div class="container" *ngIf="networkSection==1 && noDataLoaded==0">
+  <div class="container-fluid" style="padding-bottom:20px;">
+      <ul class="nav nav-pills" style="padding-top: 20px;">
+        <li *ngFor="let coa of riskGraphCOAs" [ngClass]="{'tabselected-blue': selectedRiskGraphCOA==coa}">
+          <a [style.color]="selectedRiskGraphCOA==coa ? '#FFF' : '#4cafdc'" (click)="coaRiskGraph(coa)">{{coa}}</a>
+        </li>
+      </ul>
+  </div>
+  <div class = "row">
+  <div class="col-md-12">
+    <div class = "panel panel-default" style="background-color:#f7f7f7; border: 0px; box-shadow: 0px 0px 0px 0px;">
+      <div style="text-align:center;" *ngIf="riskGraphGenerated==0">
+        <br>
+        <h3>Calculating asset risk values for {{selectedRiskGraphCOA}}...</h3>
+        <i class="fa fa-refresh fa-spin fa-2x fa-fw"></i>
+      </div>
+      <a *ngIf="riskGraphGenerated==1" id="riskNetwork"></a>
+    </div>
+    <div class="col-md-12 text-center">
+      <div *ngIf="riskGraphGenerated==1" class = "panel panel-default" style="background-color:#f7f7f7; border: 0px; box-shadow: 0px 0px 0px 0px;">
+        <strong>Asset risk : &nbsp;</strong>
+        <img src="./app/assets/img/node-icons/very-low.png" width="15px" height="15px"> Very low &nbsp;
+        <img src="./app/assets/img/node-icons/low.png" width="15px" height="15px"> Low &nbsp;
+        <img src="./app/assets/img/node-icons/medium.png" width="15px" height="15px"> Medium &nbsp;
+        <img src="./app/assets/img/node-icons/high.png" width="15px" height="15px"> High &nbsp;
+        <img src="./app/assets/img/node-icons/critical.png" width="15px" height="15px"> Critical &nbsp;
+        <img src="./app/assets/img/node-icons/vulnerabilityNumber.png" width="15px" height="15px"> Vulnerabilities
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row" style="padding: 20px 0px 50px 0px;" *ngIf="assetRiskChanges.length > 0">
+  <h3>Asset risk changes</h3>
+  <h5 style="padding-bottom: 15px;">The course of action led to risk changes in a total of {{assetRiskChanges.length}} assets.</h5>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Asset</th>
+        <th>Initial risk</th>
+        <th>New risk</th>
+        <th>Probability of failure</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let asset of assetRiskChanges">
+        <td><i class="fa fa-fw {{asset['arrow']}}"></i> {{asset['assetName']}}</td>
+        <td>
+          <img src="./app/assets/img/node-icons/{{asset['currentRiskCircle']}}.png" width="15px" height="15px">
+          {{asset['currentRiskLabel']}} ({{asset['currentRiskScore']}}%)
+        </td>
+        <td>
+          <img src="./app/assets/img/node-icons/{{asset['newRiskCircle']}}.png" width="15px" height="15px">
+          {{asset['newRiskLabel']}} ({{asset['newRiskScore']}}%)
+        </td>
+        <td>
+          {{asset['likelihoodLabel']}} ({{asset['likelihoodScore']}}%)
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>
+
+<!-- Task evaluation -->
+<div class="container" *ngIf="actionSection==1 && noDataLoaded==0">
+  <div class="container-fluid" style="padding-bottom:20px;">
+      <ul class="nav nav-pills" style="padding-top: 20px;">
+        <li *ngFor="let coa of coursesOfAction" [ngClass]="{'tabselected-blue': selectedCOA==coa}">
+          <a [style.color]="selectedCOA==coa ? '#FFF' : '#4cafdc'" (click)="selectCOA(coa)">{{coa}}</a>
+        </li>
+        <li>
+          <i class="fa fa-plus-circle fa-2x" style="padding:6px 0px 0px 10px; color:#4cafdc;" data-toggle="modal" data-target="#addCoAModal"></i>
+        </li>
+        <li class="pull-right" style="background-color:#FFF;" (click)="deleteCourseOfAction()"><a style="color:#e54f53">Delete Course of Action</a></li>
+        <li class="pull-right" style="background-color:#FFF;" data-toggle="modal" data-target="#compareCOA" (click)="startComparativeStatics()"><a>Compare</a></li>
+      </ul>
+  </div>
+
+  <!-- Tasks assigned -->
+  <div class="col-md-12">
+    <div class = "panel panel-default" style="border-width:0px; background-color:#FFF;">
+      <div class = "panel-heading align-left">
+        <b class="panel-title">
+  				Tasks assigned <span class="badge">{{actionRows.length}}</span>
+  			</b>
+      </div>
+      <div class = "panel-body">
+        <div *ngIf="actionRows.length == 0">
+          <div class="alert alert-danger" role="alert">No tasks have been assigned to this Course of Action yet...</div>
+        </div>
+        <div class="col-md-12" style="background-color:#FFF; padding-bottom:15px;" *ngIf="actionRows.length > 0">
+          <div class="panel">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Effect</th>
+                  <th>Objective</th>
+                  <th>Unit</th>
+                  <th>Start time</th>
+                  <th>End time</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let task of actionRows">
+                  <td (click)="onClickActionTable(task)">{{task['name']}}</td>
+                  <td (click)="onClickActionTable(task)">{{task['effect']}}</td>
+                  <td (click)="onClickActionTable(task)">{{task['objective']['entityName']}}</td>
+                  <td (click)="onClickActionTable(task)">{{task['assignee']['entityName']}}</td>
+                  <td (click)="onClickActionTable(task)">{{task['start']}}</td>
+                  <td (click)="onClickActionTable(task)">{{task['end']}}</td>
+                  <td>
+                    <strong>
+                      <i class="fa fa-trash-o" style="color:#e54f53" data-toggle="modal" data-target="#deleteTaskModal" (click)="prepTaskToDelete(task)"></i>
+                    </strong>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      <div class="col-sm-12" style="padding-top:20px;" *ngIf="actionRows.length > 0">
+        <button type="button" class="btn btn-default pull-right" (click)="evaluateActions()">
+          <i class="fa fa-refresh fa-spin fa-fw" *ngIf="evaluatedActions==2"></i> Evaluate tasks
+        </button>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addTaskModal" (click)="submitTaskForm()">
+          <i class="fa fa-plus fa-fw"></i> Add task
+        </button>
+        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteAllTasksModal">Delete all tasks</button>
+      </div>
+      <div class="col-sm-12" style="padding-top:20px;" *ngIf="actionRows.length == 0">
+        <button type="button" class="btn btn-default pull-right disabled">Evaluate tasks</button>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addTaskModal" (click)="submitTaskForm()">
+          <i class="fa fa-plus fa-fw"></i> Add task
+        </button>
+        <button type="button" class="btn btn-danger disabled">Delete all tasks</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="col-md-12">
+  <div class = "panel panel-default" style="border-width:0px; background-color:#FFF;">
+    <div class = "panel-heading align-left">
+      <b class="panel-title">
+        Task visualisation
+      </b>
+    </div>
+    <div class="row">
+    <div class="col-md-12 text-center" style="padding-bottom:20px;">
+      <ul class="nav nav-pills" style="padding-left: 20px; padding-top: 20px;">
+        <li [ngClass]="{'tabselected': viewDependencyTree==1}"><a (click)="selectDependencyTree()" style="color:#363636;">Dependency graph</a></li>
+        <li [ngClass]="{'tabselected': viewGanttChart==1}"><a (click)="selectGanttChart()" style="color:#363636;">Gantt Chart</a></li>
+      </ul>
+    </div>
+    </div>
+    <div class="panel-body" *ngIf="viewDependencyTree==1">
+      <p class="pull-right" style="padding:0px 20px 20px 0px;">
+        <img src="./app/assets/img/node-icons/task-node.png" width="15px" height="15px"> Task node
+      </p>
+      <div id="dependencyTree">
+      </div>
+    <div style="text-align:center; padding:10px 0px 10px 0px;">
+      <strong>Task risk : &nbsp;</strong>
+      <img src="./app/assets/img/node-icons/very-low.png" width="15px" height="15px"> Very low &nbsp;
+      <img src="./app/assets/img/node-icons/low.png" width="15px" height="15px"> Low &nbsp;
+      <img src="./app/assets/img/node-icons/medium.png" width="15px" height="15px"> Medium &nbsp;
+      <img src="./app/assets/img/node-icons/high.png" width="15px" height="15px"> High &nbsp;
+      <img src="./app/assets/img/node-icons/critical.png" width="15px" height="15px"> Critical
+    </div>
+  </div>
+    <div class="panel-body"  *ngIf="viewGanttChart==1">
+      <div class="col-md-12" *ngIf="missionLengthExceeded==1">
+        <div class="alert alert-danger" role="alert">
+          The expected length of time to carry out this course of action ({{taskTime['calculatedTotalTime']}} minutes) exceeds mission length ({{missionLength}} minutes).
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <h5><strong>H-hour:</strong> {{hHour}}</h5>
+      </div>
+      <div class="col-sm-6">
+        <h5><strong>Mission length:</strong> {{missionLength}} minutes</h5>
+      </div>
+      <div class="col-sm-6">
+        <h5><strong>Expected end:</strong> {{zHour}}</h5>
+      </div>
+      <div class="col-sm-6">
+        <h5><strong>Expected mission length:</strong> {{taskTime['calculatedTotalTime']}} minutes</h5>
+      </div>
+      <div class="col-sm-12" style="padding-top:30px;">
+      <div id="chart_taskGantt" style="height:500px;">
+      </div>
+    </div>
+    </div>
+</div>
+</div>
+<div class="col-md-12">
+  <div class = "panel panel-default" style="border-width:0px; background-color:#FFF;">
+    <div class = "panel-heading align-left">
+      <b class="panel-title">
+        Course of Action evaluation
+      </b>
+    </div>
+    <div class = "panel-body">
+      <div class="col-md-12">
+        <div class="panel" style="text-align:center;" *ngIf="evaluatedActions==0">
+          <h5>Please stage some actions and click the <code>Evaluate tasks</code> button above...</h5>
+        </div>
+        <div class="panel" style="text-align:center;" *ngIf="evaluatedActions==2">
+          <br>
+          <h5>Evaluating...</h5><i class="fa fa-refresh fa-spin fa-2x fa-fw"></i><br><br>
+        </div>
+        <div *ngIf="evaluatedActions==1" class="panel-group" id="accordion">
+          <div class="panel panel-default active">
+            <div class="panel-heading">
+              <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href=#timePanel>Estimated task times</a>
+              </h4>
+            </div>
+            <div id=timePanel class="panel-collapse collapse">
+              <div class="panel-body">
+                <div id="chart_timeCandlestick"></div>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href=#riskPanel>Risks</a>
+                <a class="pull-right">
+                  <span class="badge">{{risks.length}}</span>
+                </a>
+              </h4>
+            </div>
+            <div id=riskPanel class="panel-collapse collapse">
+              <div class="panel-body">
+                <div class="col-sm-offset-1 col-sm-10">
+                  <div *ngFor="let asset of risks">
+                    <h4 style="padding-bottom:10px;"><strong>{{asset.assetName}} ({{asset.assetId}})</strong></h4>
+                    <div *ngFor="let risk of asset.risks">
+                      <h5 style="padding-bottom:10px; color:#e54f53"><strong>{{risk.effect}}</strong></h5>
+                      <h5><strong>Probability of failure. </strong> {{risk.likelihoodLabel}} ({{risk.likelihoodScore}}%)</h5>
+                      <h5><strong>Impact if successful. </strong> {{risk.impactLabel}} ({{risk.impactScore}}%)</h5>
+                      <h5><strong>New asset risk. </strong> {{risk.riskLabel}} ({{risk.riskScore}}%)</h5>
+                      <h5><strong>Description. </strong> {{risk.riskSummary}}</h5>
+                      <br>
+                    </div>
+                    <hr size=1 width=100% style="border-top: 1px solid #e0e0e0;">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href=#hostileResponsesPanel>Hostile responses</a>
+                <a class="pull-right">
+                  <span class="badge">{{hostileResponses.length}}</span>
+                </a>
+              </h4>
+            </div>
+            <div id=hostileResponsesPanel class="panel-collapse collapse">
+              <div class="panel-body">
+                <div class="col-sm-offset-1 col-sm-10">
+                  <div *ngFor="let asset of hostileResponses">
+                    <h4 style="padding-bottom:10px;"><strong>{{asset.assetName}} ({{asset.assetId}})</strong></h4>
+                    <ul class="nav nav-pills">
+                      <li class="active"><a data-toggle="pill" href=#mostDangerous{{asset.assetId}}>Most Dangerous</a></li>
+                      <li><a data-toggle="pill" href=#mostLikely{{asset.assetId}}>Most Likely</a></li>
+                    </ul>
+                    <div class="tab-content">
+                      <div id=mostDangerous{{asset.assetId}} class="tab-pane fade in active">
+                        <h5 style="padding-top:15px;"><strong>Most dangerous response. </strong> {{asset.hostileResponses.mostDangerous[0].effect}}</h5>
+                        <h5><strong>Probability of success. </strong> {{asset.hostileResponses.mostDangerous[0].probabilityOfSuccessScoreLabel}} ({{asset.hostileResponses.mostDangerous[0].probabilityOfSuccessScore}}%)</h5>
+                        <h5><strong>Impact if successful. </strong> {{asset.hostileResponses.mostDangerous[0].impactLabel}}</h5>
+                        <h5><strong>Description. </strong> {{asset.hostileResponses.mostDangerous[0].description}}</h5>
+                        <br>
+                      </div>
+                      <div id=mostLikely{{asset.assetId}} class="tab-pane fade">
+                        <h5 style="padding-top:15px;"><strong>Most likely response. </strong> {{asset.hostileResponses.mostLikely[0].effect}}</h5>
+                        <h5><strong>Probability of success. </strong> {{asset.hostileResponses.mostLikely[0].probabilityOfSuccessScoreLabel}} ({{asset.hostileResponses.mostLikely[0].probabilityOfSuccessScore}}%)</h5>
+                        <h5><strong>Impact if successful. </strong> {{asset.hostileResponses.mostLikely[0].impactLabel}}</h5>
+                        <h5><strong>Description. </strong> {{asset.hostileResponses.mostLikely[0].description}}</h5>
+                        <br>
+                      </div>
+                    </div>
+                    <hr size=1 width=100% style="border-top: 1px solid #e0e0e0;">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href=#actionsPanel>Actions</a>
+                <a class="pull-right">
+                  <span class="badge">{{actionsList.length}}</span>
+                </a>
+              </h4>
+            </div>
+            <div id=actionsPanel class="panel-collapse collapse">
+              <div class="panel-body">
+                <div class="col-sm-offset-1 col-sm-10">
+                  <div *ngFor="let asset of actionsList">
+                    <h4 style="padding-bottom:10px;"><strong>{{asset.assetName}} ({{asset.assetId}})</strong></h4>
+                    <ul class="nav nav-pills">
+                      <li *ngFor="let a of asset.actions">
+                        <a data-toggle="pill" href=#action{{asset.assetId}}{{a.effect}}>{{a.effect}}</a>
+                      </li>
+                    </ul>
+                    <div class="tab-content" *ngFor="let a of asset.actions">
+                      <div id=action{{asset.assetId}}{{a.effect}} class="tab-pane fade in">
+                        <br>
+                        <div class="col-sm-offset-1 col-sm-10">
+                          <ul class="custom-bullet" *ngFor="let act of a.acts">
+                            <li>{{act}}</li>
+                          </ul>
+                          <div>
+                            <br>
+                          </div>
+                        </div>
+                        <hr size=1 width=100% style="border-top: 1px solid #e0e0e0;">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div id="deleteTaskModal" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-md">
+      <div class="modal-content">
+        <div class="modal-body">
+          <div class = "panel-body" *ngIf="hasTaskDependents==0">
+            <div class="col-md-12 text-center">
+              <h3>Are you sure you want to delete this task?</h3>
+              <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+              <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="deleteTask()">Yes</button>
+            </div>
+          </div>
+          <div class = "panel-body" *ngIf="hasTaskDependents==1">
+            <div class="col-md-12 text-center">
+              <h3>{{taskDependents}} on the existence of this Task!</h3>
+              <h3>Are you sure you want to delete this task and all of its dependents?</h3>
+              <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+              <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="deleteTask()">Yes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div id="deleteAllTasksModal" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-md">
+      <div class="modal-content">
+        <div class="modal-body">
+          <div class = "panel-body">
+            <div class="col-md-12 text-center">
+              <h3>Are you sure you want to delete all ({{actionRows.length}}) tasks for {{selectedCOA}}?</h3>
+              <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+              <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="deleteAllCOAActions()">Yes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Mission time modal -->
+  <div id="missionTimeModal" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-md">
+      <div class="modal-content">
+        <div class="modal-body">
+          <div class = "panel-body">
+            <div class="col-md-12 text-center">
+              <h3>Please provide a mission time frame</h3>
+              <div class="col-sm-10">
+                <input type="number" value={{missionTimeFrame}} class="form-control" (focusout)="selectMissionTimeFrame($event)">
+              </div>
+              <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+              <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="deleteAllCOAActions()">Evaluate</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- Add new COA modal -->
+  <div id="addCoAModal" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header" style="background-color: #EEE; border-bottom: 1px solid #ccc; font-size:18px;">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          Add a new Course of Action
+        </div>
+        <div class="modal-body">
+          <div class = "panel panel-default" style="border-width:0px; box-shadow: 0px 0px 0px 0px;">
+            <div class = "panel-body">
+              <form class="form-horizontal">
+                    <div class="form-group">
+                      <label class="control-label col-sm-2">Name:</label>
+                      <div class="col-sm-10">
+                        <input class="form-control" type="text" (input)="selectCoaName($event)">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="col-sm-offset-2 col-sm-10">
+                        <button type="button" class="btn btn-default pull-right" data-dismiss="modal" (click)="addCOA()">Submit Course of Action</button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div id="addTaskModal" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header" style="background-color: #EEE; border-bottom: 1px solid #ccc; font-size:18px;">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          Add a new task to {{selectedCOA}}
+        </div>
+        <div class="modal-body">
+          <div class = "panel-body" *ngIf="taskSubmitted==0">
+            <div class="col-md-12">
+              <div class = "panel panel-default" style="border-width:0px; box-shadow: 0px 0px 0px 0px;">
+                <div class = "panel-body">
+                  <form class="form-horizontal">
+                    <div *ngIf="usedTaskId == 1">
+                      <div class="alert alert-success" role="alert">This Task ID has already been used. Please use another Task ID.</div>
+                    </div>
+                    <div class="form-group">
+                      <label class="control-label col-sm-2">Name:</label>
+                      <div class="col-sm-10">
+                        <input class="form-control" type="text" (input)="selectTaskId($event)">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="control-label col-sm-2">Description:</label>
+                      <div class="col-sm-10">
+                        <input class="form-control" type="text" (input)="selectTaskDescription($event)">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="control-label col-sm-2">Effect:</label>
+                      <div class="col-sm-10">
+                        <select class="form-control" (input)="selectEffect($event)">
+                          <option *ngFor="let effect of effectsList">{{effect}}</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="control-label col-sm-2">Objective:</label>
+                      <div class="col-sm-10">
+                        <select class="form-control" (input)="selectObjective($event)">
+                          <option *ngFor="let objective of objectiveList">{{objective.name}}</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="control-label col-sm-2">Unit:</label>
+                      <div class="col-sm-10">
+                        <select class="form-control" (input)="selectUnit($event)">
+                          <option *ngFor="let unit of unitList">{{unit.name}}</option>
+                        </select>
+                      </div>
+                    </div>
+                    <!--
+                    <div class="form-group">
+                      <label class="control-label col-sm-2">Dependency:</label>
+                      <div class="col-sm-10">
+                        <select class="form-control" (input)="selectDependencies($event)">
+                          <option *ngFor="let taskId of currentTaskIds">{{taskId}}</option>
+                        </select>
+                      </div>
+                    </div>
+                  -->
+                    <div class="form-group">
+                      <label class="control-label col-sm-2">Start time:</label>
+                      <div class="col-sm-2">
+                        <input type="number" value={{startTime}} class="form-control" (input)="selectStartTime($event)">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="control-label col-sm-2">End time:</label>
+                      <div class="col-sm-2">
+                        <input type="number" value={{endTime}} class="form-control" (input)="selectEndTime($event)">
+                      </div>
+                      <div class="col-sm-8">
+                        <h4><span class="label label-success" style="padding:8px 8px 8px 8px;">Estimated time: {{estimatedTimeFrame}} minutes</span></h4>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="col-sm-offset-2 col-sm-10">
+                        <button type="button" class="btn btn-default pull-right" (click)="submitNewAction()">Submit task</button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class = "panel-body" *ngIf="taskSubmitted==1">
+            <div class="col-md-6">
+              <img src="./app/assets/img/form-sent.gif" alt="Form submitted" width="400px">
+            </div>
+            <div class="col-md-6" style="margin-top: 10%;">
+              <h3 style="color:#6bb251;">Task successfully added to {{selectedCOA}}</h3>
+            </div>
+          </div>
+          <div class = "panel-body" *ngIf="taskSubmitted==2">
+            <div class="col-md-6">
+              <div leaflet
+  								 style="height: 300px;"
+  								 [leafletZoom]="zoom"
+  								 [leafletLayers]="layers"
+  								 [leafletCenter]="assetCoordinates"
+  								 (leafletMapReady)="onMapReady($event)">
+  						</div>
+            </div>
+            <div class="col-md-6">
+              <h3 style="color:#6bb251;">The Unit is too far away for this Task to be carried out!</h3>
+              <br>
+              <h5>Currently the {{selectedUnit['name']}} is {{tooFarAway['distance']}}km from the Objective.</h5>
+              <h5>The {{selectedUnit['name']}} needs to MOVE closer to the {{selectedObjective['name']}} before the it can {{selectedEffect}} the asset.</h5>
+              <h5>It will take approximately {{tooFarAway['time']}} minutes to get there.</h5>
+              <h5>Do you want to add this Task alongside a MOVE Task?</h5>
+              <br>
+              <br>
+              <button type="button" class="btn btn-success pull-right" (click)="submitTooFarTask()">Yes, add both Tasks</button>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default pull-left" *ngIf="taskSubmitted==1" (click)="submitTaskForm()"><i class="fa fa-fw fa-angle-left"></i> Add another task</button>
+          <button type="button" class="btn btn-default pull-left" *ngIf="taskSubmitted==2" (click)="submitTaskForm()"><i class="fa fa-fw fa-angle-left"></i> Back</button>
+          <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div id="compareCOA" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content" *ngIf="coursesOfAction.length <= 1">
+        <div class="modal-body">
+          <div class = "panel-body">
+            <div class = "col-md-12">
+              <div class="alert alert-info" role="alert">You have only staged one Course of Action. You need at least two to compare.</div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      <div class="modal-content" *ngIf="coursesOfAction.length > 1 && comparativeStatics == 0">
+        <div class="modal-header" style="background-color: #EEE; border-bottom: 1px solid #ccc; font-size:18px;">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          Compare Courses of Action
+        </div>
+        <div class="modal-body">
+          <div class="panel panel-default" style="border-width:0px; box-shadow: 0px 0px 0px 0px;">
+            <div class="panel-heading align-left">
+              Is the Mission Offensive or Defensive?
+            </div>
+            <div class = "panel-body">
+              <div class = "col-md-12">
+                <form class="form-horizontal">
+                  <div class="form-group">
+                    <label class="control-label col-sm-2">Mission type:</label>
+                    <div class="col-sm-10">
+                      <select class="form-control" (focusout)="selectMissionType($event)">
+                        <option *ngFor="let type of missionType">{{type}}</option>
+                      </select>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default" style="border-width:0px; box-shadow: 0px 0px 0px 0px;">
+            <div class="panel-heading align-left">
+              Resource limitations
+              <label class="switch checked pull-right">
+                <input type="checkbox" (click)="toggleCompareRestrictions()">
+                <span class="slider round"></span>
+              </label>
+            </div>
+            <div class = "panel-body">
+              <div class = "col-md-12">
+                <form class="form-horizontal" *ngIf="compareRestrictions==1">
+                  <div class="form-group">
+                    <label class="control-label col-sm-2">Mission time:</label>
+                    <div class="col-sm-2">
+                      <input type="number" value={{compareMissionTime}} min=0 class="form-control" (focusout)="setComparisonResource($event, 'missionTime')">
+                    </div>
+                    <label class="control-label col-sm-2">Personnel:</label>
+                    <div class="col-sm-2">
+                      <input type="number" value={{comparePersonnel}} min=0 class="form-control" (focusout)="setComparisonResource($event, 'personnel')">
+                    </div>
+                    <label class="control-label col-sm-2">Probability:</label>
+                    <div class="col-sm-2">
+                      <input type="number" value={{compareProbability}} min=0 max=100 class="form-control" (focusout)="setComparisonResource($event, 'probability')">
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default" style="border-width:0px; box-shadow: 0px 0px 0px 0px;">
+            <div class="panel-heading align-left">
+              Select Initial and Comparative Courses of Action
+            </div>
+            <div class = "panel-body">
+              <div class = "col-md-12">
+                <div *ngIf="repeatedCOA==1">
+                  <div class="alert alert-info" role="alert">Ensure that the Comparative Courses of Action are all different!</div>
+                </div>
+                <form class="form-horizontal">
+                  <div class="form-group">
+                    <label class="control-label col-sm-2">Initial:</label>
+                    <div class="col-sm-10">
+                      <select class="form-control" (focusout)="comparativedCOA($event, -1)">
+                        <option *ngFor="let action of coursesOfAction">{{action}}</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="form-group" *ngFor="let comparison of comparativeCOAs">
+                    <label class="control-label col-sm-2">Comparative:</label>
+                    <div class="col-sm-10">
+                      <select class="form-control" (focusout)="comparativedCOA($event, comparison)">
+                        <option *ngFor="let action of coursesOfAction">{{action}}</option>
+                      </select>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class = "panel panel-default" style="border-width:0px; box-shadow: 0px 0px 0px 0px;">
+            <div class = "panel-body">
+              <div class = "col-md-12">
+                <form class="form-horizontal">
+                    <div class="form-group">
+                      <div class="col-sm-offset-2 col-sm-10">
+                        <button type="button" class="btn btn-default" *ngIf="coursesOfAction.length>(comparativeCOAs.length+1)" (click)="addComparativeCOA()">Add</button>
+                        <button type="button" class="btn btn-default disabled" *ngIf="coursesOfAction.length<=(comparativeCOAs.length+1)">Add</button>
+                        <button type="button" class="btn btn-default pull-right" *ngIf="selectedInitialCOA!=selectedComparativeCOA" (click)="compareCOAs()">Compare</button>
+                        <button type="button" class="btn btn-default pull-right disabled" *ngIf="selectedInitialCOA==selectedComparativeCOA">Compare</button>
+                      </div>
+                    </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+      <div class="modal-content" *ngIf="comparativeStatics==2">
+        <div class="modal-header" style="background-color: #FFF; border-bottom: 1px solid #ccc; font-size:18px;">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          Compare Courses of Action
+        </div>
+        <div style="border-width:0px; text-align:center;">
+          <h5>Comparing Courses of Action...</h5><i class="fa fa-refresh fa-spin fa-2x fa-fw"></i><br><br>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      <div class="modal-content" *ngIf="comparativeStatics==1">
+        <div class="modal-header" style="background-color: #FFF; border-bottom: 1px solid #ccc; font-size:18px;">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          Compare Courses of Action
+        </div>
+          <div class="panel panel-default" style="border-width:0px; box-shadow: 0px 0px 0px 0px;">
+            <div class="panel-heading align-left">
+              Comparison results
+            </div>
+            <div class="panel-body" *ngIf="comparison.length==0">
+              <div class="col-md-12">
+                <div class="alert alert-danger" role="alert">No courses of action are achievable with the available resources declared.</div>
+              </div>
+            </div>
+            <div class="panel-body" *ngIf="comparison.length > 0">
+              <div class="col-md-12">
+                <ul class="nav nav-pills center-pills" style="padding-left: 20px; padding-top: 20px;">
+                  <li [ngClass]="{'tabselected': showRadar==1}"><a (click)="showComparisonRadar()">Radar</a></li>
+                  <li [ngClass]="{'tabselected': showTables==1}"><a (click)="showComparisonTables()">Perfromance tables</a></li>
+                  <li [ngClass]="{'tabselected': showDominated==1}"><a (click)="showDominatedStrategies()">Dominated strategies</a></li>
+                  <li [ngClass]="{'tabselected': showRecommended==1}"><a (click)="showRecommendedStrategies()">Recommended strategy</a></li>
+                </ul>
+              </div>
+              <div *ngIf="showRadar==1">
+              <div class="col-sm-offset-2 col-sm-8" style="display: block">
+                <br>
+                <canvas baseChart
+                  [datasets]="radarChartData"
+                  [labels]="radarChartLabels"
+                  [chartType]="radarChartType"
+                  (chartHover)="chartHovered($event)"
+                  (chartClick)="chartClicked($event)">
+                </canvas>
+              </div>
+              <br>
+              <div class="col-md-12" style="padding-top:20px;" *ngIf="unattainableStrategies.length > 0">
+                <strong>Unattainable courses of action</strong>
+                <br>
+                <br>
+                <div class="col-sm-offset-1 col-sm-10">
+                <ul class="custom-bullet" *ngFor="let unattainable of unattainableStrategies">
+                  <li>
+                    <strong>{{unattainable['courseOfAction']}}:</strong> {{unattainable['reason'][0]}}.
+                  </li>
+                </ul>
+              </div>
+              </div>
+            </div>
+            <div *ngIf="showTables==1">
+              <div class="col-md-6" *ngFor="let coa of comparison">
+                <div class="panel panel-default" style="border-width:0px; box-shadow: 0px 0px 0px 0px;">
+                  <div class="panel-heading align-left" style="padding-bottom:0px;">
+                    <h4 style="color:#3d92bf;"><strong>{{coa.courseOfAction}}</strong></h4>
+                  </div>
+                  <div class="panel-body" style="padding-top:0px;">
+                    <h5><strong>Total risk change:</strong> {{coa.totalRisk}}</h5>
+                    <h5><strong>Prob. of completing all tasks:</strong> {{coa.probabilityLabel}} ({{coa.probabilityOfCompletion}}%)</h5>
+                    <h5><strong>Total personnel required:</strong> {{coa.unitsRequired}} units</h5>
+                    <h5><strong>Total time taken:</strong> {{coa.totalTime}} minutes</h5>
+                    <h5><strong>Dominated by:</strong> {{coa.dominatedBy}}</h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div *ngIf="showRecommended==1">
+              <div class="col-md-12">
+                <div class="panel panel-default" style="border-width:0px; box-shadow: 0px 0px 0px 0px;">
+                  <div class="panel-heading align-left" style="padding-bottom:0px;">
+                    <h4><strong style="color:#3d92bf;">{{ recommendedStrategy }}</strong></h4>
+                  </div>
+                  <div class="panel-body" style="padding-top:10px;">
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th>Name</th>
+                          <th>Effect</th>
+                          <th>Objective</th>
+                          <th>Unit</th>
+                          <th>Time frame</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let task of recommendedRows">
+                          <td>{{task['name']}}</td>
+                          <td>{{task['effect']}}</td>
+                          <td>{{task['objective']}}</td>
+                          <td>{{task['unit']}}</td>
+                          <td>{{task['timeFrame']}}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div *ngIf="showDominated==1">
+              <div class="col-md-6">
+                <div class="panel panel-default" style="border-width:0px; box-shadow: 0px 0px 0px 0px;">
+                  <div class="panel-heading align-left" style="padding-bottom:0px;">
+                    <h4 style="color:#3d92bf;"><strong>Equilibria</strong></h4>
+                  </div>
+                  <div class="panel-body" style="padding-top:0px;">
+                    <div class="col-sm-offset-1 col-sm-10">
+                    <ul class="custom-bullet" *ngFor="let coa of undominated">
+                      <li>
+                        {{coa}}
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="panel panel-default" style="border-width:0px; box-shadow: 0px 0px 0px 0px;">
+                  <div class="panel-heading align-left" style="padding-bottom:0px;">
+                    <h4 style="color:#3d92bf;"><strong>Dominated</strong></h4>
+                  </div>
+                  <div class="panel-body" style="padding-top:0px;">
+                    <div class="col-sm-offset-1 col-sm-10">
+                    <ul class="custom-bullet" *ngFor="let coa of dominated">
+                      <li>
+                        {{coa}}
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                </div>
+              </div>
+            </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default pull-left" (click)="resetComparativeStatics()">Back</button>
+              <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

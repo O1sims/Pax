@@ -1,0 +1,462 @@
+{
+  "title": "A questionnaire on risk and the mission",
+  "pages": [
+    {
+      "name": "Personal information",
+      "title": "Personal information",
+      "questions": [
+        {
+          "type": "text",
+          "name": "personalRank",
+          "title": "Rank",
+          "isRequired": false
+        },
+        {
+          "type": "text",
+          "name": "personalFirstName",
+          "title": "First name",
+          "isRequired": false,
+          "startWithNewLine": false
+        },
+        {
+          "type": "text",
+          "name": "personalLastName",
+          "title": "Last name",
+          "isRequired": false,
+          "startWithNewLine": false
+        },
+        {
+          "type": "text",
+          "name": "mission",
+          "title": "Mission",
+          "isRequired": false
+        }
+      ]
+    },
+    {
+      "name": "Mission information",
+      "title": "Mission information",
+      "questions": [
+        {
+          "type": "comment",
+          "name": "missionPurpose",
+          "title": "What is the purpose of the mission?",
+          "isRequired": false,
+          "placeHolder": "'Defend Power Station' : This information is intended to be extracted from the C2 database."
+        },
+        {
+          "type": "comment",
+          "name": "missionNotes",
+          "title": "Enter some notes on the risk appetite for this mission",
+          "isRequired": false,
+          "placeHolder": "Add some notes..."
+        },
+        {
+          "type": "matrixdynamic",
+          "name": "currentThreatAndRisk",
+          "title": "What are the current known threat actors within your environment? What is the threat level that they pose to the mission?",
+          "isRequired": false,
+          "cellType": "text",
+          "columns":
+          [
+            {
+              "name": "Threat actor",
+              "cellType": "text"
+            },
+            {
+              "name": "Threat level",
+              "cellType": "dropdown",
+              "choices":
+              [
+                {
+                  "value": "1",
+                  "text": "Negligable"
+                },
+                {
+                  "value": "2",
+                  "text": "Low"
+                },
+                {
+                  "value": "3",
+                  "text": "Moderate"
+                },
+                {
+                  "value": "4",
+                  "text": "Substantial"
+                },
+                {
+                  "value": "5",
+                  "text": "Severe"
+                }
+              ]
+            }
+          ],
+          "rowCount": "2"
+        }
+      ]
+    },
+    {
+      "name": "Mission risk",
+      "title": "Mission risk",
+      "questions":
+      [
+        {
+          "type": "matrix",
+          "name": "riskRequiredSecurity",
+          "title": "Is reducing my overall Cyber security risk important to the success of the mission?",
+          "isRequired": false,
+          "columns": [
+            {
+              "value": 1,
+              "text": "Not important"
+            },
+            {
+              "value": 2,
+              "text": "Quite important"
+            },
+            {
+              "value": 3,
+              "text": "Important"
+            },
+            {
+              "value": 4,
+              "text": "Very important"
+            },
+            {
+              "value": 5,
+              "text": "Critically important"
+            }
+          ],
+          "rows": [
+            {
+              "value": "importance",
+              "text": "Importance"
+            }
+          ]
+        },
+        {
+          "type": "matrix",
+          "name": "riskAssetImportance",
+          "title": "How critical is it for certain types of asset to achieve the mission?",
+          "isRequired": false,
+          "columns": [
+            {
+              "value": 1,
+              "text": "Not important"
+            },
+            {
+              "value": 2,
+              "text": "Quite important"
+            },
+            {
+              "value": 3,
+              "text": "Important"
+            },
+            {
+              "value": 4,
+              "text": "Very important"
+            },
+            {
+              "value": 5,
+              "text": "Critically important"
+            }
+          ],
+          "rows": [
+            {
+              "value": "physicalAssets",
+              "text": "Physical assets"
+            },
+            {
+              "value": "cyberAssets",
+              "text": "Cyber assets"
+            }
+          ]
+        },
+        {
+          "type": "rating",
+          "name": "riskFrequency",
+          "title": "How often are you prepared to accept situations where the risk may be greater than your risk appetite?",
+          "isRequired": false,
+          "mininumRateDescription": "",
+          "maximumRateDescription": "",
+          "rateValues": [
+            {
+              "value": 1,
+              "text": "Never"
+            },
+            {
+              "value": 2,
+              "text": "Infrequent"
+            },
+            {
+              "value": 3,
+              "text": "Frequent"
+            },
+            {
+              "value": 4,
+              "text": "Very frequent"
+            },
+            {
+              "value": 5,
+              "text": "Constant"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Current Security",
+      "title": "Current Security",
+      "questions": [
+        {
+          "type": "rating",
+          "name": "riskFrequency",
+          "title": "How often are you prepared to accept situations where the risk may be greater than your risk appetite?",
+          "isRequired": false,
+          "mininumRateDescription": "",
+          "maximumRateDescription": "",
+          "rateValues": [
+            {
+              "value": 1,
+              "text": "Never"
+            },
+            {
+              "value": 2,
+              "text": "Infrequent"
+            },
+            {
+              "value": 3,
+              "text": "Frequent"
+            },
+            {
+              "value": 4,
+              "text": "Very frequent"
+            },
+            {
+              "value": 5,
+              "text": "Constant"
+            }
+          ]
+        },
+        {
+          "type": "rating",
+          "name": "currentSecurityRegimePerformance",
+          "title": "Given your situation, how good do you think your current security regime is?",
+          "isRequired": false,
+          "mininumRateDescription": "",
+          "maximumRateDescription": "",
+          "rateValues": [
+            {
+              "value": 1,
+              "text": "Non-existent"
+            },
+            {
+              "value": 2,
+              "text": "Poor"
+            },
+            {
+              "value": 3,
+              "text": "Adequate"
+            },
+            {
+              "value": 4,
+              "text": "Good"
+            },
+            {
+              "value": 5,
+              "text": "Excellent"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "name": "currentSecurityRegimeResources",
+          "title": "If you are made aware that you do not have the full complement of your resources/assets are you happy to proceed with the mission?",
+          "isRequired": false
+        },
+        {
+          "type": "matrix",
+          "name": "currentSecurityRegimeImportance",
+          "title": "How important is your security regime to protecting your current assets?",
+          "isRequired": false,
+          "columns": [
+            {
+              "value": 1,
+              "text": "Not important"
+            },
+            {
+              "value": 2,
+              "text": "Quite important"
+            },
+            {
+              "value": 3,
+              "text": "Important"
+            },
+            {
+              "value": 4,
+              "text": "Very important"
+            },
+            {
+              "value": 5,
+              "text": "Critically important"
+            }
+          ],
+          "rows": [
+            {
+              "value": "physicalAssets",
+              "text": "Physical assets"
+            },
+            {
+              "value": "cyberAssets",
+              "text": "Cyber assets"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Vulnerability",
+      "title": "Vulnerability",
+      "questions": [
+        {
+          "type": "rating",
+          "name": "vulnerabilityExposure",
+          "title": "Are you happy with the information you currently have to assess the risk of your assets?",
+          "isRequired": false,
+          "mininumRateDescription": "",
+          "maximumRateDescription": "",
+          "rateValues": [
+            {
+              "value": 1,
+              "text": "Not happy"
+            },
+            {
+              "value": 2,
+              "text": "Quite happy"
+            },
+            {
+              "value": 3,
+              "text": "Happy"
+            },
+            {
+              "value": 4,
+              "text": "Very happy"
+            }
+          ]
+        },
+        {
+          "type": "rating",
+          "name": "vulnerabilityHypothetical",
+          "title": "Hypothetically, if you were to have a severe vulnerability in your cyber assets, how willing are you to spend effort on fixing the vulnerability to achieve the mission?",
+          "isRequired": false,
+          "mininumRateDescription": "Very unwilling",
+          "rateValues": [
+            {
+              "value": 1,
+              "text": "1"
+            },
+            {
+              "value": 2,
+              "text": "2"
+            },
+            {
+              "value": 3,
+              "text": "3"
+            },
+            {
+              "value": 4,
+              "text": "4"
+            },
+            {
+              "value": 5,
+              "text": "5 Very willing"
+            }
+          ]
+        },
+        {
+          "type": "rating",
+          "name": "vulnerabilityHypotheticalSub",
+          "title": "Given your high willingness, would you still be willing if you thought this was only a moderate vulnerability?",
+          "isRequired": false,
+          "visibleIf": "{vulnerabilityHypothetical} > 3",
+          "mininumRateDescription": "Very unwilling",
+          "rateValues": [
+            {
+              "value": 1,
+              "text": "1"
+            },
+            {
+              "value": 2,
+              "text": "2"
+            },
+            {
+              "value": 3,
+              "text": "3"
+            },
+            {
+              "value": 4,
+              "text": "4"
+            },
+            {
+              "value": 5,
+              "text": "5 Very willing"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Impact",
+      "title": "Impact",
+      "questions": [
+        {
+          "type": "rating",
+          "name": "impactHowManyAssetsToLose",
+          "title": "What is the percentage of human resources you are prepared to lose to achieve the mission?",
+          "isRequired": false,
+          "mininumRateDescription": "",
+          "rateValues": [
+            {
+              "value": 1,
+              "text": "0%"
+            },
+            {
+              "value": 2,
+              "text": "> 20%"
+            },
+            {
+              "value": 3,
+              "text": "> 40%"
+            },
+            {
+              "value": 4,
+              "text": "> 60%"
+            },
+            {
+              "value": 5,
+              "text": "> 80%"
+            }
+          ]
+        },
+        {
+          "type": "rating",
+          "name": "threatFriendlyForces",
+          "title": "Are you dealing with friendly forces that could pose a direct threat to the mission?",
+					"isRequired": false,
+          "mininumRateDescription": "",
+          "rateValues": [
+            {
+              "value": 1,
+              "text": "Yes, we are working with locals that are known to cause trouble"
+            },
+            {
+              "value": 2,
+              "text": "No, we are dealing with respected friends"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "completedHtml": " "
+}

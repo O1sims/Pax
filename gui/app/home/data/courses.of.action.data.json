@@ -1,0 +1,65 @@
+{
+  "globalId": "coa1",
+  "missionObjective": "Defend Power Station",
+  "actionType": "Cyber",
+  "actionClass": "Patch",
+  "networkNodes":
+  [
+    "d2"
+  ],
+  "description": "Patch vulnerability CVE-2001-0867 attached to Router Firmware",
+  "task":
+  [
+    {
+      "task": "Remove cyber vulnerabilities",
+      "hardware_facility": "Enterprise Network",
+      "hardware_id": "#146:0",
+      "hardware_name": "Router"
+    }
+  ],
+  "priorityScore": 36,
+  "vulnerability": "CVE-2001-0867",
+  "effect": "Secure Enterprise Network",
+  "priorityLabel": "Low",
+  "location": "Pump house",
+  "personnelRequired":
+  [
+    "2 security analysts"
+  ],
+  "timeTaken":
+  {
+    "averageTime" : 90,
+    "standardDeviationTime" : 15
+  },
+  "softwareAffected":
+  [
+    {
+      "id": "s1",
+      "name": "Microsoft Excel 2013 RT"
+    }
+  ],
+  "hardwareAffected":
+  [
+    {
+      "id": "d2",
+      "name": "Workstation 2"
+    }
+  ],
+  "probabilityOfSuccess": 0.8,
+  "expectedRiskImpact": 40,
+  "expectedImpact":
+  [
+    {
+      "impactChange": 2,
+      "likelihood": 0.3
+    },
+    {
+      "impactChange": 3,
+      "likelihood": 0.1
+    },
+    {
+      "impactChange": 1,
+      "likelihood": 0.6
+    }
+  ]
+}

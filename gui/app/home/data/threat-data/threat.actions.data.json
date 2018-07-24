@@ -1,0 +1,293 @@
+{
+  "threat_actions":
+  [
+    {
+      "strategy": "Exploit vulnerabilities in Router",
+      "source_node": {
+        "name": "Router",
+        "globalId": "d2"
+      },
+      "type": "Cyber",
+      "attacker_type": [
+        {
+          "name" : "Hacker",
+          "globalId" : "d1"
+        }
+      ],
+      "cost": 5,
+      "prob_of_success": 0.8
+    },
+    {
+      "strategy": "Initiate denial of service attack",
+      "type": "Cyber",
+      "attacker_type": [
+        {
+          "name" : "Hacker",
+          "globalId" : "d1"
+        },
+        {
+          "name" : "Organised criminal group",
+          "globalId" : "d100"
+        }
+      ],
+      "cost": 5,
+      "prob_of_success": 0.95
+    },
+    {
+      "strategy": "Exploit software vulnerability CVE-2013-1315",
+      "type": "Cyber",
+      "attacker_type": [
+        {
+          "name" : "Hacker",
+          "globalId" : "d1"
+        },
+        {
+          "name" : "Insider Threat",
+          "globalId" : "d7"
+        }
+      ],
+      "cost": 1,
+      "prob_of_success": 0.45
+    },
+    {
+      "strategy": "Exploit software vulnerability CVE-2014-6287",
+      "type": "Cyber",
+      "attacker_type": [
+        {
+          "name" : "Hacker",
+          "globalId" : "d1"
+        },
+        {
+          "name" : "Insider Threat",
+          "globalId" : "d7"
+        }
+      ],
+      "cost": 1,
+      "prob_of_success": 0.4
+    },
+    {
+      "strategy": "Exploit software vulnerability CVE-2015-0063",
+      "type": "Cyber",
+      "attacker_type": [
+        {
+          "name" : "Hacker",
+          "globalId" : "d1"
+        },
+        {
+          "name" : "Insider Threat",
+          "globalId" : "d7"
+        }
+      ],
+      "cost": 1,
+      "prob_of_success": 0.51
+    },
+    {
+      "strategy": "Exploit software vulnerability CVE-2001-0865",
+      "type": "Cyber",
+      "attacker_type": [
+        {
+          "name" : "Hacker",
+          "globalId" : "d1"
+        },
+        {
+          "name" : "Insider Threat",
+          "globalId" : "d7"
+        }
+      ],
+      "cost": 1,
+      "prob_of_success": 0.23
+    },
+    {
+      "strategy": "Exploit software vulnerability CVE-2010-1578",
+      "type": "Cyber",
+      "attacker_type": [
+        {
+          "name" : "Hacker",
+          "globalId" : "d1"
+        },
+        {
+          "name" : "Insider Threat",
+          "globalId" : "d7"
+        }
+      ],
+      "cost": 1,
+      "prob_of_success": 0.49
+    },
+    {
+      "strategy": "Exploit software vulnerability CVE-2001-0866",
+      "type": "Cyber",
+      "attacker_type": [
+        {
+          "name" : "Hacker",
+          "globalId" : "d1"
+        },
+        {
+          "name" : "Insider Threat",
+          "globalId" : "d7"
+        }
+      ],
+      "cost": 1,
+      "prob_of_success": 0.6
+    },
+    {
+      "strategy": "Exploit software vulnerability CVE-2010-2815",
+      "type": "Cyber",
+      "attacker_type": [
+        {
+          "name" : "Hacker",
+          "globalId" : "d1"
+        },
+        {
+          "name" : "Insider Threat",
+          "globalId" : "d7"
+        }
+      ],
+      "cost": 1,
+      "prob_of_success": 0.63
+    },
+    {
+      "strategy": "Exploit software vulnerability CVE-2001-0867",
+      "type": "Cyber",
+      "attacker_type": [
+        {
+          "name" : "Hacker",
+          "globalId" : "d1"
+        },
+        {
+          "name" : "Insider Threat",
+          "globalId" : "d7"
+        }
+      ],
+      "cost": 1,
+      "prob_of_success": 0.37
+    },
+    {
+      "strategy": "Exploit software vulnerability CVE-2010-1579",
+      "type": "Cyber",
+      "attacker_type": [
+        {
+          "name" : "Hacker",
+          "globalId" : "d1"
+        },
+        {
+          "name" : "Insider Threat",
+          "globalId" : "d7"
+        }
+      ],
+      "cost": 1,
+      "prob_of_success": 0.65
+    },
+    {
+      "strategy": "Exploit software vulnerability CVE-2011-0395",
+      "type": "Cyber",
+      "attacker_type": [
+        {
+          "name" : "Hacker",
+          "globalId" : "d1"
+        },
+        {
+          "name" : "Insider Threat",
+          "globalId" : "d7"
+        }
+      ],
+      "cost": 1,
+      "prob_of_success": 0.14
+    },
+    {
+      "strategy": "Exploit software vulnerability CVE-2014-7226",
+      "type": "Cyber",
+      "attacker_type": [
+        {
+          "name" : "Hacker",
+          "globalId" : "d1"
+        },
+        {
+          "name" : "Insider Threat",
+          "globalId" : "d7"
+        }
+      ],
+      "cost": 1,
+      "prob_of_success": 0.83
+    },
+    {
+      "strategy": "Exploit software vulnerability CVE-2011-0396",
+      "type": "Cyber",
+      "attacker_type": [
+        {
+          "name" : "Hacker",
+          "globalId" : "d1"
+        },
+        {
+          "name" : "Insider Threat",
+          "globalId" : "d7"
+        }
+      ],
+      "cost": 1,
+      "prob_of_success": 0.57
+    },
+    {
+      "strategy": "Exploit software vulnerability CVE-2005-4258",
+      "type": "Cyber",
+      "attacker_type": [
+        {
+          "name" : "Hacker",
+          "globalId" : "d1"
+        },
+        {
+          "name" : "Insider Threat",
+          "globalId" : "d7"
+        }
+      ],
+      "cost": 1,
+      "prob_of_success": 0.45
+    },
+    {
+      "strategy": "Exploit software vulnerability CVE-2001-0863",
+      "type": "Cyber",
+      "attacker_type": [
+        {
+          "name" : "Hacker",
+          "globalId" : "d1"
+        },
+        {
+          "name" : "Insider Threat",
+          "globalId" : "d7"
+        }
+      ],
+      "cost": 1,
+      "prob_of_success": 0.32
+    },
+    {
+      "strategy": "Exploit software vulnerability CVE-2013-1100",
+      "type": "Cyber",
+      "attacker_type": [
+        {
+          "name" : "Hacker",
+          "globalId" : "d1"
+        },
+        {
+          "name" : "Insider Threat",
+          "globalId" : "d7"
+        }
+      ],
+      "cost": 1,
+      "prob_of_success": 0.72
+    },
+    {
+      "strategy": "Exploit software vulnerability CVE-2001-0864",
+      "type": "Cyber",
+      "attacker_type": [
+        {
+          "name" : "Hacker",
+          "globalId" : "d1"
+        },
+        {
+          "name" : "Insider Threat",
+          "globalId" : "d7"
+        }
+      ],
+      "cost": 1,
+      "prob_of_success": 0.11
+    }
+  ]
+}

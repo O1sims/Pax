@@ -1,0 +1,76 @@
+{% load static %}
+
+<html>
+  <head>
+    <base href="/">
+    <!-- 1. Set up styling -->
+
+    <!-- App title -->
+    <title>Pax</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Insert favicon -->
+    <link rel="icon" type="image/png" href="./app/assets/img/pax-logo-tag.png" />
+
+    <!-- Insert stylesheets -->
+    <link rel="stylesheet" href="./app/assets/stylesheets/bootstrap.css" />
+    <link rel="stylesheet" href="./app/assets/stylesheets/font-awesome.css" />
+    <link rel="stylesheet" href="./app/assets/stylesheets/styles.css" />
+    <link rel="stylesheet" href="./app/assets/stylesheets/sidebar.css" />
+    <link rel="stylesheet" href="./app/assets/stylesheets/hamburgers.css" />
+    <link rel="stylesheet" href="./app/assets/stylesheets/leaflet.css" />
+    <link rel="stylesheet" href="./app/assets/stylesheets/leaflet.draw.css" />
+    <link rel="stylesheet" href="./app/assets/stylesheets/icons.css" />
+    <link rel="stylesheet" href="./app/assets/stylesheets/material.scss" />
+    <link rel="stylesheet" href="./app/assets/stylesheets/bootstrap.scss" />
+    <link rel="stylesheet" href="./app/assets/stylesheets/custom.css" />
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans" />
+
+    <link rel="stylesheet" type="text/css" href="/node_modules/primeng/resources/themes/omega/theme.css" />
+    <link rel="stylesheet" type="text/css" href="/node_modules/primeng/resources/primeng.min.css" />
+
+    <!-- 2. Load libraries -->
+
+    <script src="./app/assets/js/jquery-3.2.1.min.js"></script>
+
+    <!-- Load initial libraries for Bootstrap -->
+    <script src="./app/assets/js/bootstrap.js"></script>
+    <script src="./app/assets/js/custom.js"></script>
+
+    <!-- IE required polyfills, in this exact order -->
+    <script src="./app/node_modules/core-js/client/shim.min.js"></script>
+    <script src="./app/node_modules/zone.js/dist/zone.js"></script>
+    <script src="./app/node_modules/reflect-metadata/Reflect.js"></script>
+    <script src="./app/node_modules/systemjs/dist/system.src.js"></script>
+    <script src="./app/node_modules/underscore/underscore.js"></script>
+
+    <!-- Load up NVD3 CSS and JS libraries -->
+    <link rel="stylesheet" href="./app/assets/stylesheets/nv.d3.min.css">
+    <script src="./app/assets/js/loader.js"></script>
+    <script src="./app/assets/js/d3.min.js"></script>
+    <script src="./app/assets/js/nv.d3.min.js"></script>
+    <script src="./app/node_modules/chart.js/src/chart.js"></script>
+
+    <script src="http://d3js.org/colorbrewer.v1.min.js"></script>
+    <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+
+    <!-- 3. Configure SystemJS -->
+    <script src="./app/assets/systemjs.config.js"></script>
+    <script>
+      System.import('app').catch(function(err) {
+        console.error(err);
+      });
+    </script>
+  </head>
+
+  <!-- 4. Display the application -->
+  <body style="background-color:#f7f7f7">
+    <my-app>
+      <div style="text-align: center; padding-top:100px;">
+        <i class="fa fa-refresh fa-spin fa-3x fa-fw"></i>
+      </div>
+    </my-app>
+  </body>
+</html>

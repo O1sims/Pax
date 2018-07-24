@@ -1,0 +1,49 @@
+<nav class="navbar navbar-default" style="background-color:#F7F7F7;">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand">
+        <img src="./app/assets/img/pax-logo-original.png" routerLink="" (click)="assignSelectedTab('riskNetwork')" alt="Pax logo" height="50px" style="padding-top:15px; padding-left:15px;">
+      </a>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav" style="padding-right:150px;">
+        <li [ngClass]="{'active': selectedTab=='riskNetwork'}" style="border-radius: 4px;">
+          <a routerLink="" (click)="assignSelectedTab('riskNetwork')">System</a>
+        </li>
+        <li [ngClass]="{'active': selectedTab=='actions'}" style="border-radius: 4px;">
+          <a routerLink="actions" (click)="assignSelectedTab('actions')">Actions</a>
+        </li>
+        <li [ngClass]="{'active': selectedTab=='cvi'}" style="border-radius: 4px;">
+          <a routerLink="cvi" (click)="assignSelectedTab('cvi')">CVI</a>
+        </li>
+        <li [ngClass]="{'active': selectedTab=='riskAppetite'}" style="border-radius: 4px;">
+          <a routerLink="risk-appetite" (click)="assignSelectedTab('riskAppetite')">Risk appetite</a>
+        </li>
+        <!-- <li>
+          <a routerLink="" routerLinkActive="active">Risk data terminal</a>
+        </li> -->
+        <!-- <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Commander dashboard <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li>
+              <a routerLink="dashboard">Team overview</a>
+            </li>
+            <li role="separator" class="divider"></li>
+            <li>
+              <a routerLink="dashboard/blue-team">Blue team</a>
+            </li>
+            <li>
+              <a routerLink="dashboard/red-team">Red team</a>
+            </li>
+          </ul>
+        </li> -->
+      </ul>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,394 @@
+{
+  "pages":[
+    {
+      "name":"Cyber Vulnerability Investigation",
+      "title":"Overview",
+      "elements":[
+        {
+          "type": "text",
+          "name": "name",
+          "title": "Name",
+          "isRequired": false
+        },
+        {
+          "type": "comment",
+          "name": "description",
+          "title": "Description",
+          "isRequired": false
+        }
+      ]
+    },
+    {
+      "name":"Cyber Vulnerability Investigation",
+      "title":"Groups",
+      "elements":[
+        {
+          "type":"matrixdynamic",
+          "cellType":"text",
+          "columns":[
+            {
+              "name":"id",
+              "title":"Group ID",
+              "cellType":"text"
+            },
+            {
+              "name":"name",
+              "title":"Group name",
+              "cellType":"text"
+            },
+            {
+              "name":"description",
+              "title":"Description",
+              "cellType":"comment"
+            },
+            {
+              "name":"reference",
+              "title":"Reference",
+              "cellType":"text"
+            }
+          ],
+          "isRequired":true,
+          "minRowCount":"1",
+          "name":"groups",
+          "rowCount":"1",
+          "title":"List all high-level groups that are considered in the mission CVI."
+        }
+      ]
+    },
+    {
+      "name":"Cyber Vulnerability Investigation",
+      "title":"Functions",
+      "elements":[
+        {
+          "type":"matrixdynamic",
+          "cellType":"text",
+          "columns":[
+            {
+              "name":"id",
+              "title":"Function ID",
+              "cellType":"text"
+            },
+            {
+              "name":"name",
+              "title":"Function name",
+              "cellType":"text"
+            },
+            {
+              "name":"description",
+              "title":"Description",
+              "cellType":"comment"
+            },
+            {
+              "name":"reference",
+              "title":"Reference",
+              "cellType":"text"
+            },
+            {
+              "name":"threshold",
+              "title":"Threshold",
+              "cellType":"dropdown",
+              "choices": [
+                {
+                  "value": 8,
+                  "text": "Very high"
+                },
+                {
+                  "value": 6,
+                  "text": "High"
+                },
+                {
+                  "value": 4,
+                  "text": "Medium"
+                },
+                {
+                  "value": 2,
+                  "text": "Low"
+                }
+              ]
+            }
+          ],
+          "name":"functions",
+          "rowCount":"1",
+          "minRowCount":"1",
+          "title":"Provide a list of all functions associated with the assets and devices within the mission."
+        }
+      ]
+    },
+    {
+      "name":"Cyber Vulnerability Investigation",
+      "title":"Assets",
+      "elements":[
+        {
+          "type":"matrixdynamic",
+          "cellType":"text",
+          "columns":[
+            {
+              "name":"id",
+              "title":"Asset ID",
+              "cellType":"text"
+            },
+            {
+              "name":"name",
+              "title":"Asset name",
+              "cellType":"text"
+            },
+            {
+              "name":"description",
+              "title":"Description",
+              "cellType":"comment"
+            },
+            {
+              "name":"group",
+              "title":"Group",
+              "cellType":"dropdown"
+            },
+            {
+              "name":"function",
+              "title":"Function",
+              "cellType":"dropdown"
+            },
+            {
+              "name":"sensitivity",
+              "title":"Sensitivity",
+              "cellType":"dropdown",
+              "choices": [
+                {
+                  "value": 5,
+                  "text": "Critical"
+                },
+                {
+                  "value": 4,
+                  "text": "High"
+                },
+                {
+                  "value": 3,
+                  "text": "Medium"
+                },
+                {
+                  "value": 2,
+                  "text": "Low"
+                },
+                {
+                  "value": 1,
+                  "text": "Very low"
+                }
+              ]
+            },
+            {
+              "name":"type",
+              "title":"Type",
+              "cellType":"dropdown",
+              "choices": [
+                {
+                  "value": "physical",
+                  "text": "Physical"
+                },
+                {
+                  "value": "cyber",
+                  "text": "Cyber"
+                }
+              ]
+            }
+          ],
+          "isRequired":true,
+          "minRowCount":"1",
+          "name":"assets",
+          "rowCount":"1",
+          "title":"Provide a list of all assets within the mission."
+        }
+      ]
+    },
+    {
+      "name":"Cyber Vulnerability Investigation",
+      "title":"Threats",
+      "elements":[
+        {
+          "type":"matrixdynamic",
+          "cellType":"text",
+          "columns":[
+            {
+              "name":"id",
+              "title":"Threat ID",
+              "cellType":"text"
+            },
+            {
+              "name":"type",
+              "title":"Type",
+              "cellType":"dropdown",
+              "choices": [
+                {
+                  "value": "hacker",
+                  "text": "Hacker"
+                },
+                {
+                  "value": "terrorist",
+                  "text": "Terrorist"
+                },
+                {
+                  "value": "insider",
+                  "text": "Insider"
+                },
+                {
+                  "value": "foreign intelligence service",
+                  "text": "Foreign Intelligence Service"
+                }
+              ]
+            },
+            {
+              "name":"motivation",
+              "title":"Motivation",
+              "cellType":"comment"
+            },
+            {
+              "name":"intent",
+              "title":"Intent",
+              "cellType":"comment"
+            },
+            {
+              "name":"purpose",
+              "title":"Purpose",
+              "cellType":"comment"
+            },
+            {
+              "name":"threatLevel",
+              "title":"Threat level",
+              "cellType":"dropdown",
+              "choices":[
+                {
+                  "value": 5,
+                  "text": "Critical"
+                },
+                {
+                  "value": 4,
+                  "text": "Severe"
+                },
+                {
+                  "value": 3,
+                  "text": "Substantial"
+                },
+                {
+                  "value": 2,
+                  "text": "Moderate"
+                },
+                {
+                  "value": 1,
+                  "text": "Low"
+                },
+                {
+                  "value": 0,
+                  "text": "Negliible"
+                }
+              ]
+            },
+            {
+              "cellType": "checkbox",
+              "name": "assetsThreatened",
+              "title": "Assets threatened",
+              "colCount": 1
+            }
+          ],
+          "isRequired":true,
+          "minRowCount":"1",
+          "name":"threats",
+          "rowCount":"1",
+          "title":"Provide a list of all threats that affect the mission."
+        }
+      ]
+    },
+    {
+      "name":"Cyber Vulnerability Investigation",
+      "title":"Impact / Asset value",
+      "elements":[
+        {
+          "type":"matrixdynamic",
+          "cellType":"text",
+          "columns":[
+            {
+              "name":"id",
+              "title":"Impact ID",
+              "cellType":"text"
+            },
+            {
+              "name":"assetName",
+              "title":"Asset name",
+              "cellType":"dropdown"
+            },
+            {
+              "name":"systemComponent",
+              "title":"System component",
+              "cellType":"text"
+            },
+            {
+              "name":"confidentiality",
+              "title":"C",
+              "cellType":"dropdown",
+              "choices": [5, 4, 3, 2, 1]
+            },
+            {
+              "name":"integrity",
+              "title":"I",
+              "cellType":"dropdown",
+              "choices": [5, 4, 3, 2, 1]
+            },
+            {
+              "name":"availability",
+              "title":"A",
+              "cellType":"dropdown",
+              "choices": [5, 4, 3, 2, 1]
+            },
+            {
+              "name":"criticality",
+              "title":"Criticality",
+              "cellType":"dropdown",
+              "choices": [5, 4, 3, 2, 1]
+            }
+          ],
+          "name":"impacts",
+          "rowCount":"1",
+          "title":"Impact / Asset Value",
+          "minRowCount":"1",
+          "title":"Provide data regarding the impact assessment of each asset."
+        }
+      ]
+    },
+    {
+      "name":"Cyber Vulnerability Investigation",
+      "title":"Vulnerabilities",
+      "elements":[
+        {
+          "type":"matrixdynamic",
+          "cellType":"text",
+          "columns":[
+            {
+              "name":"id",
+              "title":"Vuln. ID",
+              "cellType":"text"
+            },
+            {
+              "name":"name",
+              "title":"Vuln. Name",
+              "cellType":"text"
+            },
+            {
+              "name":"description",
+              "title":"Description",
+              "cellType":"comment"
+            },
+            {
+              "cellType": "checkbox",
+              "name": "assets",
+              "title": "Assets",
+              "colCount": 1
+            }
+          ],
+          "name":"vulnerabilities",
+          "rowCount":"1",
+          "title":"Provide information regarding the known vulnerabilities that exist within each device.",
+          "minRowCount":"1"
+        }
+      ]
+    }
+  ],
+  "completedHtml": "<br/><br/><br/><br/><h2 style='text-align: center;'>CVI questionnaire data has been sent to C2 database</h2>",
+  "completeText": "Complete CVI"
+}

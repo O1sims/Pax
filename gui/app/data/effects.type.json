@@ -1,0 +1,10 @@
+{
+  "DESTROY": "offensive",
+  "SECURE": "defensive",
+  "UNDERSTAND": "defensive",
+  "SEIZE": "offensive",
+  "DISRUPT": "offensive",
+  "DECEIVE": "offensive",
+  "DENY": "offensive",
+  "DO NOTHING": "defensive"
+}

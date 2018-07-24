@@ -1,0 +1,179 @@
+{
+  "id": "UAV-CONTROL-SYSTEM",
+  "name": "UAV Control System",
+  "description": "Mobile land based control centre for UAV",
+  "groups": [
+    {
+      "id": "UAV-CONTROL-SYSTEM-G1",
+      "description": "The network controlling the UAV.",
+      "name": "Control Network"
+    },
+    {
+      "id": "UAV-CONTROL-SYSTEM-G2",
+      "description": "The network by which surveillance data is communicated.",
+      "name": "Communication Network"
+    },
+    {
+      "id": "UAV-CONTROL-SYSTEM-G3",
+      "description": "The aspects of the system which are not airborne.",
+      "name": "Ground Based Assets"
+    }
+  ],
+  "functions": [
+    {
+      "description": "Provide controls to the UAV to guide its flight.",
+      "name": "Control",
+      "id": "UAV-CONTROL-SYSTEM-F1",
+      "reference": null
+    },
+    {
+      "description": "Broadcast data back to base station.",
+      "name": "Communication",
+      "id": "UAV-CONTROL-SYSTEM-F2",
+      "reference": null
+    },
+    {
+      "description": "Record video and any other data.",
+      "name": "Collection",
+      "id": "UAV-CONTROL-SYSTEM-F3",
+      "reference": null
+    }
+  ],
+  "assets": [
+    {
+      "id": "UAV-CONTROL-SYSTEM-A1",
+      "assetType": "Physical",
+      "description": "Data Collecting Drone",
+      "name": "UAV",
+      "group": "UAV-CONTROL-SYSTEM-G2",
+      "function": "UAV-CONTROL-SYSTEM-F3",
+      "impact": {
+        "confidentiality": "3",
+        "id": "UAV-CONTROL-SYSTEM-BIL1",
+        "integrity": "4",
+        "availability": "5"
+      },
+      "sensitivity": 5
+    },
+    {
+      "id": "UAV-CONTROL-SYSTEM-A2",
+      "assetType": "Cyber",
+      "description": "Server that sends out control signal for UAV",
+      "name": "Control Server",
+      "group": "UAV-CONTROL-SYSTEM-G3",
+      "function": "UAV-CONTROL-SYSTEM-F1",
+      "impact": {
+        "confidentiality": "3",
+        "id": "UAV-CONTROL-SYSTEM-BIL4",
+        "integrity": "4",
+        "availability": "5"
+      },
+      "sensitivity": 2
+    },
+    {
+      "id": "UAV-CONTROL-SYSTEM-A3",
+      "assetType": "Physical",
+      "description": "Houses servers and staff",
+      "name": "Mobile Command Centre",
+      "group": "UAV-CONTROL-SYSTEM-G3",
+      "function": "UAV-CONTROL-SYSTEM-F1",
+      "impact": {
+        "confidentiality": "5",
+        "id": "UAV-CONTROL-SYSTEM-BIL5",
+        "integrity": "4",
+        "availability": "5"
+      },
+      "sensitivity": 1
+    },
+    {
+      "id": "UAV-CONTROL-SYSTEM-A4",
+      "assetType": "Cyber",
+      "description": "Sends back data from UAV.",
+      "name": "Data Transmitter",
+      "group": "UAV-CONTROL-SYSTEM-G3",
+      "function": "UAV-CONTROL-SYSTEM-F2",
+      "impact": {
+        "confidentiality": "5",
+        "id": "UAV-CONTROL-SYSTEM-BIL6",
+        "integrity": "4",
+        "availability": "3"
+      },
+      "sensitivity": 4
+    }
+  ],
+  "threats": [
+    {
+      "assetsThreatened": [],
+      "name": "Foreign Intelligence Service",
+      "motivation": "Political and National Security gain.",
+      "id": "UAV-CONTROL-SYSTEM-TA1",
+      "threatLevel": "MODERATE",
+      "purpose": "This would allow them to Improve military standing, improve political standing with their neighbours, gain the upper hand in any diplomacy, improve Strategic International bargaining, impact their neighbours political or country borders.",
+      "intent": "They would want to Collect/Gather, reveal or divulge, or even corrupt/change or destroy the information that the power plant systems use.",
+      "type": null
+    },
+    {
+      "assetsThreatened": [],
+      "name": "Terrorists",
+      "motivation": "Political, or Radical or Extremist behaviour to destabilise existing regimes",
+      "id": "UAV-CONTROL-SYSTEM-TA2",
+      "threatLevel": "MODERATE",
+      "purpose": "This would allow them to affect the stability and safety of the power plant for financial, political, personal or religious gain.",
+      "intent": "They would want to reveal or divulge, or destroy the safety critical systems that manage the physical and cyber systems operated by the various power plant systems.",
+      "type": null
+    },
+    {
+      "assetsThreatened": [
+        "UAV-CONTROL-SYSTEM-A5"
+      ],
+      "name": "Insider",
+      "motivation": "Disgruntled, lured by financial gains, Leaving the organisation, post disciplinary situation, Bribed/ Blackmailed, Coerced or Tricked",
+      "id": "UAV-CONTROL-SYSTEM-TA3",
+      "threatLevel": "MODERATE",
+      "purpose": "This would allow them to affect the stability and safety of the power plant for financial, political, personal or religious gain.",
+      "intent": "They would want to Collect/Gather, reveal or divulge, or even corrupt/change or destroy the information that the power plant systems use.",
+      "type": null
+    },
+    {
+      "assetsThreatened": [
+        "UAV-CONTROL-SYSTEM-C8"
+      ],
+      "name": "Hacker",
+      "motivation": "Curious, Intellectual challenge, Patriotic, Political, financial, organised crime or state sponsored.",
+      "id": "UAV-CONTROL-SYSTEM-TA4",
+      "threatLevel": "SEVERE",
+      "purpose": "This would allow them to affect the stability and safety of the power plant for financial, political or personal gain.",
+      "intent": "They would want to Collect/Gather, reveal or divulge, or even corrupt/change or destroy the information that the power plant systems use.",
+      "type": null
+    }
+  ],
+  "vulnerabilities": [
+    {
+      "assets": [
+        "UAV-CONTROL-SYSTEM-A2"
+      ],
+      "description": "Old software with known exploits.",
+      "name": "Old version of software",
+      "type": "Cyber",
+      "id": "UAV-CONTROL-SYSTEM-V1"
+    },
+    {
+      "assets": [
+        "UAV-CONTROL-SYSTEM-A4"
+      ],
+      "description": "Data broadcast has weak encryption",
+      "name": "Broadcast encryption weak",
+      "type": "Cyber",
+      "id": "UAV-CONTROL-SYSTEM-V2"
+    },
+    {
+      "assets": [
+        "UAV-CONTROL-SYSTEM-A4"
+      ],
+      "description": "Communications channel has weak signal",
+      "name": "Comms weak signal",
+      "type": "Cyber",
+      "id": "UAV-CONTROL-SYSTEM-V3"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "DESTROY": 1,
+  "SECURE": 2,
+  "UNDERSTAND": 2,
+  "SEIZE": 1,
+  "DISRUPT": 40,
+  "DECEIVE": 40,
+  "DENY": 1,
+  "DO NOTHING": 0
+}

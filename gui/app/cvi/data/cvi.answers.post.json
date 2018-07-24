@@ -1,0 +1,397 @@
+{
+    "name" : "Power station",
+    "description" : "Power Station surrounded by woods on edge of lake in Belanovia",
+    "groups" : [
+        {
+            "id" : "G1",
+            "name" : "Safety Critical Network",
+            "reference" : null,
+            "description" : "The safety critical network controlling the power generation process. The network includes the machinery used to control the plant and all HMI interfaces."
+        },
+        {
+            "id" : "G2",
+            "name" : "Enterprise Network",
+            "reference" : null,
+            "description" : "The enterprise network focusing on the Local Area network and the interconnections with the Wide Area Network and Internet."
+        },
+        {
+            "id" : "G3",
+            "name" : "Physical Location",
+            "reference" : null,
+            "description" : "The buildings and surrounding physical controls of the Trawsfynydd Site."
+        }
+    ],
+    "functions" : [
+        {
+            "threshold" : 8,
+            "id" : "F1",
+            "name" : "Generate",
+            "reference" : null,
+            "description" : "Generate power for the surrounding population.  The plant has two reactors each generating 235 MW of electricity.\n\nThe plant draws water from the nearby lake for cooling."
+        },
+        {
+            "threshold" : 6,
+            "id" : "F2",
+            "name" : "Distribute",
+            "reference" : null,
+            "description" : "Store power ready to be supplied when demanded by the surrounding population across national grid."
+        },
+        {
+            "threshold" : 4,
+            "id" : "F3",
+            "name" : "Maintain",
+            "reference" : null,
+            "description" : "Maintain the operation of the plant via delivery of new fuel and dispose of spent fuel."
+        },
+        {
+            "threshold" : 4,
+            "id" : "F4",
+            "name" : "Safety and Security",
+            "reference" : null,
+            "description" : "Maintain cyber and physical security of the plant to prevent accidents."
+        }
+    ],
+    "assets" : [
+        {
+            "function" : "F1",
+            "impact" : {
+                "id" : "BIL1",
+                "integrity" : 4,
+                "confidentiality" : 3,
+                "availability" : 5
+            },
+            "group" : "G3",
+            "name" : "Reactor Building",
+            "sensitivity" : 1,
+            "id" : "A1",
+            "type" : "physical",
+            "description" : "Houses reactor 1 and 2."
+        },
+        {
+            "function" : "F1",
+            "impact" : {
+                "id" : "BIL2",
+                "integrity" : 4,
+                "confidentiality" : 3,
+                "availability" : 5
+            },
+            "group" : "G3",
+            "name" : "Turbine Building",
+            "sensitivity" : 1,
+            "id" : "A2",
+            "type" : "physical",
+            "description" : "Houses the Turbines that generates the steam."
+        },
+        {
+            "function" : "F1",
+            "impact" : {
+                "id" : "BIL3",
+                "integrity" : 4,
+                "confidentiality" : 3,
+                "availability" : 5
+            },
+            "group" : "G3",
+            "name" : "Pump Building",
+            "sensitivity" : 1,
+            "id" : "A3",
+            "type" : "physical",
+            "description" : "Houses the pumps that moves the coolant water around."
+        },
+        {
+            "function" : "F1",
+            "impact" : {
+                "id" : "BIL4",
+                "integrity" : 4,
+                "confidentiality" : 3,
+                "availability" : 5
+            },
+            "group" : "G3",
+            "name" : "Switch Compound",
+            "sensitivity" : 1,
+            "id" : "A4",
+            "type" : "physical",
+            "description" : "This is the building that houses the switches to supply or received power from the electricity grid."
+        },
+        {
+            "function" : "F3",
+            "impact" : {
+                "id" : "BIL5",
+                "integrity" : 4,
+                "confidentiality" : 5,
+                "availability" : 5
+            },
+            "group" : "G3",
+            "name" : "Administration Block",
+            "sensitivity" : 1,
+            "id" : "A5",
+            "type" : "physical",
+            "description" : "This is where the power plant admin staff and operators are housed.\n\nIt has both the Power Station LAN and Enterprise WAN."
+        },
+        {
+            "function" : "F4",
+            "impact" : {
+                "id" : "BIL6",
+                "integrity" : 4,
+                "confidentiality" : 5,
+                "availability" : 3
+            },
+            "group" : "G3",
+            "name" : "Military Compound",
+            "sensitivity" : 1,
+            "id" : "A6",
+            "type" : "physical",
+            "description" : "This is the military controlled accommodation."
+        },
+        {
+            "function" : "F1",
+            "impact" : {
+                "id" : "BIL7",
+                "integrity" : 5,
+                "confidentiality" : 3,
+                "availability" : 5
+            },
+            "group" : "G1",
+            "name" : "Reactor HMI and ICS",
+            "sensitivity" : 1,
+            "id" : "C1",
+            "type" : "cyber",
+            "description" : "The reactor generates thermal heat by causing a nuclear reaction. \n\nThe course control system is powered by the station 50V DC battery."
+        },
+        {
+            "function" : "F1",
+            "impact" : {
+                "id" : "BIL8",
+                "integrity" : 5,
+                "confidentiality" : 3,
+                "availability" : 5
+            },
+            "group" : "G1",
+            "name" : "Gas Turbines HMI and ICS",
+            "sensitivity" : 1,
+            "id" : "C2",
+            "type" : "cyber",
+            "description" : "The turbines are responsible for generating electricity from the stream generated by the thermal heat."
+        },
+        {
+            "function" : "F1",
+            "impact" : {
+                "id" : "BIL9",
+                "integrity" : 5,
+                "confidentiality" : 3,
+                "availability" : 5
+            },
+            "group" : "G1",
+            "name" : "Pump Water coolant House HMI and ICS",
+            "sensitivity" : 1,
+            "id" : "C3",
+            "type" : "cyber",
+            "description" : "The pumping station is required to deliver the water that is used to extract the heat from the gas and convert it into steam for the generators."
+        },
+        {
+            "function" : "F2",
+            "impact" : {
+                "id" : "BIL10",
+                "integrity" : 5,
+                "confidentiality" : 3,
+                "availability" : 5
+            },
+            "group" : "G1",
+            "name" : "Switch Compound HMI and ICS",
+            "sensitivity" : 1,
+            "id" : "C4",
+            "type" : "cyber",
+            "description" : "The power distribution system stores and switches the power generated to deliver to the national grid."
+        },
+        {
+            "function" : "F3",
+            "impact" : {
+                "id" : "BIL11",
+                "integrity" : 5,
+                "confidentiality" : 3,
+                "availability" : 5
+            },
+            "group" : "G1",
+            "name" : "Waste Treatment HMI and ICS",
+            "sensitivity" : 1,
+            "id" : "C5",
+            "type" : "cyber",
+            "description" : "Manages the nuclear waste material that is generated as a result of the Nuclear Reactors."
+        },
+        {
+            "function" : "F3",
+            "impact" : {
+                "id" : "BIL12",
+                "integrity" : 3,
+                "confidentiality" : 4,
+                "availability" : 3
+            },
+            "group" : "G2",
+            "name" : "Power Station LAN",
+            "sensitivity" : 1,
+            "id" : "C6",
+            "type" : "cyber",
+            "description" : "The enterprise network used to locally manage the ICT requirements of the Power plant."
+        },
+        {
+            "function" : "F2",
+            "impact" : {
+                "id" : "BIL13",
+                "integrity" : 3,
+                "confidentiality" : 4,
+                "availability" : 3
+            },
+            "group" : "G2",
+            "name" : "Power Station Enterprise WAN",
+            "sensitivity" : 1,
+            "id" : "C7",
+            "type" : "cyber",
+            "description" : "The enterprise network used to manage the wider ICT requirements of the Power plant including interconnections with other Power Stations and other organisation units."
+        },
+        {
+            "function" : "F3",
+            "impact" : {
+                "id" : "BIL14",
+                "integrity" : 2,
+                "confidentiality" : 3,
+                "availability" : 2
+            },
+            "group" : "G2",
+            "name" : "Internet Access",
+            "sensitivity" : 1,
+            "id" : "C8",
+            "type" : "cyber",
+            "description" : "The connections with the Internet and any or all other organisations that require and ICT connection with the Trawsfynydd Power station and parent company."
+        },
+        {
+            "function" : "F4",
+            "impact" : {
+                "id" : "BIL15",
+                "integrity" : 5,
+                "confidentiality" : 5,
+                "availability" : 5
+            },
+            "group" : "G3",
+            "name" : "Military Network",
+            "sensitivity" : 1,
+            "id" : "C9",
+            "type" : "cyber",
+            "description" : "The military network that connects to other parts of the UK military network in order to meet the tasking order."
+        }
+    ],
+    "threats" : [
+        {
+            "motivation" : "Political and National Security gain.",
+            "name" : "Foreign Intelligence Service",
+            "assetsThreatened" : [
+                "A1",
+                "A2",
+                "A3",
+                "A4"
+            ],
+            "intent" : "They would want to Collect/Gather, reveal or divulge, or even corrupt/change or destroy the information that the power plant systems use.",
+            "purpose" : "This would allow them to Improve military standing, improve political standing with their neighbours, gain the upper hand in any diplomacy, improve Strategic International bargaining, impact their neighbours political or country borders.",
+            "threatLevel" : "SEVERE",
+            "id" : "TA1",
+            "type" : "foreign intelligence service"
+        },
+        {
+            "motivation" : "Political, or Radical or Extremist behaviour to destabilise existing regimes",
+            "name" : "Terrorist",
+            "assetsThreatened" : [
+                "A1",
+                "A2",
+                "A3",
+                "A4"
+            ],
+            "intent" : "They would want to reveal or divulge, or destroy the safety critical systems that manage the physical and cyber systems operated by the various power plant systems.",
+            "purpose" : "This would allow them to affect the stability and safety of the power plant for financial, political, personal or religious gain.",
+            "threatLevel" : "MODERATE",
+            "id" : "TA2",
+            "type" : "terrorist"
+        },
+        {
+            "motivation" : "Disgruntled, lured by financial gains, Leaving the organisation, post disciplinary situation, Bribed/ Blackmailed, Coerced or Tricked",
+            "name" : "Insider",
+            "assetsThreatened" : [
+                "A5"
+            ],
+            "intent" : "They would want to Collect/Gather, reveal or divulge, or even corrupt/change or destroy the information that the power plant systems use.",
+            "purpose" : "This would allow them to affect the stability and safety of the power plant for financial, political, personal or religious gain.",
+            "threatLevel" : "MODERATE",
+            "id" : "TA3",
+            "type" : "insider"
+        },
+        {
+            "motivation" : "Curious, Intellectual challenge, Patriotic, Political, financial, organised crime or state sponsored.",
+            "name" : "Hacker",
+            "assetsThreatened" : [
+                "C8"
+            ],
+            "intent" : "They would want to Collect/Gather, reveal or divulge, or even corrupt/change or destroy the information that the power plant systems use.",
+            "purpose" : "This would allow them to affect the stability and safety of the power plant for financial, political or personal gain.",
+            "threatLevel" : "MODERATE",
+            "id" : "TA4",
+            "type" : "hacker"
+        }
+    ],
+    "vulnerabilities" : [
+        {
+            "id" : "V1",
+            "type" : "Patch",
+            "description" : "No standard patching regime in place.",
+            "name" : "No patching regime",
+            "assets" : [
+                "C6",
+                "C7"
+            ]
+        },
+        {
+            "id" : "V2",
+            "type" : "Physical",
+            "description" : "Entrance into building is unsecured.",
+            "name" : "Unsecured entrance",
+            "assets" : [
+                "A1",
+                "A2",
+                "A4",
+                "A5"
+            ]
+        },
+        {
+            "id" : "V3",
+            "type" : "Physical",
+            "description" : "Structural weakness in Turbine Building.",
+            "name" : "Structual weakness",
+            "assets" : [
+                "A2"
+            ]
+        },
+        {
+            "id" : "V4",
+            "type" : "Cyber",
+            "description" : "Power Staton LAN intermittently drops offline.",
+            "name" : "Power station LAN offline",
+            "assets" : [
+                "C6"
+            ]
+        },
+        {
+            "id" : "V5",
+            "type" : "Cyber",
+            "description" : "Power Staton Enterprise WAN has no security.",
+            "name" : "No security on Enterprise WAN",
+            "assets" : [
+                "C7"
+            ]
+        },
+        {
+            "id" : "V6",
+            "type" : "Physical",
+            "description" : "Water in Pump Building is not treated.",
+            "name" : "Untreated water in Pump Building",
+            "assets" : [
+                "A3"
+            ]
+        }
+    ]
+}

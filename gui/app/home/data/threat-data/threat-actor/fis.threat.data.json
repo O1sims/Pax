@@ -1,0 +1,53 @@
+{
+  "threat_objective": "Attack Power Supply",
+  "threat_actor": "Foreign intelligence services (FIS)",
+  "threat_actor_class":
+  [
+    "Developing nation",
+    "Western nation",
+    "Rest of world"
+  ],
+  "motivation":
+  [
+    "Political gain",
+    "Economic gain",
+    "National security"
+  ],
+  "intent":
+  [
+    "Gather information",
+    "Reveal information",
+    "Corrupt information",
+    "Destroy information"
+  ],
+  "intent_methods":
+  [
+    "Individual user (asset) weakness",
+    "State sponsored",
+    "State knowledge",
+    "State resources",
+    "Specific state controlled situations",
+    "Press cover",
+    "Diplomatic cover",
+    "Electro Magnetic",
+    "Jamming and Spoofing",
+    "Geolocation Attacks",
+    "Electronic attacks"
+  ],
+  "intent_outcome" :
+  [
+    "Improve military standing",
+    "Improve political standing",
+    "Get the upper hand/diplomacy",
+    "Strategic International bargaining",
+    "Prevent criminal activity",
+    "Control political borders",
+    "Control country borders"
+  ],
+  "threat_level" :
+  [
+    "Moderate",
+    "Substantial",
+    "Severe"
+  ]
+}

@@ -1,0 +1,59 @@
+<div class="modal-header" style="background-color: #eee; border-bottom: 1px solid #ccc; font-size:18px;">
+	Threat detail
+</div>
+
+<div class="modal-body">
+	<div class="row">
+		<!-- Threat information -->
+		<div class="col-md-12">
+			<div class="panel panel-modal">
+				<div class="panel-heading"><b class="panel-title">Threat information</b></div>
+				<div class="col-md-4">
+					<ul class="list-group">
+						<li class="list-group-item-modal"><strong>ID</strong>
+							<pre>{{ threatInfoData.id }}</pre>
+						</li>
+					</ul>
+				</div>
+				<div class="col-md-4">
+					<ul class="list-group">
+						<li class="list-group-item-modal"><strong>Type</strong>
+							<pre>{{ threatInfoData.name }}</pre>
+						</li>
+					</ul>
+				</div>
+				<div class="col-md-4">
+					<ul class="list-group">
+						<li class="list-group-item-modal"><strong>Capability</strong>
+							<pre>{{ threatInfoData.threatLevel }}</pre>
+						</li>
+					</ul>
+				</div>
+				<div class="col-md-12">
+					<ul class="list-group">
+						<li class="list-group-item-modal"><strong>Threat motivation : </strong>
+							{{ threatInfoData.motivation }}
+						</li>
+					</ul>
+				</div>
+				<div class="col-md-12">
+					<ul class="list-group">
+						<li class="list-group-item-modal"><strong>Threat intent : </strong>
+							{{ threatInfoData.intent }}
+						</li>
+					</ul>
+				</div>
+				<div class="col-md-12">
+					<ul class="list-group">
+						<li class="list-group-item-modal"><strong>Threat purpose : </strong>
+							{{ threatInfoData.purpose }}
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<div class="modal-footer">
+	<button class="btn btn-success" type="button" (click)="closeModal()">Close</button>
+</div>

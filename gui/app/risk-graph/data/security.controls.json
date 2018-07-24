@@ -1,0 +1,39 @@
+{
+  "securityControls": [
+    {
+      "function" : "Safety and Security",
+      "type" : "Security control",
+      "id" : "S1",
+      "description" : "Controls flows of information between the Safety Critical Network and the Physical Boundary",
+      "name" : "Safety control 1"
+    },
+    {
+      "function" : "Safety and Security",
+      "type" : "Security control",
+      "id" : "S2",
+      "description" : "Controls flows of information between the Safety Critical Network and the Power Station Network",
+      "name" : "Safety control 2"
+    },
+    {
+      "function" : "Safety and Security",
+      "type" : "Security control",
+      "id" : "S3",
+      "description" : "Controls flows of information between the Power Station Network and the Physical Boundary",
+      "name" : "Safety control 3"
+    },
+    {
+      "function" : "Safety and Security",
+      "type" : "Security control",
+      "id" : "S4",
+      "description" : "Controls flows of information between the Power Station Network and the Physical Boundary",
+      "name" : "Safety control 4"
+    },
+    {
+      "function" : "Safety and Security",
+      "type" : "Security control",
+      "id" : "S5",
+      "description" : "Controls flows of information between the Safety Critical Network and the Physical Boundary",
+      "name" : "Safety control 5"
+    }
+  ]
+}

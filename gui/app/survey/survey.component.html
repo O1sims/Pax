@@ -1,0 +1,10 @@
+<br/>
+<br/>
+<br/>
+<br/>
+<div class="container" id="main">
+  <div id='surveyElement'></div>
+  <div *ngIf="riskAppetite.completed == true">
+    <h4>Given the answers provided, a <span [ngClass]="riskAppetite.class">{{ riskAppetite.riskAppetiteLabel }}</span> risk appetite was determined.</h4>
+  </div>
+</div>

@@ -1,0 +1,50 @@
+{
+  "threat_objective": "Attack Power Supply",
+  "threat_actor": "Hacker",
+  "threat_actor_class":
+  [
+    "Amateur",
+    "Professional",
+    "Virus and malware writer",
+    "Professional hacker team"
+  ],
+  "motivation":
+  [
+    "Asset control",
+    "Intellectual challenge",
+    "Patriotism",
+    "Political activism",
+    "Commercial",
+    "Organised crime",
+    "State sponsored"
+  ],
+  "intent":
+  [
+    "Reveal information",
+    "Corrupt information",
+    "Destroy information"
+  ],
+  "intent_methods":
+  [
+    "Compromising a web-based application",
+    "Deploying key loggers",
+    "Denial of service (DoS)",
+    "Injection (SQL, XSS, command line) attack",
+    "Man-in-the middle attack",
+    "Destructive viruses and worms",
+    "Electronic Attacks"
+  ],
+  "intent_outcome" :
+  [
+    "Financial gain",
+    "Political gain",
+    "Personal gain"
+  ],
+  "threat_level" :
+  [
+    "Substantial",
+    "Substantial",
+    "Severe",
+    "Severe"
+  ]
+}

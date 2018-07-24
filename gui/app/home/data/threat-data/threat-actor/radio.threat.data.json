@@ -1,0 +1,39 @@
+{
+  "threat_objective": "Attack Power Supply",
+  "threat_actor": "Radio enthusiast",
+  "threat_actor_class":
+  [
+    "Encrypted digital traffic",
+    "Unencrypted analogue traffic"
+  ],
+  "motivation":
+  [
+    "Exploiting official communications",
+    "Exposing official communications",
+    "Using illegally obtained information",
+    "Accidental leakage"
+  ],
+  "intent":
+  [
+    "Gather information",
+    "Reveal information",
+    "Corrupt information",
+    "Destroy information"
+  ],
+  "intent_methods":
+  [
+    "Electro-magnetic",
+    "Wifi intercept"
+  ],
+  "intent_outcome" :
+  [
+    "Intellectual gain",
+    "Curiosity",
+    "Academic credibility"
+  ],
+  "threat_level" :
+  [
+    "Low",
+    "Substantial"
+  ]
+}

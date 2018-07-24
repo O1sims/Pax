@@ -1,0 +1,44 @@
+[
+  {
+    "probabilityOfSuccess": 0.2,
+    "description": "Foreign Intelligence Service begins to exploit vulnerabilities in Assets in Physical Location 1",
+    "vulnerability": "POWER-STATION-V1",
+    "threat": "POWER-STATION-TA1",
+    "assetsImpacted": [
+	"POWER-STATION-A2",
+        "POWER-STATION-A3",
+        "POWER-STATION-A1",
+        "POWER-STATION-A4"
+	],
+    "system_id": "POWER-STATION",
+    "team": "hostile",
+    "actionType": "Physical",
+    "_id": "COA4"
+  },
+  {
+    "probabilityOfSuccess": 0.6,
+    "description": "Insider egresses information from Workstations in Administration Block",
+    "vulnerability": "POWER-STATION-V2",
+    "threat": "POWER-STATION-TA3",
+    "assetsImpacted": [
+	"POWER-STATION-A5"
+	],
+    "system_id": "POWER-STATION",
+    "team": "hostile",
+    "actionType": "Cyber",
+    "_id": "COA5"
+  },
+  {
+    "probabilityOfSuccess": 0.1,
+    "description": "External Hacker egresses data from insecure Internet Access",
+    "vulnerability": "POWER-STATION-V3",
+    "threat": "POWER-STATION-TA3",
+    "assetsImpacted": [
+	"POWER-STATION-C8"
+	],
+    "system_id": "POWER-STATION",
+    "team": "hostile",
+    "actionType": "Cyber",
+    "_id": "COA6"
+  }
+]
