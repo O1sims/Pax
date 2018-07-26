@@ -1,8 +1,14 @@
-default_cvi_system = [
+default_cvi_systems = [
     {
         "id": "POWER-STATION",
         "name": "Power station",
         "description": "Power Station surrounded by woods on edge of lake in Belanovia",
+        "geolocation": {
+            "coordinates": {
+                "latitude": 52.92513,
+                "longitude": -3.94619
+            }
+        },
         "groups": [{
             "id": "POWER-STATION-G1",
             "description": "The safety critical network controlling the power generation "
