@@ -1,8 +1,10 @@
-from mongoengine import *
+from rest_framework import serializers
 
 
-class Missions(Document):
-    missionId = StringField(required=False)
-    missionRisk = DictField(required=False)
-    missionObjective = StringField(required=False)
-    missionRiskTimeline = ListField(required=False)
+class MissionsModel(serializers.Serializer):
+    id = serializers.CharField(required=False)
+    name = serializers.CharField(required=False)
+    description = serializers.CharField(required=False)
+    criticalFunctions = serializers.ListField(required=False)
+    systems = serializers.ListField(required=False)
+    units = serializers.ListField(required=False)
