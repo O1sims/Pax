@@ -14,6 +14,17 @@ THREAT_TYPES = (
 )
 
 
+class CoordinatesModel(serializers.Serializer):
+    latitude = serializers.DecimalField(
+        max_digits=10, decimal_places=5)
+    longitude = serializers.DecimalField(
+        max_digits=10, decimal_places=5)
+
+
+class GeolocationModel(serializers.Serializer):
+    coordinates = CoordinatesModel()
+
+
 class NetworksModel(serializers.Serializer):
     id = serializers.CharField(required=True)
     name = serializers.CharField(required=True)
@@ -85,6 +96,7 @@ class CVISystemModel(serializers.Serializer):
     id = serializers.CharField(required=True)
     name = serializers.CharField(required=True)
     description = serializers.CharField(required=True)
+    geolocation = GeolocationModel(required=True)
     groups = GroupsModel(many=True, required=True)
     functions = FunctionsModel(many=True, required=True)
     assets = AssetsModel(many=True, required=True)
