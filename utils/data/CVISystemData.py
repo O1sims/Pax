@@ -305,6 +305,11 @@ default_cvi_system = [
             "name": "Software vulnerability",
             "type": "cyber",
             "id": "POWER-STATION-V3"
+        }],
+        "networks": [{
+            "id": "ENT-NETWORK",
+            "name": "Enterprise network",
+            "description": "An enterprise network of cyber devices"
         }]
     }
 ]

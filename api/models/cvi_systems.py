@@ -14,6 +14,12 @@ THREAT_TYPES = (
 )
 
 
+class NetworksModel(serializers.Serializer):
+    id = serializers.CharField(required=True)
+    name = serializers.CharField(required=True)
+    description = serializers.CharField(required=True)
+
+
 class VulnerabilitiesModel(serializers.Serializer):
     id = serializers.CharField(required=True)
     assets = serializers.ListField(required=True)
@@ -84,3 +90,4 @@ class CVISystemModel(serializers.Serializer):
     assets = AssetsModel(many=True, required=True)
     threats = ThreatsModel(many=True, required=True)
     vulnerabilities = VulnerabilitiesModel(many=True, required=True)
+    networks = NetworksModel(many=True, required=True)
