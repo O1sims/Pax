@@ -3,9 +3,11 @@ import pymongo as pm
 
 from data.EffectData import default_effects
 from data.ActionTemplateData import default_action_templates
-from data.CVIData import default_cvi_system
+from data.CVISystemData import default_cvi_systems
 from data.NetworkData import default_device_network
 from data.RiskAppetite import default_risk_appetite
+from data.MissionData import default_missions
+from data.UnitData import default_units
 
 from utils import SystemConfig as config
 
@@ -19,9 +21,11 @@ def reset_app_data():
     coll_data = {
         'effects': default_effects,
         'actionTemplates': default_action_templates,
-        'cviSystem': default_cvi_system,
+        'cviSystems': default_cvi_systems,
         'deviceNetwork': default_device_network,
         'riskAppetite': default_risk_appetite,
+        'missions': default_missions,
+        'units': default_units,
         'actionInstances': None
     }
     for coll, data in coll_data.iteritems():
