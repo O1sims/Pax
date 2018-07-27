@@ -15,30 +15,25 @@ def perform_system_risk_analysis(system_id, system_data, action_data=None):
     if action_data == {} or action_data is None:
         asset_risk = evaluate_system_risk(
             system_id=system_id,
-            system_data=system_data
-        )
+            system_data=system_data)
     else:
         new_system_data = update_system_data(
             system_data=system_data,
-            action_data=action_data
-        )
+            action_data=action_data)
         asset_risk = evaluate_system_risk(
             system_id=system_id,
             system_data=new_system_data,
-            action_data=action_data
-        )
+            action_data=action_data)
     return asset_risk
 
 
 def update_system_data(system_data, action_data):
     new_system_data_v = remove_asset_vulnerabilities(
         system_data=system_data,
-        action_data=action_data
-    )
+        action_data=action_data)
     new_system_data_t = add_asset_threats(
         system_data=new_system_data_v,
-        action_data=action_data
-    )
+        action_data=action_data)
     return new_system_data_t
 
 
