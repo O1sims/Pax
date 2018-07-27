@@ -7,9 +7,7 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class RiskGraphService implements OnInit {
-  api:string = environment.API_HOST + ":" +
-  environment.API_PORT + "/api/v" +
-  environment.API_VERSION;
+  api:string = "/api/v" + environment.API_VERSION;
 
   constructor(private http: Http) {
 	};
@@ -56,10 +54,20 @@ export class RiskGraphService implements OnInit {
   };
 
   // GET Mission data
+  getAllMissions() {
+    var requestoptions = new RequestOptions({
+      method: RequestMethod.Get,
+      url: this.api + '/missions/'
+    });
+
+    return this.http.request(new Request(requestoptions))
+    .map(res => res.json());
+  };
+
   getMissionData(missionId) {
     var requestoptions = new RequestOptions({
       method: RequestMethod.Get,
-      url: this.C2REST + 'missions/' + missionId
+      url: this.api + '/missions/' + missionId
     });
 
     return this.http.request(new Request(requestoptions))
@@ -200,14 +208,4 @@ export class RiskGraphService implements OnInit {
     .map(res => res.json());
   };
 
-  // GET All missions
-  getAllMissions() {
-    var requestoptions = new RequestOptions({
-      method: RequestMethod.Get,
-      url: this.api + '/missions'
-    });
-
-    return this.http.request(new Request(requestoptions))
-    .map(res => res.json());
-  };
 };
