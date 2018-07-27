@@ -268,21 +268,12 @@ constructor(private route: ActivatedRoute,
   };
 
   ngOnInit() {
-    this.riskGraphService.getC2Status()
-    .subscribe(C2Status => {
-      this.C2Status = C2Status['status'];
-      this.C2StatusPopover = "C2 response code: " + this.C2Status.toString();
-    });
-    this.riskGraphService.getC2REST()
-    .subscribe(C2REST => {
-      this.riskGraphService.C2REST = "http://" + C2REST["c2_rest_api"];
-      this.riskGraphService.getAllMissions()
-      .subscribe(missions => {
-        if (missions.length > 0) {
-          this.noData = 0;
-          this.allMissions = missions;
-        };
-      });
+    this.riskGraphService.getAllMissions()
+    .subscribe(missions => {
+      if (missions.length > 0) {
+        this.noData = 0;
+        this.allMissions = missions;
+      };
     });
     this.getEffectsList();
   };

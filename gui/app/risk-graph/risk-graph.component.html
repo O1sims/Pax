@@ -1,19 +1,7 @@
 <div class="container-fluid" style="height:80px; padding-top:20px; padding-bottom:20px;">
   <div class="container">
     <div class="row">
-      <div class="col-xs-6">
-        <div style="padding-top:7px;">
-          <div popover={{C2StatusPopover}}
-               popoverPlacement="left"
-               [popoverOnHover]="true"
-               [popoverAnimation]="true"
-               [popoverDismissTimeout]="0">
-               <strong>C2 status : </strong>
-               <i [ngClass]="C2Status=='200' ? 'fa fa-check on': 'fa fa-times off'"></i>
-          </div>
-        </div>
-      </div>
-      <div class="col-xs-6">
+      <div class="col-xs-12">
       <div class="dropdown pull-right">
         <strong>Mission : </strong>
         <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
