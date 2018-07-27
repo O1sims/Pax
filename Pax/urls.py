@@ -5,14 +5,16 @@ from drf_yasg import openapi
 from drf_yasg.views import get_schema_view
 from rest_framework.urlpatterns import format_suffix_patterns
 
-from api.views.reset import ResetData
 from api.views.action_instances import ActionInstancesView
 from api.views.action_templates import ActionTemplatesView
-from api.views.effects import EffectsView
-from api.views.cvi import CVIView, CVISystemView
-from api.views.system import SystemMissionTime
-from api.views.risk_appetite import RiskAppetiteDetail
 from api.views.courses_of_action import GenerateCoursesOfAction
+from api.views.cvi_systems import CVIView, CVISystemView
+from api.views.effects import EffectsView
+from api.views.index import IndexView
+from api.views.missions import MissionIdView, MissionsView
+from api.views.system import SystemMissionTime
+from api.views.reset import ResetData
+from api.views.risk_appetite import RiskAppetiteDetail
 from api.views.risk import NetworkRiskAnalysis, SystemRiskAnalysis, \
     CompareSystemRiskAnalysis, TaskDependencyRiskAnalysis
 
@@ -84,6 +86,15 @@ urlpatterns = format_suffix_patterns([
         config.API_VERSION),
         CVISystemView.as_view()),
 
+    # Mission
+    url(r'^api/v{}/missions/'.format(
+        config.API_VERSION),
+        MissionsView.as_view()),
+
+    url(r'^api/v{}/missions/(?P<missionId>.+)/'.format(
+        config.API_VERSION),
+        MissionIdView.as_view()),
+
     # Reset
     url(r'^api/v{}/reset/'.format(
         config.API_VERSION),
@@ -97,4 +108,12 @@ urlpatterns = format_suffix_patterns([
     url(r'^redoc/$',
         SchemaView.with_ui('redoc', cache_timeout=0),
         name='schema-redoc'),
+
+    # Angular
+    url(r'^$',
+        IndexView.as_view(),
+        name='index'),
+
+    url(r'^(?P<path>.*)/$',
+        IndexView.as_view()),
 ])
