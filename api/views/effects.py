@@ -14,14 +14,14 @@ from api.views.action_instances import MONGO_ID_R
 
 
 EFFECT_TYPE = openapi.Parameter(
-    name='type',
+    name='effect',
     in_=openapi.IN_QUERY,
     description='An effect name such as DESTROY',
     type=openapi.TYPE_STRING,
     required=False)
 
 EFFECT = openapi.Parameter(
-    name='effect',
+    name='type',
     in_=openapi.IN_QUERY,
     description='Either "offensive" or "defensive"',
     type=openapi.TYPE_STRING,
