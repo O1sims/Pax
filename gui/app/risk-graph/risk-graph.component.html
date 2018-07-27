@@ -20,8 +20,8 @@
           {{missionId}}
           <span class="caret"></span></button>
           <ul class="dropdown-menu">
-            <li *ngFor="let mission of allMissions" (click)="selectMission(mission['globalId'])">
-              <a>{{mission['globalId']}}</a>
+            <li *ngFor="let mission of allMissions" (click)="selectMission(mission['id'])">
+              <a>{{mission['id']}}</a>
             </li>
           </ul>
         </div>
@@ -57,8 +57,8 @@
     <h4>Please select a system to analyse...</h4>
     <div class="col-sm-12" style="text-align:center;">
       <div *ngFor="let mission of allMissions" style="padding-top:20px; padding-bottom:15px;">
-        <button type="button" class="btn btn-default btn-lg" (click)="selectMission(mission['globalId'])">
-          <i class="fa fa-shield fa-fw" aria-hidden="true"></i>&nbsp;<strong>{{mission['globalId']}} : </strong> {{mission['name']}}
+        <button type="button" class="btn btn-default btn-lg" (click)="selectMission(mission['id'])">
+          <i class="fa fa-shield fa-fw" aria-hidden="true"></i>&nbsp;<strong>{{mission['id']}} : </strong> {{mission['name']}}
         </button>
       </div>
     </div>
@@ -67,7 +67,7 @@
   <div class="container" *ngIf="loadingMission">
     <div style="text-align:center;">
       <br>
-      <h3>Loading system data for {{missionData['globalId']}}...</h3>
+      <h3>Loading system data for {{missionData['id']}}...</h3>
       <i class="fa fa-refresh fa-spin fa-2x fa-fw"></i>
     </div>
   </div>

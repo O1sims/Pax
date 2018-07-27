@@ -606,14 +606,14 @@ constructor(private route: ActivatedRoute,
   };
 
   deleteAllCOAActions() {
-    this.riskGraphService.getMissionData(this.missionData['globalId'])
+    this.riskGraphService.getMissionData(this.missionData['id'])
     .subscribe(missionData => {
       this.missionData = missionData;
       for (let i = 0; i < missionData['coAs'].length; i++) {
         if (missionData['coAs'][i]['name'] == this.selectedCOA) {
           for (let i = 0; i < this.actionRows.length; i++) {
             this.riskGraphService.deleteTask(
-              this.missionData['globalId'],
+              this.missionData['id'],
               missionData['coAs'][i]['id'],
               this.actionRows[i]['id']
             ).subscribe(deletedAction => {
@@ -751,7 +751,7 @@ constructor(private route: ActivatedRoute,
         };
         if (actionData['effect'].toLowerCase() === 'move' || d < 250) {
           this.riskGraphService.postTask(
-            this.missionData['globalId'],
+            this.missionData['id'],
             coaId,
             actionData)
             .subscribe(postedAction => {
@@ -823,7 +823,7 @@ constructor(private route: ActivatedRoute,
       this.detailSection = 0;
       this.actionSection = 0;
       if (this.noDataLoaded == 0) {
-        this.getCOAList(this.missionData['globalId']);
+        this.getCOAList(this.missionData['id']);
         this.assetRiskChanges = [];
         this.selectedRiskGraphCOA = this.riskGraphCOAs[0];
         this.riskGraphGenerated = 1;
@@ -890,7 +890,7 @@ constructor(private route: ActivatedRoute,
     };
 
     populateActionTable(coa) {
-      this.riskGraphService.getMissionData(this.missionData['globalId'])
+      this.riskGraphService.getMissionData(this.missionData['id'])
       .subscribe(missionData => {
         for (let i = 0; i < missionData['coAs'].length; i++) {
           if (missionData['coAs'][i]['name'] == coa) {
@@ -1084,14 +1084,14 @@ constructor(private route: ActivatedRoute,
     };
 
     deleteCourseOfAction() {
-      this.riskGraphService.getMissionData(this.missionData['globalId'])
+      this.riskGraphService.getMissionData(this.missionData['id'])
       .subscribe(missionData => {
         this.missionData = missionData;
         for (let i = 0; i < missionData['coAs'].length; i++) {
           if (missionData['coAs'][i]['name'] == this.selectedCOA) {
-            this.riskGraphService.deleteCOA(this.missionData['globalId'], missionData['coAs'][i]['id'])
+            this.riskGraphService.deleteCOA(this.missionData['id'], missionData['coAs'][i]['id'])
             .subscribe(response => {
-              this.getCOAList(this.missionData['globalId'])
+              this.getCOAList(this.missionData['id'])
             });
           };
         };
@@ -1184,7 +1184,7 @@ constructor(private route: ActivatedRoute,
             this.navToDetailSection();
             this.loadingMission = false;
           });
-          this.getCOAList(this.missionData['globalId']);
+          this.getCOAList(this.missionData['id']);
         });
       });
     };
@@ -1247,7 +1247,7 @@ constructor(private route: ActivatedRoute,
             this.coursesOfAction.push(missionData['coAs'][i]['name']);
           };
         } else {
-          this.riskGraphService.postCOA(missionData['globalId'], 'COA1')
+          this.riskGraphService.postCOA(missionData['id'], 'COA1')
           .subscribe(response => {
             this.coursesOfAction = [
               'COA1'
@@ -1260,14 +1260,14 @@ constructor(private route: ActivatedRoute,
 
     addCOA() {
       this.riskGraphService.postCOA(
-        this.missionData['globalId'],
+        this.missionData['id'],
         this.selectedCoaName
       ).subscribe(response => {
           this.coursesOfAction.push(
             this.selectedCoaName
           );
           this.riskGraphService.getMissionData(
-            this.missionData['globalId']
+            this.missionData['id']
           ).subscribe(missionData => {
             this.missionData = missionData;
           });
@@ -1870,7 +1870,7 @@ constructor(private route: ActivatedRoute,
               );
             });
           } else {
-            this.riskGraphService.getMissionData(this.missionData['globalId'])
+            this.riskGraphService.getMissionData(this.missionData['id'])
             .subscribe(missionData => {
               for (let i = 0; i < missionData['coAs'].length; i++) {
                 if (missionData['coAs'][i]['name'] == coa) {
@@ -2620,7 +2620,7 @@ constructor(private route: ActivatedRoute,
             };
             for (let i = 0; i < this.tasksToDelete.length; i++) {
               this.riskGraphService.deleteTask(
-                this.missionData['globalId'],
+                this.missionData['id'],
                 coaId,
                 this.tasksToDelete[i]
               )
@@ -2668,7 +2668,7 @@ constructor(private route: ActivatedRoute,
                 for (var j = 0; j < response[i].hardwareAffected.length; j++) {
                   hardware.push({
                     'name' : response[i].hardwareAffected[j].hardwareName,
-                    'globalId' : response[i].hardwareAffected[j].hardwareGlobalId
+                    'id' : response[i].hardwareAffected[j].hardwareid
                   });
                 };
 
@@ -2681,7 +2681,7 @@ constructor(private route: ActivatedRoute,
                 this.riskReduction += Number(response[i].benefit);
               };
 
-              this.hardwareAffected = hardware.filter((hardware, index, self) => self.findIndex(t => t.globalId === hardware.globalId && t.name === hardware.name) === index)
+              this.hardwareAffected = hardware.filter((hardware, index, self) => self.findIndex(t => t.id === hardware.id && t.name === hardware.name) === index)
               this.probabilityOfCompleteSuccess = Math.round(this.probabilityOfCompleteSuccess * 100);
               this.totalTimeTaken = this.timeScaler(this.totalTimeTaken);
               this.riskReduction = this.formatRisk(Math.round(this.riskReduction));

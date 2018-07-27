@@ -1,4 +1,5 @@
 import { Http, Response, Request, Headers, RequestOptions, RequestMethod, URLSearchParams } from "@angular/http";
+import { environment } from '../environment/environment';
 import { Injectable, OnInit } from '@angular/core';
 
 import 'rxjs/add/operator/map';
@@ -6,30 +7,12 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class RiskGraphService implements OnInit {
-  C2REST:string = "";
+  api:string = environment.API_HOST + ":" +
+  environment.API_PORT + "/api/v" +
+  environment.API_VERSION;
 
   constructor(private http: Http) {
 	};
-
-  getC2REST() {
-    var requestoptions = new RequestOptions({
-      method: RequestMethod.Get,
-      url: 'application/environment/c2/'
-    });
-
-    return this.http.request(new Request(requestoptions))
-    .map(res => res.json());
-  };
-
-  // Check on C2 status
-  getC2Status() {
-    var requestoptions = new RequestOptions({
-			method: RequestMethod.Get,
-			url: 'application/status/C2/'
-		});
-		return this.http.request(new Request(requestoptions))
-		.map(res => res.json());
-  };
 
   getMissionTimeAssessment(systemId, missionTaskData) {
     var headers = new Headers();
@@ -37,7 +20,7 @@ export class RiskGraphService implements OnInit {
 
     var requestoptions = new RequestOptions({
 			method: RequestMethod.Post,
-			url: 'application/system/mission_time/' + systemId + '/',
+			url: this.api + '/system/mission_time/' + systemId + '/',
       headers: headers,
       body: JSON.stringify(missionTaskData)
 		});
@@ -52,7 +35,7 @@ export class RiskGraphService implements OnInit {
 
     var requestoptions = new RequestOptions({
 			method: RequestMethod.Post,
-			url: '/application/actions/estimated_time/' + systemId + '/',
+			url: this.api + '/actions/estimated_time/' + systemId + '/',
       headers: headers,
       body: JSON.stringify(task)
 		});
@@ -221,7 +204,7 @@ export class RiskGraphService implements OnInit {
   getAllMissions() {
     var requestoptions = new RequestOptions({
       method: RequestMethod.Get,
-      url: this.C2REST + 'missions'
+      url: this.api + '/missions'
     });
 
     return this.http.request(new Request(requestoptions))
