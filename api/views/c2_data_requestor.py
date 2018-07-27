@@ -6,7 +6,7 @@ from rest_framework.response import Response
 from rest_framework_mongoengine.generics import CreateAPIView
 from rest_framework.renderers import JSONRenderer
 
-from api.models.cvi import CVISystemModel
+from api.models.cvi_systems import CVISystemModel
 
 from api.services.system_data import get_system_data
 
