@@ -1,7 +1,7 @@
 import os
 import requests as re
 
-from api.models.cvi import CVISystemModel
+from api.models.cvi_systems import CVISystemModel
 
 
 def get_system_data(system_id, component=None):
