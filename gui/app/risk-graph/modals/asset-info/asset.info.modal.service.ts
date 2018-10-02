@@ -1,4 +1,5 @@
 import { Http, Response, Request, Headers, RequestOptions, RequestMethod, URLSearchParams } from "@angular/http";
+import { environment } from '../../../environment/environment';
 import { Injectable } from '@angular/core';
 
 import 'rxjs/add/operator/map';
@@ -6,6 +7,8 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class AssetInfoService {
+  api:string = "/api/v" + environment.API_VERSION;
+
   constructor(private _http: Http) {
 	}
 
@@ -129,7 +132,7 @@ export class AssetInfoService {
   getEffects() {
     var requestoptions = new RequestOptions({
 			method: RequestMethod.Get,
-			url: 'application/effects/'
+			url: this.api + '/effects/'
 		});
 
     return this._http.request(new Request(requestoptions))
@@ -155,7 +158,7 @@ export class AssetInfoService {
 		return this._http.request(new Request(requestoptions))
 		.map(res => res.json());
   };
-  
+
   getUnitsAsset(systemId, assetId) {
     var requestoptions = new RequestOptions({
 			method: RequestMethod.Get,
