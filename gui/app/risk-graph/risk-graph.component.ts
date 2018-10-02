@@ -577,7 +577,7 @@ constructor(private route: ActivatedRoute,
     .subscribe(effectList => {
       this.effectsList = effectList;
       this.selectedEffect = effectList[0];
-    })
+    });
   };
 
   comparativedCOA(event, comparison) {
@@ -1107,29 +1107,26 @@ constructor(private route: ActivatedRoute,
       this.networkSection = 0;
       this.actionSection = 0;
       this.loadingMission = true;
-      this.riskGraphService.getMissionData(missionId)
+      this.riskGraphService
+      .getMissionData(missionId)
       .subscribe(missionData => {
         this.missionData = missionData;
-        this.systemId = missionData['systems'][0]['id'];
-        this.missionCoordinates = this.getSystemCoordinates(
-          missionData['bbox']
-        );
-        this.systemCoordinates = L.latLng(
-          this.missionCoordinates['latitude'],
-          this.missionCoordinates['longitude']
-        );
-        this.riskGraphService.getSystemData(this.systemId)
+        this.systemId = missionData[0]['systems'][0]['id'];
+        this.riskGraphService
+        .getSystemData(this.systemId)
         .subscribe(systemData => {
-          this.systemData = systemData;
-          this.systemName = systemData['name'];
-          this.systemDescription = systemData['description'];
-          this.numberOfAssets = systemData['assets'].length;
-          this.numberOfThreats = systemData['threats'].length;
-          this.numberOfVulnerabilities = systemData['vulnerabilities'].length;
+          console.log(systemData);
+          this.systemCoordinates = L.latLng(
+            systemData[0]['geolocation']['coordinates']['latitude'],
+            systemData[0]['geolocation']['coordinates']['longitude']);
+          this.systemData = systemData[0];
+          this.numberOfAssets = this.systemData['assets'].length;
+          this.numberOfThreats = this.systemData['threats'].length;
+          this.numberOfVulnerabilities = this.systemData['vulnerabilities'].length;
           for (let i = 0; i < this.numberOfAssets; i++) {
-            if (systemData['assets'][i]['assetType']==='Physical') {
+            if (this.systemData['assets'][i]['assetType']==='Physical') {
               this.numberOfPhysicalAssets += 1
-            } else if (systemData['assets'][i]['assetType']==='Cyber') {
+            } else if (this.systemData['assets'][i]['assetType']==='Cyber') {
               this.numberOfCyberAssets += 1
             };
           };
