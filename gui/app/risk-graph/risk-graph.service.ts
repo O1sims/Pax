@@ -201,7 +201,7 @@ export class RiskGraphService implements OnInit {
   getSystemData(systemId) {
     var requestoptions = new RequestOptions({
       method: RequestMethod.Get,
-      url: this.C2REST + 'system/' + systemId
+      url: this.api + '/cvi/' + systemId
     });
 
     return this.http.request(new Request(requestoptions))
