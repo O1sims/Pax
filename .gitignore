@@ -24,10 +24,9 @@ typings/
 gui/app/package-lock.json
 
 # Auto-generated JS
-gui/app/*.js
-gui/app/**/*.js
-gui/app/*.js.map
-gui/app/**/*.js.map
-!gui/app/assets/*.js
-!gui/app/assets/js/*.js
-!/api/views/risk_analysis.py
+src/webserver/gui/app/*.js
+src/webserver/gui/app/**/*.js
+src/webserver/gui/app/*.js.map
+src/webserver/gui/app/**/*.js.map
+!src/webserver/gui/app/assets/*.js
+!src/webserver/gui/app/assets/js/*.js
