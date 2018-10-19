@@ -1,12 +1,5 @@
  version: '2'
  services:
-   pax-db:
-     restart: unless-stopped
-     image: mongo:latest
-     command: mongod --port 8210
-     ports:
-       - "8210:8210"
-
    pax:
      restart: unless-stopped
      image: pax:latest
@@ -14,14 +7,16 @@
      ports:
        - "8200:8200"
      volumes:
-       - ".:/Pax/"
+       - "./backend/:/Pax/"
      depends_on:
        - pax-db
      environment:
        - DB_PORT=8210
-       - UI_PORT=8200
        - DB_HOSTNAME=pax-db
-       - UI_HOSTNAME=pax
+       - UI_PORT=3000
+       - UI_HOSTNAME=loclhost
+       - PAX_PORT=8200
+       - PAX_HOSTNAME=pax
        - DB_NAME=PaxDB
 
   pax-gui:
@@ -35,3 +30,9 @@
     depends_on:
       - pax
 
+  pax-db:
+    restart: unless-stopped
+    image: mongo:latest
+    command: mongod --port 8210
+    ports:
+      - "8210:8210"
